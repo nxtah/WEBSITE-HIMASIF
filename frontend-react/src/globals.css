@@ -1,0 +1,49 @@
+/* Font Face Declarations */
+
+@font-face {
+  font-family: 'Black';
+  src: url('./assets/fonts/Black.otf') format('opentype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Light';
+  src: url('./assets/fonts/Light.otf') format('opentype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lugoj';
+  src: url('./assets/fonts/Lugoj.otf') format('opentype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Medium';
+  src: url('./assets/fonts/Medium.otf') format('opentype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Saol';
+  src: url('./assets/fonts/Saol.ttf') format('truetype');
+  font-display: swap;
+}
+
+
+:root {
+  --white: #fff;
+  --blue-light: #C3E3FD;
+  --blue-primary: #2873FF;
+  --cyan-light: #D3FDFF;
+  --blue-dark: #023047;
+  --teal-dark: #004346;
+
+  /* Color Aliases */
+  --primary: var(--blue-primary);
+  --secondary: var(--blue-dark);
+  --accent: var(--cyan-light);
+  --background: var(--white);
+  --highlight: var(--blue-light);
+  --dark: var(--teal-dark);
+}
