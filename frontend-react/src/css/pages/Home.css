@@ -35,7 +35,7 @@ section {
   text-align: center;
   min-height: 100vh;
   overflow: hidden;
-  background-color: var(--blue-dark);
+  background: none !important; /* Ensure no background is applied from CSS */
 }
 
 .landing-content {

@@ -9,10 +9,11 @@ const Home = () => {
     <>
       {/* Landing Home Section */}
       <section id="landing-home" className="landing-home-section d-flex align-items-center">
-        {/* Background component */}
+        {/* Background component - This provides the blue background with interactive elements */}
         <LandingHomeBackground />
 
-        <Container fluid className="p-0 position-relative">
+        {/* Content container - positioned above the background */}
+        <Container fluid className="p-0 position-relative" style={{ zIndex: 1 }}>
           <Row className="justify-content-center m-0">
             <Col xs={12} className="text-center">
               <div className="landing-content">
