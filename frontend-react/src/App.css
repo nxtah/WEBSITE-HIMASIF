@@ -1,0 +1,67 @@
+/* Custom styles that work with Bootstrap */
+
+/* Override Bootstrap's container max-width for the demo */
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom background colors */
+.bg-himasif {
+  background-color: #3498db;
+}
+
+/* Custom text colors */
+.text-himasif {
+  color: #3498db;
+}
+
+/* Custom button styles */
+.btn-himasif {
+  background-color: #3498db;
+  border-color: #2980b9;
+  color: white;
+}
+
+.btn-himasif:hover {
+  background-color: #2980b9;
+  border-color: #2471a3;
+  color: white;
+}
+
+/* Custom card styles */
+.card-himasif {
+  border-color: #3498db;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.card-himasif:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Custom navbar styles */
+.navbar-himasif {
+  background-color: #2c3e50;
+}
+
+/* Custom section spacing */
+.section-padding {
+  padding: 60px 0;
+}
+
+/* Custom animations */
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

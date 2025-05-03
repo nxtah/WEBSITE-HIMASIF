@@ -1,0 +1,161 @@
+/* FilosofiLogo page specific styles */
+
+.logo-hero {
+  background-color: #2c3e50;
+  color: white;
+  padding: 80px 0;
+  margin-bottom: 60px;
+}
+
+.logo-hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.logo-hero-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 0;
+  opacity: 0.9;
+}
+
+.logo-section {
+  padding: 60px 0;
+}
+
+.logo-display {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.logo-image {
+  max-width: 300px;
+  height: auto;
+  margin-bottom: 30px;
+}
+
+.logo-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.logo-subtitle {
+  font-size: 1.2rem;
+  color: #7f8c8d;
+  margin-bottom: 40px;
+}
+
+.element-section {
+  margin-bottom: 80px;
+}
+
+.element-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #2c3e50;
+  border-left: 5px solid #3498db;
+  padding-left: 15px;
+}
+
+.element-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #34495e;
+  margin-bottom: 30px;
+}
+
+.element-image {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.element-image img {
+  width: 100%;
+  height: auto;
+}
+
+.color-palette {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.color-item {
+  flex: 1;
+  min-width: 150px;
+  padding: 20px;
+  text-align: center;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.color-box {
+  height: 100px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.color-name {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.color-hex {
+  font-family: monospace;
+  color: #7f8c8d;
+}
+
+.typography-section {
+  margin-bottom: 60px;
+}
+
+.font-example {
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+}
+
+.font-name {
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.font-sample {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.font-description {
+  color: #7f8c8d;
+}
+
+.meaning-section {
+  background-color: #f8f9fa;
+  padding: 60px 0;
+  border-radius: 10px;
+}
+
+.meaning-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #2c3e50;
+}
+
+.meaning-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #34495e;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}

@@ -1,0 +1,157 @@
+/* VisiMisi page specific styles */
+
+.visimisi-hero {
+  background-color: #27ae60;
+  color: white;
+  padding: 80px 0;
+  margin-bottom: 60px;
+}
+
+.visimisi-hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.visimisi-hero-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 0;
+  opacity: 0.9;
+}
+
+.visi-section {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.visi-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: #2c3e50;
+}
+
+.visi-text {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  color: #34495e;
+  max-width: 800px;
+  margin: 0 auto 40px;
+}
+
+.visi-image {
+  max-width: 400px;
+  margin: 0 auto;
+  display: block;
+}
+
+.misi-section {
+  padding: 60px 0;
+  background-color: #f8f9fa;
+}
+
+.misi-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 50px;
+  text-align: center;
+  color: #2c3e50;
+}
+
+.misi-item {
+  display: flex;
+  margin-bottom: 30px;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.misi-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.misi-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px;
+  background-color: #27ae60;
+  color: white;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.misi-content {
+  padding: 20px;
+}
+
+.misi-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #34495e;
+  margin-bottom: 0;
+}
+
+.tujuan-section {
+  padding: 60px 0;
+}
+
+.tujuan-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 50px;
+  text-align: center;
+  color: #2c3e50;
+}
+
+.tujuan-card {
+  text-align: center;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+  height: 100%;
+  transition: all 0.3s ease;
+  border-top: 5px solid #27ae60;
+}
+
+.tujuan-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.tujuan-icon {
+  font-size: 3rem;
+  color: #27ae60;
+  margin-bottom: 20px;
+}
+
+.tujuan-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #34495e;
+}
+
+.quote-section {
+  background-color: #27ae60;
+  color: white;
+  padding: 80px 0;
+  text-align: center;
+  margin-top: 60px;
+}
+
+.quote-text {
+  font-size: 2rem;
+  font-style: italic;
+  line-height: 1.5;
+  max-width: 800px;
+  margin: 0 auto 30px;
+}
+
+.quote-author {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
