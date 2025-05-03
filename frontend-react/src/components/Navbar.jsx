@@ -12,50 +12,74 @@ const MainNavbar = () => {
   };
 
   return (
-    <Navbar bg="dark" variant="dark" expand="lg" className="navbar-himasif">
+    <Navbar expand="lg" className="navbar-himasif" variant="dark">
       <Container>
-        <Navbar.Brand as={Link} to="/">HIMASIF</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto">
-            <Nav.Link
-              as={Link}
-              to="/"
-              className={isActive('/') ? 'active' : ''}
+          {/* Left side navigation */}
+          <Nav className="me-auto">
+            <NavDropdown
+              title="TENTANG"
+              id="tentang-dropdown"
+              className={isActive('/tentang-himasif') || isActive('/filosofi-logo') || isActive('/visi-misi') ? 'active' : ''}
             >
-              Home
-            </Nav.Link>
-
-            <NavDropdown title="Tentang Kami" id="basic-nav-dropdown">
               <NavDropdown.Item
                 as={Link}
                 to="/tentang-himasif"
                 className={isActive('/tentang-himasif') ? 'active' : ''}
               >
-                Tentang HIMASIF
+                TENTANG HIMASIF
               </NavDropdown.Item>
               <NavDropdown.Item
                 as={Link}
                 to="/filosofi-logo"
                 className={isActive('/filosofi-logo') ? 'active' : ''}
               >
-                Filosofi Logo
+                FILOSOFI LOGO
               </NavDropdown.Item>
               <NavDropdown.Item
                 as={Link}
                 to="/visi-misi"
                 className={isActive('/visi-misi') ? 'active' : ''}
               >
-                Visi & Misi
+                VISI & MISI
               </NavDropdown.Item>
             </NavDropdown>
+
+            <Nav.Link
+              as={Link}
+              to="/struktur"
+              className={isActive('/struktur') ? 'active' : ''}
+            >
+              STRUKTUR
+            </Nav.Link>
+          </Nav>
+
+          {/* Center logo */}
+          <Navbar.Brand as={Link} to="/" className="mx-auto">
+            <img
+              src="/src/assets/images/logo-himasif.png"
+              alt="HIMASIF Logo"
+              className="navbar-logo"
+            />
+          </Navbar.Brand>
+
+          {/* Right side navigation */}
+          <Nav className="ms-auto">
+            <Nav.Link
+              as={Link}
+              to="/galeri"
+              className={isActive('/galeri') ? 'active' : ''}
+            >
+              GALERI
+            </Nav.Link>
 
             <Nav.Link
               as={Link}
               to="/merch"
               className={isActive('/merch') ? 'active' : ''}
             >
-              Merchandise
+              MERCH
             </Nav.Link>
 
             <Nav.Link
@@ -63,15 +87,7 @@ const MainNavbar = () => {
               to="/berita"
               className={isActive('/berita') ? 'active' : ''}
             >
-              Berita
-            </Nav.Link>
-
-            <Nav.Link
-              as={Link}
-              to="/galeri"
-              className={isActive('/galeri') ? 'active' : ''}
-            >
-              Galeri
+              BERITA
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

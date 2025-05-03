@@ -2,13 +2,17 @@ import React from 'react';
 import { Container, Row, Col, Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import '../css/pages/Home.css';
+import LandingHomeBackground from '../components/background/LandingHome';
 
 const Home = () => {
   return (
     <>
       {/* Landing Home Section */}
       <section id="landing-home" className="landing-home-section d-flex align-items-center">
-        <Container fluid className="p-0">
+        {/* Background component */}
+        <LandingHomeBackground />
+
+        <Container fluid className="p-0 position-relative">
           <Row className="justify-content-center m-0">
             <Col xs={12} className="text-center">
               <div className="landing-content">

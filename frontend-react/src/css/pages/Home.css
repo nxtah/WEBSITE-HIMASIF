@@ -30,11 +30,12 @@ section {
 
 /* Landing Home Section */
 .landing-home-section {
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://picsum.photos/id/1/1920/1080');
-  background-size: cover;
-  background-position: center;
+  position: relative;
   color: white;
   text-align: center;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: var(--blue-dark);
 }
 
 .landing-content {
@@ -47,7 +48,8 @@ section {
   font-size: 4rem;
   font-weight: 700;
   margin-bottom: 20px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  color: white;
 }
 
 .landing-content p {
