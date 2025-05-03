@@ -1,0 +1,131 @@
+/* Footer Styles */
+.footer {
+  background-color: #212529;
+  color: #fff;
+  padding-top: 60px;
+}
+
+.footer-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.footer-title:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 50px;
+  height: 3px;
+  background-color: #007bff;
+}
+
+.footer-text {
+  line-height: 1.8;
+  margin-bottom: 25px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-social {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  background-color: #007bff;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  padding-left: 15px;
+}
+
+.footer-links a:before {
+  content: '›';
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #fff;
+  padding-left: 20px;
+}
+
+.footer-links a:hover:before {
+  left: 5px;
+}
+
+.footer-contact-item {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.contact-icon {
+  margin-right: 15px;
+  font-size: 1.2rem;
+  color: #007bff;
+}
+
+.contact-text {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+}
+
+.footer-bottom {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 20px 0;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.copyright {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 767.98px) {
+  .footer {
+    padding-top: 40px;
+  }
+  
+  .footer-title {
+    margin-bottom: 20px;
+  }
+  
+  .footer-bottom {
+    margin-top: 30px;
+  }
+}

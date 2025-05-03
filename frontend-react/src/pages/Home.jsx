@@ -1,282 +1,259 @@
 import React from 'react';
-import { Container, Row, Col, Card, Button, Carousel } from 'react-bootstrap';
+import { Container, Row, Col, Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import '../css/pages/Home.css';
 
 const Home = () => {
-  // Sample data for carousel
-  const carouselItems = [
-    {
-      id: 1,
-      image: 'https://picsum.photos/id/1/1200/400',
-      title: 'Selamat Datang di HIMASIF UPJ',
-      description: 'Himpunan Mahasiswa Sistem Informasi Universitas Pembangunan Jaya',
-      buttonText: 'Tentang Kami',
-      buttonLink: '/tentang-himasif'
-    },
-    {
-      id: 2,
-      image: 'https://picsum.photos/id/2/1200/400',
-      title: 'Bergabunglah dengan Kegiatan Kami',
-      description: 'Berbagai kegiatan menarik untuk mengembangkan potensi mahasiswa',
-      buttonText: 'Lihat Kegiatan',
-      buttonLink: '/berita'
-    },
-    {
-      id: 3,
-      image: 'https://picsum.photos/id/3/1200/400',
-      title: 'HIMASIF Merchandise',
-      description: 'Dapatkan merchandise eksklusif HIMASIF',
-      buttonText: 'Beli Sekarang',
-      buttonLink: '/merch'
-    }
-  ];
-
-  // Sample data for news
-  const newsItems = [
-    {
-      id: 1,
-      title: 'Workshop UI/UX Design untuk Pemula',
-      date: '15 Maret 2024',
-      category: 'Workshop',
-      description: 'Workshop mengenai dasar-dasar UI/UX Design untuk pemula yang diselenggarakan oleh HIMASIF bekerjasama dengan industri.',
-      image: 'https://picsum.photos/id/20/600/400'
-    },
-    {
-      id: 2,
-      title: 'Seminar Teknologi AI dan Machine Learning',
-      date: '20 April 2024',
-      category: 'Seminar',
-      description: 'Seminar tentang perkembangan teknologi AI dan implementasinya dalam berbagai bidang industri.',
-      image: 'https://picsum.photos/id/21/600/400'
-    },
-    {
-      id: 3,
-      title: 'Kompetisi Coding Antar Mahasiswa',
-      date: '10 Mei 2024',
-      category: 'Kompetisi',
-      description: 'Kompetisi coding antar mahasiswa Sistem Informasi dengan hadiah menarik dan sertifikat.',
-      image: 'https://picsum.photos/id/22/600/400'
-    }
-  ];
-
-  // Sample data for upcoming events
-  const upcomingEvents = [
-    {
-      id: 1,
-      title: 'Webinar Data Science',
-      date: { day: '25', month: 'Mar' },
-      time: '13:00 - 15:00 WIB',
-      location: 'Online via Zoom',
-      description: 'Webinar tentang pengenalan Data Science dan peluang karir di bidang ini.'
-    },
-    {
-      id: 2,
-      title: 'Study Tour ke Startup',
-      date: { day: '05', month: 'Apr' },
-      time: '09:00 - 16:00 WIB',
-      location: 'Jakarta Selatan',
-      description: 'Kunjungan ke beberapa startup teknologi di Jakarta.'
-    },
-    {
-      id: 3,
-      title: 'Workshop Mobile App Development',
-      date: { day: '12', month: 'Apr' },
-      time: '09:00 - 15:00 WIB',
-      location: 'Lab Komputer UPJ',
-      description: 'Workshop pengembangan aplikasi mobile dengan React Native.'
-    }
-  ];
-
-  // Sample data for gallery
-  const galleryItems = [
-    { id: 1, image: 'https://picsum.photos/id/30/600/400', title: 'Seminar Teknologi 2023' },
-    { id: 2, image: 'https://picsum.photos/id/31/600/400', title: 'Workshop Programming' },
-    { id: 3, image: 'https://picsum.photos/id/32/600/400', title: 'Kunjungan Industri' },
-    { id: 4, image: 'https://picsum.photos/id/33/600/400', title: 'Kompetisi Coding' },
-    { id: 5, image: 'https://picsum.photos/id/34/600/400', title: 'Gathering HIMASIF' },
-    { id: 6, image: 'https://picsum.photos/id/35/600/400', title: 'Webinar Series' }
-  ];
-
   return (
     <>
-      {/* Hero Carousel */}
-      <Carousel className="mb-5">
-        {carouselItems.map(item => (
-          <Carousel.Item key={item.id}>
-            <img
-              className="d-block w-100"
-              src={item.image}
-              alt={item.title}
-            />
-            <Carousel.Caption>
-              <h2>{item.title}</h2>
-              <p>{item.description}</p>
-              <Button
-                as={Link}
-                to={item.buttonLink}
-                variant="primary"
-                size="lg"
-              >
-                {item.buttonText}
-              </Button>
-            </Carousel.Caption>
-          </Carousel.Item>
-        ))}
-      </Carousel>
-
-      {/* About Section */}
-      <section className="hero-section">
-        <Container>
-          <Row className="align-items-center">
-            <Col lg={6} className="mb-4 mb-lg-0">
-              <h2 className="hero-title">Tentang HIMASIF</h2>
-              <p className="hero-subtitle">
-                Himpunan Mahasiswa Sistem Informasi Universitas Pembangunan Jaya
-              </p>
-              <p className="mb-4">
-                HIMASIF adalah organisasi mahasiswa yang mewadahi aspirasi dan kegiatan mahasiswa
-                program studi Sistem Informasi di Universitas Pembangunan Jaya. Kami berkomitmen untuk
-                mengembangkan potensi mahasiswa dalam bidang akademik maupun non-akademik.
-              </p>
-              <Button
-                as={Link}
-                to="/tentang-himasif"
-                variant="primary"
-                size="lg"
-              >
-                Pelajari Lebih Lanjut
-              </Button>
-            </Col>
-            <Col lg={6}>
-              <img
-                src="https://picsum.photos/id/10/600/400"
-                alt="HIMASIF"
-                className="img-fluid rounded shadow"
-              />
+      {/* Landing Home Section */}
+      <section id="landing-home" className="landing-home-section d-flex align-items-center">
+        <Container fluid className="p-0">
+          <Row className="justify-content-center m-0">
+            <Col xs={12} className="text-center">
+              <div className="landing-content">
+                <h1>HIMASIF UPJ</h1>
+                <p>Himpunan Mahasiswa Sistem Informasi Universitas Pembangunan Jaya</p>
+                <Button as={Link} to="/tentang-himasif" variant="primary" size="lg">
+                  Tentang Kami
+                </Button>
+              </div>
             </Col>
           </Row>
         </Container>
       </section>
 
-      {/* News Section */}
-      <section className="featured-section">
-        <Container>
-          <h2 className="section-title">Berita Terbaru</h2>
-          <Row>
-            {newsItems.map(news => (
-              <Col md={4} className="mb-4" key={news.id}>
-                <Card className="news-card h-100 shadow-sm">
-                  <Card.Img variant="top" src={news.image} />
-                  <Card.Body>
-                    <div className="d-flex justify-content-between align-items-center mb-2">
-                      <span className="badge bg-primary">{news.category}</span>
-                      <small className="news-date">{news.date}</small>
-                    </div>
-                    <Card.Title>{news.title}</Card.Title>
-                    <Card.Text>{news.description}</Card.Text>
-                  </Card.Body>
-                  <Card.Footer className="bg-white border-0">
-                    <Button
-                      as={Link}
-                      to="/berita"
-                      variant="outline-primary"
-                    >
-                      Baca Selengkapnya
-                    </Button>
-                  </Card.Footer>
-                </Card>
-              </Col>
-            ))}
+      {/* Foto Home Section */}
+      <section id="foto-home" className="foto-home-section d-flex align-items-center">
+        <Container fluid>
+          <Row className="justify-content-center m-0">
+            <Col xs={12} md={10} className="text-center mb-5">
+              <div className="section-header">
+                <h2 className="section-title">Foto HIMASIF</h2>
+                <p className="section-subtitle">Dokumentasi kegiatan dan momen berharga HIMASIF</p>
+              </div>
+            </Col>
           </Row>
-          <div className="text-center mt-4">
-            <Button
-              as={Link}
-              to="/berita"
-              variant="primary"
-            >
-              Lihat Semua Berita
-            </Button>
-          </div>
-        </Container>
-      </section>
-
-      {/* Upcoming Events */}
-      <section className="featured-section bg-light py-5">
-        <Container>
-          <h2 className="section-title">Kegiatan Mendatang</h2>
-          <Row>
-            {upcomingEvents.map(event => (
-              <Col md={4} className="mb-4" key={event.id}>
-                <Card className="event-card h-100 shadow-sm">
-                  <Card.Body className="d-flex">
-                    <div className="event-date me-3">
-                      <div className="event-day">{event.date.day}</div>
-                      <div className="event-month">{event.date.month}</div>
-                    </div>
-                    <div>
-                      <Card.Title>{event.title}</Card.Title>
-                      <Card.Text className="mb-1">
-                        <i className="bi bi-clock me-2"></i>{event.time}
-                      </Card.Text>
-                      <Card.Text className="mb-3">
-                        <i className="bi bi-geo-alt me-2"></i>{event.location}
-                      </Card.Text>
-                      <Card.Text>{event.description}</Card.Text>
-                    </div>
-                  </Card.Body>
-                </Card>
-              </Col>
-            ))}
+          <Row className="justify-content-center mx-0">
+            <Col xs={12} md={6} lg={4} className="mb-4">
+              <Card className="foto-card h-100">
+                <Card.Img variant="top" src="https://picsum.photos/id/30/600/400" />
+                <Card.Body>
+                  <Card.Title>Kegiatan HIMASIF</Card.Title>
+                  <Card.Text>
+                    Dokumentasi berbagai kegiatan yang telah dilaksanakan oleh HIMASIF.
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col xs={12} md={6} lg={4} className="mb-4">
+              <Card className="foto-card h-100">
+                <Card.Img variant="top" src="https://picsum.photos/id/31/600/400" />
+                <Card.Body>
+                  <Card.Title>Pengurus HIMASIF</Card.Title>
+                  <Card.Text>
+                    Foto bersama pengurus HIMASIF periode terbaru.
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col xs={12} md={6} lg={4} className="mb-4">
+              <Card className="foto-card h-100">
+                <Card.Img variant="top" src="https://picsum.photos/id/32/600/400" />
+                <Card.Body>
+                  <Card.Title>Acara HIMASIF</Card.Title>
+                  <Card.Text>
+                    Dokumentasi acara-acara yang diselenggarakan oleh HIMASIF.
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
           </Row>
         </Container>
       </section>
 
-      {/* Gallery Preview */}
-      <section className="gallery-preview">
-        <Container>
-          <h2 className="section-title">Galeri Kegiatan</h2>
-          <Row>
-            {galleryItems.map(item => (
-              <Col md={4} lg={4} key={item.id}>
-                <div className="gallery-item">
-                  <img src={item.image} alt={item.title} />
-                  <div className="overlay">
-                    <h5>{item.title}</h5>
+      {/* Divider Home Section */}
+      <section id="divider-home" className="divider-home-section d-flex align-items-center justify-content-center">
+        <Container fluid className="p-0">
+          <Row className="justify-content-center m-0">
+            <Col xs={12} className="text-center">
+              <div className="divider-content">
+                <h2>HIMASIF UPJ</h2>
+                <p>Bersama Membangun Masa Depan Teknologi</p>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+
+      {/* Periode Home Section */}
+      <section id="periode-home" className="periode-home-section d-flex align-items-center">
+        <Container fluid>
+          <Row className="justify-content-center m-0">
+            <Col xs={12} md={10} lg={8} className="text-center mb-5">
+              <div className="section-header">
+                <h2 className="section-title">Periode Kepengurusan</h2>
+                <p className="section-subtitle">Kepengurusan HIMASIF dari masa ke masa</p>
+              </div>
+            </Col>
+          </Row>
+          <Row className="justify-content-center mx-0">
+            <Col xs={12} md={10} lg={8}>
+              <div className="periode-timeline">
+                <div className="periode-item">
+                  <div className="periode-year">2023/2024</div>
+                  <div className="periode-content">
+                    <h3>Periode Transformasi Digital</h3>
+                    <p>Fokus pada pengembangan teknologi dan inovasi digital untuk mahasiswa Sistem Informasi.</p>
                   </div>
                 </div>
-              </Col>
-            ))}
+                <div className="periode-item">
+                  <div className="periode-year">2022/2023</div>
+                  <div className="periode-content">
+                    <h3>Periode Kolaborasi Industri</h3>
+                    <p>Menjalin kerjasama dengan berbagai industri teknologi untuk pengembangan mahasiswa.</p>
+                  </div>
+                </div>
+                <div className="periode-item">
+                  <div className="periode-year">2021/2022</div>
+                  <div className="periode-content">
+                    <h3>Periode Adaptasi New Normal</h3>
+                    <p>Beradaptasi dengan situasi pandemi dan mengembangkan program-program daring.</p>
+                  </div>
+                </div>
+              </div>
+            </Col>
           </Row>
-          <div className="text-center mt-4">
-            <Button
-              as={Link}
-              to="/galeri"
-              variant="primary"
-            >
-              Lihat Semua Galeri
-            </Button>
-          </div>
         </Container>
       </section>
 
-      {/* CTA Section */}
-      <section className="cta-section">
-        <Container>
-          <h2 className="cta-title">Bergabung dengan HIMASIF</h2>
-          <p className="cta-text">
-            Jadilah bagian dari keluarga HIMASIF dan kembangkan potensimu bersama kami.
-            Dapatkan berbagai pengalaman berharga dan jaringan yang luas.
-          </p>
-          <Button
-            as={Link}
-            to="/tentang-himasif"
-            variant="light"
-            size="lg"
-            className="btn-cta"
-          >
-            Pelajari Lebih Lanjut
-          </Button>
+      {/* Pengurus Home Section */}
+      <section id="pengurus-home" className="pengurus-home-section d-flex align-items-center">
+        <Container fluid>
+          <Row className="justify-content-center m-0">
+            <Col xs={12} md={10} lg={8} className="text-center mb-5">
+              <div className="section-header">
+                <h2 className="section-title">Pengurus HIMASIF</h2>
+                <p className="section-subtitle">Kenali pengurus HIMASIF periode 2023/2024</p>
+              </div>
+            </Col>
+          </Row>
+          <Row className="justify-content-center mx-0">
+            <Col xs={12} sm={6} md={4} className="mb-4">
+              <Card className="pengurus-card text-center h-100">
+                <Card.Img variant="top" src="https://picsum.photos/id/40/300/300" className="pengurus-img" />
+                <Card.Body>
+                  <Card.Title>Nama Ketua</Card.Title>
+                  <Card.Subtitle className="mb-2 text-muted">Ketua HIMASIF</Card.Subtitle>
+                  <Card.Text>
+                    "Bersama kita wujudkan HIMASIF yang inovatif dan berdaya saing."
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col xs={12} sm={6} md={4} className="mb-4">
+              <Card className="pengurus-card text-center h-100">
+                <Card.Img variant="top" src="https://picsum.photos/id/41/300/300" className="pengurus-img" />
+                <Card.Body>
+                  <Card.Title>Nama Wakil Ketua</Card.Title>
+                  <Card.Subtitle className="mb-2 text-muted">Wakil Ketua HIMASIF</Card.Subtitle>
+                  <Card.Text>
+                    "Mari berkolaborasi untuk kemajuan HIMASIF dan mahasiswa Sistem Informasi."
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col xs={12} sm={6} md={4} className="mb-4">
+              <Card className="pengurus-card text-center h-100">
+                <Card.Img variant="top" src="https://picsum.photos/id/42/300/300" className="pengurus-img" />
+                <Card.Body>
+                  <Card.Title>Nama Sekretaris</Card.Title>
+                  <Card.Subtitle className="mb-2 text-muted">Sekretaris HIMASIF</Card.Subtitle>
+                  <Card.Text>
+                    "Administrasi yang baik adalah kunci keberhasilan organisasi."
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+          <Row className="justify-content-center mx-0">
+            <Col xs={12} className="text-center mt-4">
+              <Button as={Link} to="/tentang-himasif" variant="outline-primary">
+                Lihat Semua Pengurus
+              </Button>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+
+      {/* Sorotan Home Section */}
+      <section id="sorotan-home" className="sorotan-home-section d-flex align-items-center">
+        <Container fluid>
+          <Row className="justify-content-center m-0">
+            <Col xs={12} md={10} lg={8} className="text-center mb-5">
+              <div className="section-header">
+                <h2 className="section-title">Sorotan Kegiatan</h2>
+                <p className="section-subtitle">Kegiatan-kegiatan unggulan HIMASIF</p>
+              </div>
+            </Col>
+          </Row>
+          <Row className="justify-content-center mx-0">
+            <Col xs={12} sm={6} md={4} className="mb-4">
+              <Card className="sorotan-card h-100">
+                <Card.Img variant="top" src="https://picsum.photos/id/50/600/400" />
+                <Card.Body>
+                  <Card.Title>Seminar Teknologi</Card.Title>
+                  <Card.Text>
+                    Seminar teknologi terkini dengan pembicara dari industri teknologi terkemuka.
+                  </Card.Text>
+                </Card.Body>
+                <Card.Footer className="bg-white border-0">
+                  <Button as={Link} to="/berita" variant="outline-primary" size="sm">
+                    Selengkapnya
+                  </Button>
+                </Card.Footer>
+              </Card>
+            </Col>
+            <Col xs={12} sm={6} md={4} className="mb-4">
+              <Card className="sorotan-card h-100">
+                <Card.Img variant="top" src="https://picsum.photos/id/51/600/400" />
+                <Card.Body>
+                  <Card.Title>Workshop Programming</Card.Title>
+                  <Card.Text>
+                    Workshop pemrograman untuk meningkatkan keterampilan teknis mahasiswa.
+                  </Card.Text>
+                </Card.Body>
+                <Card.Footer className="bg-white border-0">
+                  <Button as={Link} to="/berita" variant="outline-primary" size="sm">
+                    Selengkapnya
+                  </Button>
+                </Card.Footer>
+              </Card>
+            </Col>
+            <Col xs={12} sm={6} md={4} className="mb-4">
+              <Card className="sorotan-card h-100">
+                <Card.Img variant="top" src="https://picsum.photos/id/52/600/400" />
+                <Card.Body>
+                  <Card.Title>Kunjungan Industri</Card.Title>
+                  <Card.Text>
+                    Kunjungan ke perusahaan teknologi untuk memperluas wawasan mahasiswa.
+                  </Card.Text>
+                </Card.Body>
+                <Card.Footer className="bg-white border-0">
+                  <Button as={Link} to="/berita" variant="outline-primary" size="sm">
+                    Selengkapnya
+                  </Button>
+                </Card.Footer>
+              </Card>
+            </Col>
+          </Row>
+          <Row className="justify-content-center mx-0">
+            <Col xs={12} className="text-center mt-4">
+              <Button as={Link} to="/berita" variant="primary">
+                Lihat Semua Kegiatan
+              </Button>
+            </Col>
+          </Row>
         </Container>
       </section>
     </>
