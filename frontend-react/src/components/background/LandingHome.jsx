@@ -12,7 +12,7 @@ const LandingHomeBackground = () => {
 
   // Background styles
   const backgroundStyle = {
-    backgroundColor: '#2873FF', // Solid blue background
+    backgroundColor: 'var(--blue-dark)', // Using CSS variable for blue background
     width: '100%',
     height: '100vh',
     position: 'absolute',

@@ -2,26 +2,41 @@ import React from 'react';
 import { Container, Row, Col, Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import '../css/pages/Home.css';
-import LandingHomeBackground from '../components/background/LandingHome';
+
+// Set the document title
+document.title = 'HIMASIF - Himpunan Mahasiswa Sistem Informasi';
 
 const Home = () => {
   return (
     <>
       {/* Landing Home Section */}
       <section id="landing-home" className="landing-home-section d-flex align-items-center">
-        {/* Background component - This provides the blue background with interactive elements */}
-        <LandingHomeBackground />
-
-        {/* Content container - positioned above the background */}
-        <Container fluid className="p-0 position-relative" style={{ zIndex: 1 }}>
+        {/* Content container */}
+        <Container fluid className="p-0">
           <Row className="justify-content-center m-0">
             <Col xs={12} className="text-center">
               <div className="landing-content">
-                <h1>HIMASIF UPJ</h1>
-                <p>Himpunan Mahasiswa Sistem Informasi Universitas Pembangunan Jaya</p>
-                <Button as={Link} to="/tentang-himasif" variant="primary" size="lg">
-                  Tentang Kami
-                </Button>
+                <h1 className="himasif-title">HIMASIF</h1>
+                <p className="himasif-subtitle">HIMPUNAN MAHASISWA SISTEM INFORMASI</p>
+              </div>
+            </Col>
+          </Row>
+
+          {/* Copyright text at bottom */}
+          <Row className="justify-content-center m-0 copyright-container">
+            <Col xs={12} className="text-center">
+              <div className="copyright-wrapper">
+                <p className="copyright-text">© 2023 HIMASIF UPJ</p>
+              </div>
+            </Col>
+          </Row>
+
+          {/* Scroll indicator */}
+          <Row className="justify-content-center m-0">
+            <Col xs={12} className="text-center">
+              <div className="scroll-indicator">
+                <div className="scroll-arrow"></div>
+                <p className="scroll-text">scroll</p>
               </div>
             </Col>
           </Row>
