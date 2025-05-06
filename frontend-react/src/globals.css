@@ -4,6 +4,7 @@
   font-family: 'Black';
   src: url('./assets/fonts/Black.otf') format('opentype');
   font-display: swap;
+  letter-spacing: -0.03 em;
 }
 
 @font-face {

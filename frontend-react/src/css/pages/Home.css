@@ -1,7 +1,7 @@
 /* Home page specific styles */
 
-/* Common styles for all sections */
-section {
+/* Home page section styles */
+.home-section {
   min-height: 100vh; /* Full screen height */
   width: 100%;
   padding: 80px 0;
@@ -11,20 +11,20 @@ section {
   align-items: center;
 }
 
-.section-title {
+.home-section-title {
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 20px;
   color: #2c3e50;
 }
 
-.section-subtitle {
+.home-section-subtitle {
   font-size: 1.2rem;
   color: #7f8c8d;
   margin-bottom: 30px;
 }
 
-.section-header {
+.home-section-header {
   margin-bottom: 50px;
 }
 
@@ -48,38 +48,55 @@ section {
   align-items: center;
   justify-content: center;
   height: 100vh; /* Full height */
+  padding-top: 0;
 }
 
 .himasif-title {
   font-family: 'Lugoj', sans-serif;
-  font-size: 21rem; /* Very large size as requested */
+  font-size: 28rem; /* Increased from 24rem as requested */
   font-weight: normal;
   margin-bottom: -20px; /* Negative margin to bring subtitle closer */
   line-height: 0.8;
   letter-spacing: -0.03em; /* -3% letter spacing */
   color: white;
   position: relative;
-  margin-top: -100px; /* Move up to compensate for vertical centering */
+  margin-top: -350px; /* Move up more to compensate for vertical centering */
 }
 
 .himasif-subtitle {
   font-family: 'Black', sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   margin-bottom: 0;
-  letter-spacing: 0.1em; /* Increased letter spacing for subtitle */
+  letter-spacing: -0.03em; /* Reduced letter spacing as requested */
   color: white;
   text-transform: uppercase;
   position: relative;
+  white-space: nowrap; /* Prevent text from wrapping */
+  width: 100%; /* Ensure it takes full width */
+  text-align: center; /* Center the text */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  gap: 12em; /* Space between all words */
+}
+
+.sistem-text {
+  font-family: 'Saol', sans-serif;
+  font-weight: normal;
+}
+
+/* Bottom row landing styling */
+.bottom-row-landing {
+  position: absolute !important;
+  bottom: 30px;
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 30px;
 }
 
 /* Copyright text styling */
-.copyright-container {
-  position: absolute;
-  bottom: 80px;
-  width: 100%;
-  z-index: 10;
-}
-
 .copyright-wrapper {
   display: inline-block;
   background-color: rgba(255, 255, 255, 0.1);
@@ -96,11 +113,21 @@ section {
   letter-spacing: 0.02em;
 }
 
+/* Website official text styling */
+.website-official-wrapper {
+  display: inline-block;
+}
+
+.website-official-text {
+  font-family: 'Light', sans-serif;
+  font-size: 0.9rem;
+  color: white;
+  margin-bottom: 0;
+  letter-spacing: 0.02em;
+}
+
 /* Scroll indicator styling */
 .scroll-indicator {
-  position: absolute;
-  bottom: 30px;
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -117,14 +144,6 @@ section {
   margin-bottom: 8px;
 }
 
-.scroll-text {
-  font-family: 'Light', sans-serif;
-  font-size: 0.7rem;
-  color: white;
-  margin-bottom: 0;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
 
 @keyframes bounce {
   0%, 20%, 50%, 80%, 100% {
@@ -140,109 +159,176 @@ section {
 
 /* Foto Home Section */
 .foto-home-section {
-  background-color: #f8f9fa;
-}
-
-.foto-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: none;
-  border-radius: 10px;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
   overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 0;
+  margin: 0;
 }
 
-.foto-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-}
-
-.foto-card .card-img-top {
-  height: 200px;
-  object-fit: cover;
+.foto-fullscreen-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/images/fotbarhimasif.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
 }
 
 /* Divider Home Section */
 .divider-home-section {
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://picsum.photos/id/2/1920/1080');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+  background-color: var(--blue-dark);
   color: white;
-  text-align: center;
-}
-
-.divider-content {
-  padding: 20px;
-  max-width: 90%;
-  margin: 0 auto;
-}
-
-.divider-content h2 {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.divider-content p {
-  font-size: 1.5rem;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Periode Home Section */
-.periode-home-section {
-  background-color: white;
-}
-
-.periode-timeline {
+  overflow: hidden;
   position: relative;
-  max-width: 800px;
-  margin: 0 auto;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.periode-timeline::after {
-  content: '';
+.divider-text-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
   position: absolute;
-  width: 4px;
-  background-color: #3498db;
-  top: 0;
-  bottom: 0;
-  left: 50px;
-  margin-left: -2px;
 }
 
-.periode-item {
-  padding: 20px 40px 20px 80px;
+.divider-text-row {
+  overflow: hidden;
+  white-space: nowrap;
   position: relative;
-  margin-bottom: 30px;
-  background-color: #f8f9fa;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.periode-year {
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  left: 15px;
-  background-color: #3498db;
-  color: white;
-  border-radius: 50%;
+  width: 100%;
+  margin: -2.5rem 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 700;
-  z-index: 1;
-  font-size: 0.9rem;
 }
 
-.periode-content h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 10px;
-  color: #2c3e50;
+.divider-text {
+  font-family: 'Black', sans-serif;
+  font-size: 8rem;
+  font-weight: 700;
+  margin: 0;
+  display: inline-block;
+  letter-spacing: -0.02em;
+  width: max-content;
+  text-align: center;
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  white-space: nowrap;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+/* Outline style for the second row text */
+.divider-text-row:nth-child(2) .divider-text {
+  color: transparent;
+  -webkit-text-stroke: 2px white;
+}
+
+@media (max-width: 768px) {
+  .divider-text {
+    font-size: 5rem;
+  }
+
+  .divider-text-row {
+    margin: -1.5rem 0;
+  }
+
+  /* Adjust outline thickness for smaller screens */
+  .divider-text-row:nth-child(2) .divider-text {
+    -webkit-text-stroke: 1.5px white;
+  }
+}
+
+@media (max-width: 576px) {
+  .divider-text {
+    font-size: 3.5rem;
+  }
+
+  .divider-text-row {
+    margin: -1rem 0;
+  }
+
+  /* Adjust outline thickness for mobile screens */
+  .divider-text-row:nth-child(2) .divider-text {
+    -webkit-text-stroke: 1px white;
+  }
+}
+
+/* Removed CSS animations in favor of JavaScript */
+
+/* Removed scroll indicator */
+
+
+/* Periode Home Section */
+.periode-home-section {
+  background-color: var(--blue-dark);
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  color: white;
+
+}
+
+.periode-left-col {
+  padding: 30px;
+}
+
+.periode-title {
+  font-family: 'Black', sans-serif;
+  font-size: 12rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: -40px;
+  text-align: left;
+  width: 100%;
+  line-height: 0.8;
+  letter-spacing: -0.05em;
+}
+
+.periode-year {
+  font-family: 'Saol', sans-serif;
+  font-size: 12rem;
+  color: white;
+  font-weight: 300;
+  text-align: left;
+  width: 100%;
+  line-height: 1;
+  letter-spacing: -0.05em;
+
+}
+
+.periode-right-col {
+  padding: 30px;
+  margin-top: 0;
+}
+
+.periode-description-wrapper {
+  padding-top: 3.5rem;
+}
+
+.periode-title-wrapper {
+  padding-top: 0;
+}
+
+.periode-description {
+  font-family: 'Light', sans-serif;
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: white;
+  margin-bottom: 20px;
+  word-spacing: -0.1em;
 }
 
 /* Pengurus Home Section */
@@ -292,130 +378,233 @@ section {
 
 /* Responsive adjustments */
 @media (max-width: 1200px) {
+  .landing-content {
+    margin-top: -150px;
+  }
+
   .himasif-title {
-    font-size: 16rem;
-    margin-top: -80px;
+    font-size: 22rem; /* Increased from 18rem */
+    margin-top: -160px;
     margin-bottom: -15px;
   }
 
   .himasif-subtitle {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
+    letter-spacing: -0.03em;
+    white-space: nowrap;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 10em;
   }
 
   .copyright-wrapper {
     padding: 7px 18px;
   }
 
-  .copyright-text {
+  .copyright-text,
+  .website-official-text {
     font-size: 0.85rem;
+  }
+
+  .bottom-row-landing {
+    padding: 0 20px;
   }
 }
 
 @media (max-width: 992px) {
+  .landing-content {
+    margin-top: -120px;
+  }
+
   .himasif-title {
-    font-size: 12rem;
-    margin-top: -60px;
+    font-size: 18rem; /* Increased from 14rem */
+    margin-top: -140px;
     margin-bottom: -10px;
   }
 
   .himasif-subtitle {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
+    letter-spacing: -0.03em;
+    white-space: nowrap;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 8em;
   }
 
   .copyright-wrapper {
     padding: 6px 16px;
   }
 
-  .copyright-text {
+  .copyright-text,
+  .website-official-text {
     font-size: 0.8rem;
+  }
+
+  .bottom-row-landing {
+    padding: 0 15px;
+    bottom: 25px;
   }
 }
 
 @media (max-width: 768px) {
-  section {
+  .home-section, .foto-home-section, .periode-home-section, .divider-home-section {
     padding: 60px 0;
+    min-height: 100vh;
+  }
+
+  .landing-content {
+    margin-top: -100px;
   }
 
   .himasif-title {
-    font-size: 8rem;
-    margin-top: -40px;
+    font-size: 12rem; /* Increased from 10rem */
+    margin-top: -120px;
     margin-bottom: -8px;
   }
 
   .himasif-subtitle {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
+    letter-spacing: -0.03em;
+    white-space: nowrap;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 7em;
   }
 
   .copyright-wrapper {
-    padding: 5px 14px;
+    padding: 5px 12px;
   }
 
-  .copyright-text {
+  .copyright-text,
+  .website-official-text {
     font-size: 0.75rem;
   }
 
-  .section-title {
+  .bottom-row-landing {
+    padding: 0 10px;
+    bottom: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .home-section-title {
     font-size: 2rem;
   }
 
-  .periode-timeline::after {
-    left: 30px;
-  }
-
-  .periode-item {
-    padding-left: 60px;
+  .periode-title {
+    font-size: 10rem;
+    margin-bottom: -30px;
+    letter-spacing: -0.05em;
   }
 
   .periode-year {
-    left: 5px;
-    width: 40px;
-    height: 40px;
-    font-size: 0.8rem;
+    font-size: 10rem;
+    letter-spacing: -0.05em;
+  }
+
+  .periode-description {
+    font-size: 1.1rem;
+    word-spacing: -0.1em;
+  }
+
+  .periode-description-wrapper {
+    padding-top: 2.5rem;
+  }
+
+  .periode-title-wrapper {
+    padding-top: 0;
   }
 }
 
 /* Fix for mobile devices to ensure full height */
 @media (max-width: 576px) {
-  section {
+  .home-section, .foto-home-section, .periode-home-section, .divider-home-section {
     min-height: 100vh;
     height: auto;
     padding: 80px 0;
   }
 
-  .section-header {
+  .home-section-header {
     margin-bottom: 30px;
   }
 
+  .landing-content {
+    margin-top: -80px;
+  }
+
   .himasif-title {
-    font-size: 5rem;
-    margin-top: -30px;
+    font-size: 8rem; /* Increased from 6.5rem */
+    margin-top: -100px;
     margin-bottom: -5px;
   }
 
   .himasif-subtitle {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
+    letter-spacing: -0.03em;
+    white-space: nowrap;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 5em;
+  }
+
+  .bottom-row-landing {
+    padding: 0 10px;
+    bottom: 15px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
   }
 
   .copyright-wrapper {
-    padding: 4px 12px;
+    padding: 4px 10px;
+    margin-bottom: 5px;
   }
 
-  .copyright-text {
+  .copyright-text,
+  .website-official-text {
     font-size: 0.7rem;
   }
 
-  .divider-content h2 {
-    font-size: 2.5rem;
+  .scroll-indicator {
+    margin-bottom: 5px;
   }
 
-  .divider-content p {
-    font-size: 1.2rem;
+  .periode-title {
+    font-size: 7rem;
+    text-align: center;
+    margin-bottom: -20px;
+    letter-spacing: -0.05em;
+  }
+
+  .periode-year {
+    font-size: 7rem;
+    text-align: center;
+    letter-spacing: -0.05em;
+  }
+
+  .periode-description {
+    font-size: 1rem;
+    text-align: center;
+    word-spacing: -0.1em;
+  }
+
+  .periode-description-wrapper {
+    padding-top: 2rem;
+  }
+
+  .periode-title-wrapper {
+    padding-top: 0;
   }
 }
 
 /* Fix for iOS Safari 100vh issue */
 @supports (-webkit-touch-callout: none) {
-  section {
+  .home-section, .foto-home-section, .periode-home-section, .divider-home-section {
     height: -webkit-fill-available;
   }
 }
