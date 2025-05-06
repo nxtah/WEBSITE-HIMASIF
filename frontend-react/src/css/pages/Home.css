@@ -35,48 +35,60 @@
   text-align: center;
   min-height: 100vh;
   overflow: hidden;
-  background-color: var(--blue-dark); /* Use CSS variable for blue background */
+  background-color: var(--blue-dark);
 }
 
 .landing-content {
   padding: 20px;
-  max-width: 90%;
+  width: 100%;
   margin: 0 auto;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh; /* Full height */
+  height: 100vh;
   padding-top: 0;
+  margin-top: -80px;
 }
 
 .himasif-title {
   font-family: 'Lugoj', sans-serif;
-  font-size: 28rem; /* Increased from 24rem as requested */
+  font-size: clamp(14rem, 25vw, 30rem); /* Increased size */
   font-weight: normal;
-  margin-bottom: -20px; /* Negative margin to bring subtitle closer */
+  margin-bottom: -20px;
   line-height: 0.8;
-  letter-spacing: -0.03em; /* -3% letter spacing */
+  letter-spacing: -0.03em;
   color: white;
   position: relative;
-  margin-top: -350px; /* Move up more to compensate for vertical centering */
+  margin-top: -22vh;
 }
 
 .himasif-subtitle {
   font-family: 'Black', sans-serif;
-  font-size: 1.8rem;
+  font-size: clamp(1.4rem, 2.2vw, 2.5rem); /* Increased size */
   margin-bottom: 0;
-  letter-spacing: -0.03em; /* Reduced letter spacing as requested */
+  letter-spacing: -0.03em;
   color: white;
-  text-transform: uppercase;
   position: relative;
-  white-space: nowrap; /* Prevent text from wrapping */
-  width: 100%; /* Ensure it takes full width */
-  text-align: center; /* Center the text */
+  white-space: nowrap;
+  width: 100%;
+  text-align: center;
   display: flex;
-  justify-content: center; /* Center horizontally */
-  gap: 12em; /* Space between all words */
+  justify-content: space-between; /* Changed to space-between for maximum width */
+  padding: 0;
+}
+
+/* Subtitle container for better control */
+.subtitle-container {
+  width: 100%;
+  overflow: hidden;
+  padding: 0 clamp(1rem, 3vw, 5rem); /* Adjusted padding to ensure text fits on screen */
+}
+
+/* Add additional spacing between subtitle words */
+.himasif-subtitle span {
+  margin: 0 clamp(2rem, 5vw, 8rem); /* Adjusted margin to ensure text fits on screen */
 }
 
 .sistem-text {
@@ -87,27 +99,27 @@
 /* Bottom row landing styling */
 .bottom-row-landing {
   position: absolute !important;
-  bottom: 30px;
+  bottom: clamp(15px, 3vh, 30px);
   width: 100%;
   z-index: 10;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  padding: 0 30px;
+  padding: 0 clamp(10px, 3vw, 30px);
 }
 
 /* Copyright text styling */
 .copyright-wrapper {
   display: inline-block;
   background-color: rgba(255, 255, 255, 0.1);
-  padding: 8px 20px;
+  padding: clamp(4px, 1vw, 8px) clamp(10px, 2vw, 20px);
   border-radius: 30px;
   backdrop-filter: blur(5px);
 }
 
 .copyright-text {
   font-family: 'Light', sans-serif;
-  font-size: 0.9rem;
+  font-size: clamp(0.7rem, 1vw, 0.9rem);
   color: white;
   margin-bottom: 0;
   letter-spacing: 0.02em;
@@ -120,7 +132,7 @@
 
 .website-official-text {
   font-family: 'Light', sans-serif;
-  font-size: 0.9rem;
+  font-size: clamp(0.7rem, 1vw, 0.9rem);
   color: white;
   margin-bottom: 0;
   letter-spacing: 0.02em;
@@ -291,7 +303,7 @@
 
 .periode-title {
   font-family: 'Black', sans-serif;
-  font-size: 12rem;
+  font-size: clamp(8rem, 12vw, 12rem);
   font-weight: 700;
   color: white;
   margin-bottom: -40px;
@@ -301,16 +313,32 @@
   letter-spacing: -0.05em;
 }
 
+.periode-year-container {
+  width: 100%;
+  overflow: visible; /* Changed from hidden to visible */
+  padding-right: 20px; /* Added padding to prevent cutting off */
+  margin-right: 10px; /* Added margin to ensure the 5 is not cut off */
+}
+
 .periode-year {
   font-family: 'Saol', sans-serif;
-  font-size: 12rem;
+  font-size: clamp(8rem, 12vw, 12rem);
   color: white;
   font-weight: 300;
   text-align: left;
   width: 100%;
   line-height: 1;
   letter-spacing: -0.05em;
+  white-space: nowrap;
+}
 
+.periode-text {
+  font-size: 0.5em;
+  letter-spacing: -0.03em;
+}
+
+.year-text {
+  font-family: 'Black', sans-serif;
 }
 
 .periode-right-col {
@@ -383,25 +411,79 @@
 }
 
 /* Responsive adjustments */
-@media (max-width: 1200px) {
+@media (min-width: 1400px) {
+  .himasif-title {
+    font-size: clamp(20rem, 28vw, 30rem);
+    margin-top: -22vh;
+  }
+
+  .himasif-subtitle {
+    font-size: clamp(1.8rem, 2.4vw, 2.5rem);
+  }
+
+  .subtitle-container {
+    padding: 0 clamp(0.5rem, 2vw, 3rem);
+  }
+
+  .himasif-subtitle span {
+    margin: 0 clamp(2.5rem, 6vw, 10rem);
+  }
+
+  /* Periode section responsive styles for extra large screens */
+  .periode-title {
+    font-size: clamp(10rem, 13vw, 13rem);
+    margin-bottom: -45px;
+  }
+
+  .periode-year {
+    font-size: clamp(10rem, 13vw, 13rem);
+  }
+
+  .periode-description {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 1399px) {
+  .himasif-title {
+    font-size: clamp(18rem, 26vw, 28rem);
+    margin-top: -20vh;
+  }
+
+  .himasif-subtitle {
+    font-size: clamp(1.7rem, 2.2vw, 2.3rem);
+  }
+
+  .subtitle-container {
+    padding: 0 clamp(0.5rem, 2vw, 3rem);
+  }
+
+  .himasif-subtitle span {
+    margin: 0 clamp(2.2rem, 5.5vw, 9rem);
+  }
+}
+
+@media (max-width: 1199px) {
   .landing-content {
-    margin-top: -150px;
+    margin-top: -80px;
   }
 
   .himasif-title {
-    font-size: 22rem; /* Increased from 18rem */
-    margin-top: -160px;
+    font-size: clamp(16rem, 24vw, 26rem);
+    margin-top: -18vh;
     margin-bottom: -15px;
   }
 
   .himasif-subtitle {
-    font-size: 1.6rem;
-    letter-spacing: -0.03em;
-    white-space: nowrap;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    gap: 10em;
+    font-size: clamp(1.6rem, 2vw, 2.1rem);
+  }
+
+  .subtitle-container {
+    padding: 0 clamp(0.5rem, 2vw, 3rem);
+  }
+
+  .himasif-subtitle span {
+    margin: 0 clamp(2rem, 5vw, 8rem);
   }
 
   .copyright-wrapper {
@@ -416,27 +498,39 @@
   .bottom-row-landing {
     padding: 0 20px;
   }
+
+  /* Periode section responsive styles for large screens */
+  .periode-title {
+    font-size: clamp(7rem, 11vw, 11rem);
+    margin-bottom: -30px;
+  }
+
+  .periode-year {
+    font-size: clamp(7rem, 11vw, 11rem);
+  }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .landing-content {
-    margin-top: -120px;
+    margin-top: -60px;
   }
 
   .himasif-title {
-    font-size: 18rem; /* Increased from 14rem */
-    margin-top: -140px;
+    font-size: clamp(14rem, 22vw, 24rem);
+    margin-top: -16vh;
     margin-bottom: -10px;
   }
 
   .himasif-subtitle {
-    font-size: 1.5rem;
-    letter-spacing: -0.03em;
-    white-space: nowrap;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    gap: 8em;
+    font-size: clamp(1.5rem, 1.8vw, 1.9rem);
+  }
+
+  .subtitle-container {
+    padding: 0 clamp(0.5rem, 2vw, 3rem);
+  }
+
+  .himasif-subtitle span {
+    margin: 0 clamp(1.8rem, 4.5vw, 7rem);
   }
 
   .copyright-wrapper {
@@ -452,32 +546,48 @@
     padding: 0 15px;
     bottom: 25px;
   }
+
+  /* Periode section responsive styles for medium screens */
+  .periode-title {
+    font-size: clamp(6.5rem, 10vw, 10rem);
+    margin-bottom: -25px;
+  }
+
+  .periode-year {
+    font-size: clamp(6.5rem, 10vw, 10rem);
+  }
+
+  .periode-description {
+    font-size: 1.2rem;
+  }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .home-section, .foto-home-section, .periode-home-section, .divider-home-section {
     padding: 60px 0;
     min-height: 100vh;
   }
 
   .landing-content {
-    margin-top: -100px;
+    margin-top: -40px;
   }
 
   .himasif-title {
-    font-size: 12rem; /* Increased from 10rem */
-    margin-top: -120px;
+    font-size: clamp(10rem, 20vw, 22rem);
+    margin-top: -14vh;
     margin-bottom: -8px;
   }
 
   .himasif-subtitle {
-    font-size: 1.3rem;
-    letter-spacing: -0.03em;
-    white-space: nowrap;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    gap: 7em;
+    font-size: clamp(1.3rem, 1.7vw, 1.8rem);
+  }
+
+  .subtitle-container {
+    padding: 0 clamp(0.5rem, 2vw, 3rem);
+  }
+
+  .himasif-subtitle span {
+    margin: 0 clamp(1.5rem, 4vw, 6rem);
   }
 
   .copyright-wrapper {
@@ -492,23 +602,21 @@
   .bottom-row-landing {
     padding: 0 10px;
     bottom: 20px;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
   }
 
   .home-section-title {
     font-size: 2rem;
   }
 
+  /* Periode section responsive styles */
   .periode-title {
-    font-size: 10rem;
-    margin-bottom: -30px;
+    font-size: clamp(6rem, 10vw, 10rem);
+    margin-bottom: -20px;
     letter-spacing: -0.05em;
   }
 
   .periode-year {
-    font-size: 10rem;
+    font-size: clamp(6rem, 10vw, 10rem);
     letter-spacing: -0.05em;
   }
 
@@ -527,7 +635,7 @@
 }
 
 /* Fix for mobile devices to ensure full height */
-@media (max-width: 576px) {
+@media (max-width: 575px) {
   .home-section, .foto-home-section, .periode-home-section, .divider-home-section {
     min-height: 100vh;
     height: auto;
@@ -539,31 +647,30 @@
   }
 
   .landing-content {
-    margin-top: -80px;
+    margin-top: -30px;
   }
 
   .himasif-title {
-    font-size: 8rem; /* Increased from 6.5rem */
-    margin-top: -100px;
+    font-size: clamp(7rem, 18vw, 20rem);
+    margin-top: -12vh;
     margin-bottom: -5px;
   }
 
   .himasif-subtitle {
-    font-size: 1.1rem;
-    letter-spacing: -0.03em;
-    white-space: nowrap;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    gap: 5em;
+    font-size: clamp(1.1rem, 1.5vw, 1.6rem);
+  }
+
+  .subtitle-container {
+    padding: 0 clamp(0.3rem, 1vw, 2rem);
+  }
+
+  .himasif-subtitle span {
+    margin: 0 clamp(1.2rem, 3vw, 5rem);
   }
 
   .bottom-row-landing {
     padding: 0 10px;
     bottom: 15px;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
   }
 
   .copyright-wrapper {
@@ -580,15 +687,16 @@
     margin-bottom: 5px;
   }
 
+  /* Periode section responsive styles for small screens */
   .periode-title {
-    font-size: 7rem;
+    font-size: clamp(5rem, 8vw, 7rem);
     text-align: center;
-    margin-bottom: -20px;
+    margin-bottom: -15px;
     letter-spacing: -0.05em;
   }
 
   .periode-year {
-    font-size: 7rem;
+    font-size: clamp(5rem, 8vw, 7rem);
     text-align: center;
     letter-spacing: -0.05em;
   }
@@ -597,20 +705,74 @@
     font-size: 1rem;
     text-align: center;
     word-spacing: -0.1em;
+    max-width: 90%;
+    margin: 0 auto 1rem auto;
   }
 
   .periode-description-wrapper {
     padding-top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .periode-title-wrapper {
     padding-top: 0;
+    margin-bottom: 2rem;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 399px) {
+  .himasif-title {
+    font-size: clamp(6rem, 16vw, 18rem);
+    margin-top: -10vh;
+  }
+
+  .himasif-subtitle {
+    font-size: clamp(1rem, 1.3vw, 1.4rem);
+  }
+
+  .subtitle-container {
+    padding: 0 clamp(0.2rem, 0.5vw, 1rem);
+  }
+
+  .himasif-subtitle span {
+    margin: 0 clamp(0.8rem, 2vw, 3rem);
+  }
+
+  /* Periode section responsive styles for extra small screens */
+  .periode-title {
+    font-size: clamp(4rem, 7vw, 6rem);
+    margin-bottom: -10px;
+  }
+
+  .periode-year {
+    font-size: clamp(4rem, 7vw, 6rem);
+  }
+
+  .periode-year-container {
+    padding-right: 15px;
+    margin-right: 5px;
+  }
+
+  .periode-description {
+    font-size: 0.9rem;
+    max-width: 95%;
+  }
+
+  .periode-description-wrapper {
+    width: 100%;
   }
 }
 
 /* Fix for iOS Safari 100vh issue */
 @supports (-webkit-touch-callout: none) {
   .home-section, .foto-home-section, .periode-home-section, .divider-home-section {
+    height: -webkit-fill-available;
+  }
+
+  .landing-home-section {
     height: -webkit-fill-available;
   }
 }

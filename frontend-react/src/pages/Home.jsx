@@ -181,8 +181,23 @@ const Home = () => {
           <Row className="justify-content-center m-0">
             <Col xs={12} className="text-center">
               <div className="landing-content pt-0 mt-n5">
-                <h1 className="himasif-title mb-1">HIMASIF</h1>
-                <p className="himasif-subtitle text-center"><span>HIMPUNAN</span> <span>MAHASISWA</span> <span className="sistem-text">SISTEM</span> <span>INFORMASI</span></p>
+                <Row className="justify-content-center">
+                  <Col xs={12}>
+                    <h1 className="himasif-title mb-1 text-center">HIMASIF</h1>
+                  </Col>
+                </Row>
+                <Row className="justify-content-center">
+                  <Col xs={12} className="overflow-hidden">
+                    <div className="subtitle-container">
+                      <div className="himasif-subtitle text-center w-100">
+                        <span className="d-inline-block px-1 px-md-2 px-lg-3">HIMPUNAN</span>
+                        <span className="d-inline-block px-1 px-md-2 px-lg-3">MAHASISWA</span>
+                        <span className="d-inline-block px-1 px-md-2 px-lg-3 sistem-text">sistem</span>
+                        <span className="d-inline-block px-1 px-md-2 px-lg-3">INFORMASI</span>
+                      </div>
+                    </div>
+                  </Col>
+                </Row>
               </div>
             </Col>
           </Row>
@@ -190,7 +205,7 @@ const Home = () => {
           {/* Bottom row with copyright, scroll, and website official text */}
           <Row className="bottom-row-landing m-0">
             {/* Copyright text at left */}
-            <Col xs="auto" className="p-0">
+            <Col xs="auto" className="p-0 d-none d-sm-block">
               <div className="copyright-wrapper">
                 <p className="copyright-text">© 2023 HIMASIF UPJ</p>
               </div>
@@ -204,9 +219,16 @@ const Home = () => {
             </Col>
 
             {/* Website official text at right */}
-            <Col xs="auto" className="p-0">
+            <Col xs="auto" className="p-0 d-none d-sm-block">
               <div className="website-official-wrapper">
                 <p className="website-official-text">WEBSITE RESMI HIMASIF UPJ</p>
+              </div>
+            </Col>
+
+            {/* Mobile version of copyright and website text (only visible on xs screens) */}
+            <Col xs={12} className="p-0 d-block d-sm-none text-center mt-2">
+              <div className="copyright-wrapper mx-auto">
+                <p className="copyright-text">© 2023 HIMASIF UPJ</p>
               </div>
             </Col>
           </Row>
@@ -222,18 +244,47 @@ const Home = () => {
       <section id="periode-home" className="periode-home-section vh-100">
         <Container fluid>
           <Row className="justify-content-center align-items-center h-100">
-            <Col xs={12} lg={6} className="periode-left-col text-center text-lg-start mb-4 mb-lg-0">
+            {/* Desktop and Tablet Layout */}
+            <Col xs={12} lg={6} className="periode-left-col text-center text-lg-start mb-4 mb-lg-0 d-none d-md-flex">
               <div className="periode-title-wrapper">
-                <h2 className="periode-title fw-bold">HIMASIF</h2>
-                <p className="periode-year"><span style={{fontSize: "0.5em", letterSpacing: "-0.03em"}}>periode</span><span style={{fontFamily: "'Black', sans-serif"}}> 2025</span></p>
+                <h2 className="periode-title fw-bold d-block">HIMASIF</h2>
+                <div className="periode-year-container">
+                  <p className="periode-year mb-0">
+                    <span className="periode-text">periode</span>
+                    <span className="year-text"> 2025</span>
+                  </p>
+                </div>
               </div>
             </Col>
-            <Col xs={12} lg={6} className="periode-right-col">
+            <Col xs={12} lg={6} className="periode-right-col d-none d-md-flex">
               <div className="periode-description-wrapper">
                 <p className="periode-description">
                   HIMASIF adalah organisasi mahasiswa yang mewadahi aspirasi, pengembangan keilmuan, dan kreativitas mahasiswa Sistem Informasi dalam bidang teknologi, manajemen, dan komunitas akademik.
                 </p>
                 <div className="mt-3">
+                  <Button as={Link} to="/tentang-himasif" variant="outline-light" size="lg">
+                    Selengkapnya
+                  </Button>
+                </div>
+              </div>
+            </Col>
+
+            {/* Mobile Layout */}
+            <Col xs={12} className="d-flex d-md-none flex-column align-items-center justify-content-center">
+              <div className="periode-title-wrapper text-center mb-4">
+                <h2 className="periode-title fw-bold d-block">HIMASIF</h2>
+                <div className="periode-year-container">
+                  <p className="periode-year mb-0">
+                    <span className="periode-text">periode</span>
+                    <span className="year-text"> 2025</span>
+                  </p>
+                </div>
+              </div>
+              <div className="periode-description-wrapper text-center">
+                <p className="periode-description">
+                  HIMASIF adalah organisasi mahasiswa yang mewadahi aspirasi, pengembangan keilmuan, dan kreativitas mahasiswa Sistem Informasi dalam bidang teknologi, manajemen, dan komunitas akademik.
+                </p>
+                <div className="mt-4 text-center">
                   <Button as={Link} to="/tentang-himasif" variant="outline-light" size="lg">
                     Selengkapnya
                   </Button>
