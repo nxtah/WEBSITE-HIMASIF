@@ -177,7 +177,6 @@ const Home = () => {
     <>
       {/* Landing Home Section */}
       <section id="landing-home" className="landing-home-section full-screen-section d-flex align-items-center">
-        {/* Content container */}
         <Container fluid className="p-0">
           <Row className="justify-content-center m-0">
             <Col xs={12} className="text-center">
