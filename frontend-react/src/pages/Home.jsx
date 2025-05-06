@@ -220,10 +220,10 @@ const Home = () => {
       </section>
 
       {/* Periode Home Section */}
-      <section id="periode-home" className="periode-home-section vh-100 d-flex align-items-center">
-        <Container fluid className="h-100">
-          <Row className="h-100 mx-0 pt-5 align-items-start justify-content-center">
-            <Col xs={12} lg={6} className="periode-left-col text-lg-start text-center mb-4 mb-lg-0">
+      <section id="periode-home" className="periode-home-section vh-100">
+        <Container fluid>
+          <Row className="justify-content-center align-items-center h-100">
+            <Col xs={12} lg={6} className="periode-left-col text-center text-lg-start mb-4 mb-lg-0">
               <div className="periode-title-wrapper">
                 <h2 className="periode-title fw-bold">HIMASIF</h2>
                 <p className="periode-year"><span style={{fontSize: "0.5em", letterSpacing: "-0.03em"}}>periode</span><span style={{fontFamily: "'Black', sans-serif"}}> 2025</span></p>

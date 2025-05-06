@@ -278,11 +278,15 @@
   width: 100%;
   position: relative;
   color: white;
-
+  display: flex;
+  align-items: center;
+  padding: 0;
 }
 
 .periode-left-col {
   padding: 30px;
+  display: flex;
+  align-items: center;
 }
 
 .periode-title {
@@ -312,10 +316,12 @@
 .periode-right-col {
   padding: 30px;
   margin-top: 0;
+  display: flex;
+  align-items: center;
 }
 
 .periode-description-wrapper {
-  padding-top: 3.5rem;
+  padding-top: 0;
 }
 
 .periode-title-wrapper {
@@ -512,7 +518,7 @@
   }
 
   .periode-description-wrapper {
-    padding-top: 2.5rem;
+    padding-top: 0;
   }
 
   .periode-title-wrapper {
@@ -594,7 +600,7 @@
   }
 
   .periode-description-wrapper {
-    padding-top: 2rem;
+    padding-top: 0;
   }
 
   .periode-title-wrapper {
