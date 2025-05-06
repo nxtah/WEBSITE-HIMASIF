@@ -1,21 +1,22 @@
 /* Home page specific styles */
 
-/* Common styles for all sections */
-section {
+/* Common styles for home page sections */
+.home-section {
   min-height: 100vh; /* Full screen height */
+  height: 100vh; /* Ensure exact viewport height */
   width: 100%;
-  padding: 80px 0;
+  padding: 0; /* Remove padding to use full height */
   position: relative;
   overflow: hidden;
   display: flex;
   align-items: center;
+  justify-content: center; /* Center content horizontally */
 }
 
 .section-title {
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 20px;
-  color: #2c3e50;
 }
 
 .section-subtitle {
@@ -34,8 +35,12 @@ section {
   color: white;
   text-align: center;
   min-height: 100vh;
+  height: 100vh;
   overflow: hidden;
   background-color: var(--blue-dark); /* Use CSS variable for blue background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .landing-content {
@@ -46,40 +51,61 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* Align to top instead of center */
   height: 100vh; /* Full height */
+  padding-top: 80px; /* Reduced padding to position even closer to navbar */
 }
 
 .himasif-title {
   font-family: 'Lugoj', sans-serif;
   font-size: 21rem; /* Very large size as requested */
   font-weight: normal;
-  margin-bottom: -20px; /* Negative margin to bring subtitle closer */
+  margin-bottom: 20px; /* Positive margin to create space between title and subtitle */
   line-height: 0.8;
   letter-spacing: -0.03em; /* -3% letter spacing */
   color: white;
   position: relative;
-  margin-top: -100px; /* Move up to compensate for vertical centering */
+  margin-top: 0; /* Reset margin-top */
+}
+
+.himasif-subtitle-row {
+  margin: 0;
+  width: 100%;
 }
 
 .himasif-subtitle {
   font-family: 'Black', sans-serif;
   font-size: 1.5rem;
   margin-bottom: 0;
-  letter-spacing: 0.1em; /* Increased letter spacing for subtitle */
   color: white;
-  text-transform: uppercase;
   position: relative;
+  letter-spacing: 0.03em;
+  width: 100%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  word-spacing: 4em; /* Add extremely wide spacing between words */
+  justify-content: center;
+  text-align: center;
+}
+
+.sistem-text {
+  font-family: 'Saol', serif;
+  font-style: italic;
+  letter-spacing: 0.05em;
+}
+
+/* Footer row styling */
+.footer-row {
+  position: absolute;
+  bottom: 50px;
+  width: 100%;
+  z-index: 10;
+  padding: 0 40px;
 }
 
 /* Copyright text styling */
-.copyright-container {
-  position: absolute;
-  bottom: 80px;
-  width: 100%;
-  z-index: 10;
-}
-
 .copyright-wrapper {
   display: inline-block;
   background-color: rgba(255, 255, 255, 0.1);
@@ -98,14 +124,10 @@ section {
 
 /* Scroll indicator styling */
 .scroll-indicator {
-  position: absolute;
-  bottom: 30px;
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   animation: bounce 2s infinite;
-  z-index: 10;
 }
 
 .scroll-arrow {
@@ -141,6 +163,11 @@ section {
 /* Foto Home Section */
 .foto-home-section {
   background-color: #f8f9fa;
+  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .foto-card {
@@ -169,6 +196,11 @@ section {
   background-attachment: fixed;
   color: white;
   text-align: center;
+  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .divider-content {
@@ -194,6 +226,11 @@ section {
 /* Periode Home Section */
 .periode-home-section {
   background-color: white;
+  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .periode-timeline {
@@ -248,6 +285,11 @@ section {
 /* Pengurus Home Section */
 .pengurus-home-section {
   background-color: #f8f9fa;
+  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .pengurus-card {
@@ -271,6 +313,11 @@ section {
 /* Sorotan Home Section */
 .sorotan-home-section {
   background-color: white;
+  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .sorotan-card {
@@ -292,14 +339,30 @@ section {
 
 /* Responsive adjustments */
 @media (max-width: 1200px) {
+  .landing-content {
+    padding-top: 70px;
+  }
+
   .himasif-title {
     font-size: 16rem;
-    margin-top: -80px;
-    margin-bottom: -15px;
+    margin-top: 0;
+    margin-bottom: 15px;
   }
 
   .himasif-subtitle {
     font-size: 1.4rem;
+    letter-spacing: 0.03em;
+    width: 80%;
+    padding: 0 3%;
+    word-spacing: 2.5em;
+  }
+
+  .sistem-text {
+    letter-spacing: 0.05em;
+  }
+
+  .footer-row {
+    padding: 0 30px;
   }
 
   .copyright-wrapper {
@@ -312,14 +375,31 @@ section {
 }
 
 @media (max-width: 992px) {
+  .landing-content {
+    padding-top: 60px;
+  }
+
   .himasif-title {
     font-size: 12rem;
-    margin-top: -60px;
-    margin-bottom: -10px;
+    margin-top: 0;
+    margin-bottom: 12px;
   }
 
   .himasif-subtitle {
     font-size: 1.3rem;
+    letter-spacing: 0.03em;
+    width: 90%;
+    padding: 0 2%;
+    word-spacing: 2em;
+  }
+
+  .sistem-text {
+    letter-spacing: 0.05em;
+  }
+
+  .footer-row {
+    padding: 0 25px;
+    bottom: 40px;
   }
 
   .copyright-wrapper {
@@ -332,18 +412,32 @@ section {
 }
 
 @media (max-width: 768px) {
-  section {
-    padding: 60px 0;
+  .landing-content {
+    padding-top: 50px;
   }
 
   .himasif-title {
     font-size: 8rem;
-    margin-top: -40px;
-    margin-bottom: -8px;
+    margin-top: 0;
+    margin-bottom: 10px;
   }
 
   .himasif-subtitle {
     font-size: 1.1rem;
+    letter-spacing: 0.03em;
+    width: 95%;
+    padding: 0 1%;
+    word-spacing: 1.5em;
+    margin-bottom: 5px;
+  }
+
+  .sistem-text {
+    letter-spacing: 0.05em;
+  }
+
+  .footer-row {
+    padding: 0 20px;
+    bottom: 30px;
   }
 
   .copyright-wrapper {
@@ -352,6 +446,15 @@ section {
 
   .copyright-text {
     font-size: 0.75rem;
+  }
+
+  .scroll-arrow {
+    width: 10px;
+    height: 10px;
+  }
+
+  .scroll-text {
+    font-size: 0.65rem;
   }
 
   .section-title {
@@ -376,10 +479,8 @@ section {
 
 /* Fix for mobile devices to ensure full height */
 @media (max-width: 576px) {
-  section {
-    min-height: 100vh;
-    height: auto;
-    padding: 80px 0;
+  .landing-content {
+    padding-top: 40px;
   }
 
   .section-header {
@@ -388,20 +489,45 @@ section {
 
   .himasif-title {
     font-size: 5rem;
-    margin-top: -30px;
-    margin-bottom: -5px;
+    margin-top: 0;
+    margin-bottom: 8px;
   }
 
   .himasif-subtitle {
     font-size: 0.9rem;
+    letter-spacing: 0.03em;
+    width: 100%;
+    padding: 0;
+    word-spacing: 1em;
+    flex-wrap: wrap;
+  }
+
+  .sistem-text {
+    letter-spacing: 0.05em;
+  }
+
+  .footer-row {
+    padding: 0 15px;
+    bottom: 20px;
+    flex-direction: column;
   }
 
   .copyright-wrapper {
     padding: 4px 12px;
+    margin-bottom: 15px;
   }
 
   .copyright-text {
     font-size: 0.7rem;
+  }
+
+  .scroll-arrow {
+    width: 8px;
+    height: 8px;
+  }
+
+  .scroll-text {
+    font-size: 0.6rem;
   }
 
   .divider-content h2 {
@@ -415,7 +541,8 @@ section {
 
 /* Fix for iOS Safari 100vh issue */
 @supports (-webkit-touch-callout: none) {
-  section {
+  .home-section {
     height: -webkit-fill-available;
+    min-height: -webkit-fill-available;
   }
 }

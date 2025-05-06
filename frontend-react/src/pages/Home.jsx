@@ -10,30 +10,34 @@ const Home = () => {
   return (
     <>
       {/* Landing Home Section */}
-      <section id="landing-home" className="landing-home-section d-flex align-items-center">
+      <div id="landing-home" className="landing-home-section home-section d-flex align-items-center">
         {/* Content container */}
         <Container fluid className="p-0">
           <Row className="justify-content-center m-0">
             <Col xs={12} className="text-center">
               <div className="landing-content">
                 <h1 className="himasif-title">HIMASIF</h1>
-                <p className="himasif-subtitle">HIMPUNAN MAHASISWA SISTEM INFORMASI</p>
+                <Row className="himasif-subtitle-row">
+                  <Col xs={12}>
+                    <div className="himasif-subtitle d-flex align-items-center text-uppercase">
+                      HIMPUNAN
+                      MAHASISWA
+                      <span className="sistem-text">SISTEM</span>
+                      INFORMASI
+                    </div>
+                  </Col>
+                </Row>
               </div>
             </Col>
           </Row>
 
-          {/* Copyright text at bottom */}
-          <Row className="justify-content-center m-0 copyright-container">
-            <Col xs={12} className="text-center">
+          {/* Footer row with copyright and scroll indicator */}
+          <Row className="footer-row">
+            <Col xs={12} className="d-flex justify-content-between align-items-center">
               <div className="copyright-wrapper">
                 <p className="copyright-text">© 2023 HIMASIF UPJ</p>
               </div>
-            </Col>
-          </Row>
 
-          {/* Scroll indicator */}
-          <Row className="justify-content-center m-0">
-            <Col xs={12} className="text-center">
               <div className="scroll-indicator">
                 <div className="scroll-arrow"></div>
                 <p className="scroll-text">scroll</p>
@@ -41,10 +45,10 @@ const Home = () => {
             </Col>
           </Row>
         </Container>
-      </section>
+      </div>
 
       {/* Foto Home Section */}
-      <section id="foto-home" className="foto-home-section d-flex align-items-center">
+      <div id="foto-home" className="foto-home-section home-section d-flex align-items-center">
         <Container fluid>
           <Row className="justify-content-center m-0">
             <Col xs={12} md={10} className="text-center mb-5">
@@ -90,10 +94,10 @@ const Home = () => {
             </Col>
           </Row>
         </Container>
-      </section>
+      </div>
 
       {/* Divider Home Section */}
-      <section id="divider-home" className="divider-home-section d-flex align-items-center justify-content-center">
+      <div id="divider-home" className="divider-home-section home-section d-flex align-items-center justify-content-center">
         <Container fluid className="p-0">
           <Row className="justify-content-center m-0">
             <Col xs={12} className="text-center">
@@ -104,10 +108,10 @@ const Home = () => {
             </Col>
           </Row>
         </Container>
-      </section>
+      </div>
 
       {/* Periode Home Section */}
-      <section id="periode-home" className="periode-home-section d-flex align-items-center">
+      <div id="periode-home" className="periode-home-section home-section d-flex align-items-center">
         <Container fluid>
           <Row className="justify-content-center m-0">
             <Col xs={12} md={10} lg={8} className="text-center mb-5">
@@ -145,10 +149,10 @@ const Home = () => {
             </Col>
           </Row>
         </Container>
-      </section>
+      </div>
 
       {/* Pengurus Home Section */}
-      <section id="pengurus-home" className="pengurus-home-section d-flex align-items-center">
+      <div id="pengurus-home" className="pengurus-home-section home-section d-flex align-items-center">
         <Container fluid>
           <Row className="justify-content-center m-0">
             <Col xs={12} md={10} lg={8} className="text-center mb-5">
@@ -204,10 +208,10 @@ const Home = () => {
             </Col>
           </Row>
         </Container>
-      </section>
+      </div>
 
       {/* Sorotan Home Section */}
-      <section id="sorotan-home" className="sorotan-home-section d-flex align-items-center">
+      <div id="sorotan-home" className="sorotan-home-section home-section d-flex align-items-center">
         <Container fluid>
           <Row className="justify-content-center m-0">
             <Col xs={12} md={10} lg={8} className="text-center mb-5">
@@ -275,7 +279,7 @@ const Home = () => {
             </Col>
           </Row>
         </Container>
-      </section>
+      </div>
     </>
   );
 };
