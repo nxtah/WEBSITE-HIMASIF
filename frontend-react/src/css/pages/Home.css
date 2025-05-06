@@ -1,23 +1,21 @@
 /* Home page specific styles */
 
-/* Common styles for home page sections */
 /* Home page section styles */
 .home-section {
   min-height: 100vh; /* Full screen height */
-  height: 100vh; /* Ensure exact viewport height */
   width: 100%;
-  padding: 0; /* Remove padding to use full height */
+  padding: 80px 0;
   position: relative;
   overflow: hidden;
   display: flex;
   align-items: center;
-  justify-content: center; /* Center content horizontally */
 }
 
 .home-section-title {
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 20px;
+  color: #2c3e50;
 }
 
 .home-section-subtitle {
@@ -36,12 +34,8 @@
   color: white;
   text-align: center;
   min-height: 100vh;
-  height: 100vh;
   overflow: hidden;
   background-color: var(--blue-dark); /* Use CSS variable for blue background */
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .landing-content {
@@ -52,9 +46,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* Align to top instead of center */
+  justify-content: center;
   height: 100vh; /* Full height */
-  padding-top: 80px; /* Reduced padding to position even closer to navbar */
   padding-top: 0;
 }
 
@@ -62,17 +55,11 @@
   font-family: 'Lugoj', sans-serif;
   font-size: 28rem; /* Increased from 24rem as requested */
   font-weight: normal;
-  margin-bottom: 20px; /* Positive margin to create space between title and subtitle */
+  margin-bottom: -20px; /* Negative margin to bring subtitle closer */
   line-height: 0.8;
   letter-spacing: -0.03em; /* -3% letter spacing */
   color: white;
   position: relative;
-  margin-top: 0; /* Reset margin-top */
-}
-
-.himasif-subtitle-row {
-  margin: 0;
-  width: 100%;
   margin-top: -350px; /* Move up more to compensate for vertical centering */
 }
 
@@ -82,28 +69,8 @@
   margin-bottom: 0;
   letter-spacing: -0.03em; /* Reduced letter spacing as requested */
   color: white;
+  text-transform: uppercase;
   position: relative;
-  letter-spacing: 0.03em;
-  width: 100%;
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0;
-  word-spacing: 4em; /* Add extremely wide spacing between words */
-  justify-content: center;
-  text-align: center;
-}
-
-.sistem-text {
-  font-family: 'Saol', serif;
-  font-style: italic;
-  letter-spacing: 0.05em;
-}
-
-/* Footer row styling */
-.footer-row {
-  position: absolute;
-  bottom: 50px;
   white-space: nowrap; /* Prevent text from wrapping */
   width: 100%; /* Ensure it takes full width */
   text-align: center; /* Center the text */
@@ -123,14 +90,12 @@
   bottom: 30px;
   width: 100%;
   z-index: 10;
-  padding: 0 40px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   padding: 0 30px;
 }
 
-/* Copyright text styling */
 /* Copyright text styling */
 .copyright-wrapper {
   display: inline-block;
@@ -167,6 +132,7 @@
   flex-direction: column;
   align-items: center;
   animation: bounce 2s infinite;
+  z-index: 10;
 }
 
 .scroll-arrow {
@@ -193,18 +159,6 @@
 
 /* Foto Home Section */
 .foto-home-section {
-  background-color: #f8f9fa;
-  height: 100vh;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.foto-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: none;
-  border-radius: 10px;
   min-height: 100vh;
   width: 100%;
   position: relative;
@@ -269,17 +223,6 @@
   letter-spacing: -0.02em;
   width: max-content;
   text-align: center;
-  height: 100vh;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.divider-content {
-  padding: 20px;
-  max-width: 90%;
-  margin: 0 auto;
   transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
   white-space: nowrap;
   will-change: transform;
@@ -330,15 +273,6 @@
 
 /* Periode Home Section */
 .periode-home-section {
-  background-color: white;
-  height: 100vh;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.periode-timeline {
   background-color: var(--blue-dark);
   min-height: 100vh;
   width: 100%;
@@ -406,11 +340,6 @@
 /* Pengurus Home Section */
 .pengurus-home-section {
   background-color: #f8f9fa;
-  height: 100vh;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .pengurus-card {
@@ -434,11 +363,6 @@
 /* Sorotan Home Section */
 .sorotan-home-section {
   background-color: white;
-  height: 100vh;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .sorotan-card {
@@ -461,36 +385,16 @@
 /* Responsive adjustments */
 @media (max-width: 1200px) {
   .landing-content {
-    padding-top: 70px;
-  }
-
-  .landing-content {
     margin-top: -150px;
   }
 
   .himasif-title {
-    font-size: 16rem;
-    margin-top: 0;
-    margin-bottom: 15px;
     font-size: 22rem; /* Increased from 18rem */
     margin-top: -160px;
     margin-bottom: -15px;
   }
 
   .himasif-subtitle {
-    font-size: 1.4rem;
-    letter-spacing: 0.03em;
-    width: 80%;
-    padding: 0 3%;
-    word-spacing: 2.5em;
-  }
-
-  .sistem-text {
-    letter-spacing: 0.05em;
-  }
-
-  .footer-row {
-    padding: 0 30px;
     font-size: 1.6rem;
     letter-spacing: -0.03em;
     white-space: nowrap;
@@ -516,37 +420,16 @@
 
 @media (max-width: 992px) {
   .landing-content {
-    padding-top: 60px;
-  }
-
-  .landing-content {
     margin-top: -120px;
   }
 
   .himasif-title {
-    font-size: 12rem;
-    margin-top: 0;
-    margin-bottom: 12px;
     font-size: 18rem; /* Increased from 14rem */
     margin-top: -140px;
     margin-bottom: -10px;
   }
 
   .himasif-subtitle {
-    font-size: 1.3rem;
-    letter-spacing: 0.03em;
-    width: 90%;
-    padding: 0 2%;
-    word-spacing: 2em;
-  }
-
-  .sistem-text {
-    letter-spacing: 0.05em;
-  }
-
-  .footer-row {
-    padding: 0 25px;
-    bottom: 40px;
     font-size: 1.5rem;
     letter-spacing: -0.03em;
     white-space: nowrap;
@@ -572,8 +455,6 @@
 }
 
 @media (max-width: 768px) {
-  .landing-content {
-    padding-top: 50px;
   .home-section, .foto-home-section, .periode-home-section, .divider-home-section {
     padding: 60px 0;
     min-height: 100vh;
@@ -584,30 +465,12 @@
   }
 
   .himasif-title {
-    font-size: 8rem;
-    margin-top: 0;
-    margin-bottom: 10px;
     font-size: 12rem; /* Increased from 10rem */
     margin-top: -120px;
     margin-bottom: -8px;
   }
 
   .himasif-subtitle {
-    font-size: 1.1rem;
-    letter-spacing: 0.03em;
-    width: 95%;
-    padding: 0 1%;
-    word-spacing: 1.5em;
-    margin-bottom: 5px;
-  }
-
-  .sistem-text {
-    letter-spacing: 0.05em;
-  }
-
-  .footer-row {
-    padding: 0 20px;
-    bottom: 30px;
     font-size: 1.3rem;
     letter-spacing: -0.03em;
     white-space: nowrap;
@@ -624,15 +487,6 @@
   .copyright-text,
   .website-official-text {
     font-size: 0.75rem;
-  }
-
-  .scroll-arrow {
-    width: 10px;
-    height: 10px;
-  }
-
-  .scroll-text {
-    font-size: 0.65rem;
   }
 
   .bottom-row-landing {
@@ -674,8 +528,6 @@
 
 /* Fix for mobile devices to ensure full height */
 @media (max-width: 576px) {
-  .landing-content {
-    padding-top: 40px;
   .home-section, .foto-home-section, .periode-home-section, .divider-home-section {
     min-height: 100vh;
     height: auto;
@@ -691,31 +543,12 @@
   }
 
   .himasif-title {
-    font-size: 5rem;
-    margin-top: 0;
-    margin-bottom: 8px;
     font-size: 8rem; /* Increased from 6.5rem */
     margin-top: -100px;
     margin-bottom: -5px;
   }
 
   .himasif-subtitle {
-    font-size: 0.9rem;
-    letter-spacing: 0.03em;
-    width: 100%;
-    padding: 0;
-    word-spacing: 1em;
-    flex-wrap: wrap;
-  }
-
-  .sistem-text {
-    letter-spacing: 0.05em;
-  }
-
-  .footer-row {
-    padding: 0 15px;
-    bottom: 20px;
-    flex-direction: column;
     font-size: 1.1rem;
     letter-spacing: -0.03em;
     white-space: nowrap;
@@ -734,8 +567,6 @@
   }
 
   .copyright-wrapper {
-    padding: 4px 12px;
-    margin-bottom: 15px;
     padding: 4px 10px;
     margin-bottom: 5px;
   }
@@ -743,15 +574,6 @@
   .copyright-text,
   .website-official-text {
     font-size: 0.7rem;
-  }
-
-  .scroll-arrow {
-    width: 8px;
-    height: 8px;
-  }
-
-  .scroll-text {
-    font-size: 0.6rem;
   }
 
   .scroll-indicator {
@@ -788,10 +610,7 @@
 
 /* Fix for iOS Safari 100vh issue */
 @supports (-webkit-touch-callout: none) {
-  .home-section {
   .home-section, .foto-home-section, .periode-home-section, .divider-home-section {
     height: -webkit-fill-available;
-    min-height: -webkit-fill-available;
   }
-}
 }

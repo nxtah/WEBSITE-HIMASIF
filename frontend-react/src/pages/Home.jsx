@@ -211,7 +211,7 @@ const Home = () => {
             </Col>
           </Row>
         </Container>
-      </div>
+      </section>
 
       {/* Foto Home Section */}
       <section id="foto-home" className="foto-home-section full-screen-section">
@@ -316,7 +316,7 @@ const Home = () => {
             </Col>
           </Row>
         </Container>
-      </div>
+      </section>
 
       {/* Sorotan Home Section */}
       <section id="sorotan-home" className="sorotan-home-section full-screen-section d-flex align-items-center">
@@ -387,7 +387,7 @@ const Home = () => {
             </Col>
           </Row>
         </Container>
-      </div>
+      </section>
     </>
   );
 };
