@@ -194,7 +194,7 @@ const TentangHimasif = () => {
             <Col md={8}>
               <h2 className="about-title animate__animated animate__fadeIn">Nilai-Nilai Kami</h2>
               <p className="lead">
-                HIMASIF berpegang pada nilai-nilai yang menjadi landasan dalam setiap kegiatan dan program kerja kami.
+                HIMASIF berpegang pada nilai-nilaii yang menjadi landasan dalam setiap kegiatan dan program kerja kami.
               </p>
             </Col>
           </Row>
