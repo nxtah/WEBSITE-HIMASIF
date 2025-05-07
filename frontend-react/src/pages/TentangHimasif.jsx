@@ -7,7 +7,7 @@ const TentangHimasif = () => {
   const teamMembers = [
     {
       id: 1,
-      name: 'Ahmad Fauzi',
+      name: 'Ahmad Fauzii',
       position: 'Ketua HIMASIF',
       image: 'https://picsum.photos/id/1001/300/300',
       social: {
