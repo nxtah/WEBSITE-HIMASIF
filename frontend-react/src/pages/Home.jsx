@@ -352,9 +352,9 @@ const Home = () => {
 
       {/* Sorotan Home Section */}
       <section id="sorotan-home" className="sorotan-home-section vh-100 d-flex align-items-center justify-content-center">
-        <Container fluid className="h-100 d-flex flex-column justify-content-center px-4 pb-4">
+        <Container fluid className="h-100 d-flex flex-column justify-content-center px-2 pb-4">
           <Row className="justify-content-center mb-3 mx-0">
-            <Col xs={11} sm={11} md={11} lg={11.5} xl={10.5} className="px-0">
+            <Col xs={11.5} sm={11.5} md={11.8} lg={11.8} xl={11.8} className="px-0">
               <Row className="mx-0">
                 <Col xs={12} md={4} className="d-flex align-items-start px-1">
                   <div className="sorotan-title-container w-100">
@@ -377,7 +377,7 @@ const Home = () => {
             </Col>
           </Row>
           <Row className="justify-content-center mx-0 mb-3">
-            <Col xs={11} sm={11} md={11} lg={11.5} xl={10.5} className="px-0">
+            <Col xs={11.5} sm={11.5} md={11.8} lg={11.8} xl={11.8} className="px-0">
               <Row className="mx-0">
                 <Col xs={12} md={4} className="mb-4 mb-md-0 px-1">
                   <div className="medium-box">

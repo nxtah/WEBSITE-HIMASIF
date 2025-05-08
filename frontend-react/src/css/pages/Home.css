@@ -440,7 +440,7 @@
 
 .sorotan-title {
   font-family: 'Black', sans-serif;
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-size: clamp(3rem, 5.5vw, 4.2rem);
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.03em;
@@ -450,7 +450,7 @@
 
 .sorotan-title .yang-text {
   font-family: 'Saol', sans-serif;
-  font-size: clamp(1.25rem, 2.5vw, 1.75rem); /* Half the size of the parent font */
+  font-size: clamp(1.5rem, 2.75vw, 2.1rem); /* Half the size of the parent font */
   font-weight: normal;
   margin-left: 0.5rem;
 }
@@ -462,7 +462,7 @@
 .sorotan-home-section .container-fluid {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
-  max-width: 95%;
+  max-width: 98%;
 }
 
 .sorotan-home-section .row {
@@ -570,11 +570,11 @@
 
   /* Sorotan section responsive styles for extra large screens */
   .sorotan-title {
-    font-size: 4rem;
+    font-size: 4.8rem;
   }
 
   .sorotan-title .yang-text {
-    font-size: 2rem;
+    font-size: 2.4rem;
     margin-left: 0.8rem;
   }
 
@@ -842,11 +842,11 @@
 
   /* Sorotan section responsive styles */
   .sorotan-title {
-    font-size: 3rem;
+    font-size: 3.6rem;
   }
 
   .sorotan-title .yang-text {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     margin-left: 0.6rem;
   }
 
@@ -980,12 +980,12 @@
 
   /* Sorotan section responsive styles for small screens */
   .sorotan-title {
-    font-size: 2.5rem;
+    font-size: 3rem;
     text-align: left;
   }
 
   .sorotan-title .yang-text {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     margin-left: 0.4rem;
   }
 
@@ -1005,7 +1005,7 @@
     padding-bottom: 1rem !important;
     padding-left: 0.5rem !important;
     padding-right: 0.5rem !important;
-    max-width: 96%;
+    max-width: 98%;
   }
 
   .sorotan-home-section .mb-3 {
@@ -1088,11 +1088,11 @@
 
   /* Sorotan section responsive styles for extra small screens */
   .sorotan-title {
-    font-size: 2rem;
+    font-size: 2.4rem;
   }
 
   .sorotan-title .yang-text {
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin-left: 0.3rem;
   }
 
@@ -1112,7 +1112,7 @@
     padding-bottom: 0.8rem !important;
     padding-left: 0.3rem !important;
     padding-right: 0.3rem !important;
-    max-width: 97%;
+    max-width: 99%;
   }
 
   .sorotan-home-section .mb-3 {
