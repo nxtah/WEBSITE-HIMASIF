@@ -6,77 +6,77 @@ import '../css/components/Footer.css';
 const Footer = () => {
   return (
     <footer className="footer">
-      <Container fluid>
-        <Row className="footer-main">
+      <Container fluid className="h-100 d-flex flex-column">
+        <Row className="footer-main flex-grow-1">
           {/* Footer Left - Slogan */}
-          <Col md={5} className="footer-left">
+          <Col md={6} className="footer-left">
+            <div className="footer-slogan-label">SLOGAN</div>
             <div className="footer-slogan">
-              <div className="slogan-line">MAKE</div>
-              <div className="slogan-line">IT</div>
-              <div className="slogan-line">HAPPEN</div>
+              <div className="slogan-we">WE</div>
+              <div className="slogan-make">MAKE</div>
+              <div className="slogan-happen">
+                <span className="slogan-it">//</span>
+                <span>HAPPEN</span>
+              </div>
             </div>
           </Col>
 
           {/* Divider */}
-          <Col md={1} className="footer-divider-col">
+          <div className="footer-divider-col">
             <div className="footer-divider-vertical"></div>
-            <div className="footer-divider-horizontal"></div>
-          </Col>
+          </div>
 
           {/* Footer Right - Links */}
-          <Col md={6} className="footer-right">
-            <Row>
-              <Col xs={6}>
-                <div className="footer-links-column">
-                  <div className="footer-link-item">
-                    <Link to="/" className="footer-link">
-                      <span className="link-text">Home</span>
-                      <span className="link-arrow">↗</span>
-                    </Link>
-                  </div>
-                  <div className="footer-link-item">
-                    <Link to="/tentang-himasif" className="footer-link">
-                      <span className="link-text">Tentang HIMASIF</span>
-                      <span className="link-arrow">↗</span>
-                    </Link>
-                  </div>
-                  <div className="footer-link-item">
-                    <Link to="/filosofi-logo" className="footer-link">
-                      <span className="link-text">Filosofi Logo</span>
-                      <span className="link-arrow">↗</span>
-                    </Link>
-                  </div>
-                  <div className="footer-link-item">
-                    <Link to="/visi-misi" className="footer-link">
-                      <span className="link-text">Visi & Misi</span>
-                      <span className="link-arrow">↗</span>
-                    </Link>
-                  </div>
+          <Col md={5} className="footer-right">
+            <div className="acara-label">ACARA MENDATANG</div>
+            <div className="acara-box"></div>
+
+            <div className="footer-links-container">
+              <div className="footer-links-row">
+                <div className="footer-link-item">
+                  <Link to="/visi-misi" className="footer-link">
+                    <span className="link-text">VISI & MISI</span>
+                    <span className="link-arrow">↗</span>
+                  </Link>
                 </div>
-              </Col>
-              <Col xs={6}>
-                <div className="footer-links-column">
-                  <div className="footer-link-item">
-                    <Link to="/galeri" className="footer-link">
-                      <span className="link-text">Galeri</span>
-                      <span className="link-arrow">↗</span>
-                    </Link>
-                  </div>
-                  <div className="footer-link-item">
-                    <Link to="/merch" className="footer-link">
-                      <span className="link-text">Merchandise</span>
-                      <span className="link-arrow">↗</span>
-                    </Link>
-                  </div>
-                  <div className="footer-link-item">
-                    <Link to="/berita" className="footer-link">
-                      <span className="link-text">Berita</span>
-                      <span className="link-arrow">↗</span>
-                    </Link>
-                  </div>
+                <div className="footer-link-item">
+                  <Link to="/berita" className="footer-link">
+                    <span className="link-text">BERITA</span>
+                    <span className="link-arrow">↗</span>
+                  </Link>
                 </div>
-              </Col>
-            </Row>
+              </div>
+
+              <div className="footer-links-row">
+                <div className="footer-link-item">
+                  <Link to="/sejarah" className="footer-link">
+                    <span className="link-text">SEJARAH</span>
+                    <span className="link-arrow">↗</span>
+                  </Link>
+                </div>
+                <div className="footer-link-item">
+                  <Link to="/merch" className="footer-link">
+                    <span className="link-text">MERCH</span>
+                    <span className="link-arrow">↗</span>
+                  </Link>
+                </div>
+              </div>
+
+              <div className="footer-links-row">
+                <div className="footer-link-item">
+                  <Link to="/logo" className="footer-link">
+                    <span className="link-text">LOGO</span>
+                    <span className="link-arrow">↗</span>
+                  </Link>
+                </div>
+                <div className="footer-link-item">
+                  <Link to="/struktur" className="footer-link">
+                    <span className="link-text">STRUKTUR</span>
+                    <span className="link-arrow">↗</span>
+                  </Link>
+                </div>
+              </div>
+            </div>
           </Col>
         </Row>
       </Container>

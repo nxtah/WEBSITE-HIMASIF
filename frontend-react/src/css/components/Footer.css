@@ -1,6 +1,6 @@
 /* Footer Styles */
 .footer {
-  background-color: var(--blue-dark);
+  background-color: #002A42; /* Exact color from image */
   color: #fff;
   min-height: 100vh;
   position: relative;
@@ -11,32 +11,62 @@
 
 /* Footer Main Section */
 .footer-main {
-  flex: 1;
-  padding: 80px 0;
+  padding: 40px 0;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 
 /* Footer Left - Slogan */
 .footer-left {
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
-  justify-content: flex-end;
-  padding-right: 50px;
-  width: 100%;
+  padding-left: 40px;
+}
+
+.footer-slogan-label {
+  font-family: 'Medium', sans-serif;
+  font-size: 0.8rem;
+  color: #2E8AFF;
+  margin-bottom: 30px;
+  text-transform: uppercase;
 }
 
 .footer-slogan {
   font-family: 'Black', sans-serif;
-  text-align: right;
-  margin-right: 20px;
+  text-align: left;
 }
 
-.slogan-line {
-  font-size: 5rem;
+.slogan-we {
+  font-size: 10rem;
   line-height: 0.85;
   color: white;
   letter-spacing: -0.03em;
+  margin-bottom: -20px;
+}
+
+.slogan-make {
+  font-size: 10rem;
+  line-height: 0.85;
+  color: white;
+  letter-spacing: -0.03em;
+  margin-bottom: -20px;
+}
+
+.slogan-happen {
+  display: flex;
+  align-items: center;
+  font-size: 10rem;
+  line-height: 0.85;
+  color: white;
+  letter-spacing: -0.03em;
+}
+
+.slogan-it {
+  font-family: 'Saol', sans-serif;
+  font-size: 10rem;
+  margin-right: 10px;
+  font-weight: 300;
 }
 
 /* Footer Divider */
@@ -44,39 +74,51 @@
   position: relative;
   display: flex;
   justify-content: center;
-  height: 300px;
+  width: 1px;
+  margin: 0 40px;
+  align-self: stretch;
 }
 
 .footer-divider-vertical {
-  width: 5px;
+  width: 1px;
   height: 100%;
-  background-color: var(--blue-primary);
+  background-color: white;
   position: absolute;
   top: 0;
   bottom: 0;
 }
 
-.footer-divider-horizontal {
-  width: 200px;
-  height: 5px;
-  background-color: var(--blue-primary);
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 0;
-}
-
 /* Footer Right - Links */
 .footer-right {
-  padding-left: 80px;
   padding-top: 0;
-  margin-top: -20px;
-}
-
-.footer-links-column {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+}
+
+.acara-label {
+  font-family: 'Medium', sans-serif;
+  font-size: 0.8rem;
+  color: #2E8AFF;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+
+.acara-box {
+  width: 100%;
+  height: 180px;
+  background-color: #e0e0e0;
+  margin-bottom: 40px;
+}
+
+.footer-links-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer-links-row {
+  display: flex;
+  gap: 40px;
 }
 
 .footer-link-item {
@@ -85,44 +127,41 @@
 
 .footer-link {
   font-family: 'Medium', sans-serif;
-  font-size: 1.2rem;
-  color: white;
+  font-size: 0.8rem;
+  color: #2E8AFF;
   text-decoration: none;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   transition: all 0.3s ease;
+  text-transform: uppercase;
 }
 
 .link-text {
-  margin-right: 10px;
-  position: relative;
-  top: -2px;
+  margin-right: 5px;
 }
 
 .link-arrow {
-  font-size: 1.2rem;
+  font-size: 0.7rem;
   transition: transform 0.3s ease;
-  position: relative;
-  top: 0;
 }
 
 .footer-link:hover {
-  color: white;
+  color: #2E8AFF;
 }
 
 .footer-link:hover .link-arrow {
-  transform: translate(5px, -5px);
+  transform: translate(3px, -3px);
 }
 
 /* Footer Number */
 .footer-number {
   font-family: 'Black', sans-serif;
-  font-size: 27rem;
+  font-size: 30rem;
   line-height: 0.5;
-  color: white;
-  opacity: 0.1;
+  color: #2E8AFF;
+  opacity: 0.3;
   position: absolute;
-  bottom: -80px;
+  bottom: -100px;
   left: 0;
   right: 0;
   text-align: center;
@@ -132,92 +171,74 @@
 }
 
 /* Mobile responsive adjustments */
+@media (max-width: 1400px) {
+  .slogan-we, .slogan-make, .slogan-happen, .slogan-it {
+    font-size: 9rem;
+  }
+
+  .footer-number {
+    font-size: 28rem;
+    bottom: -90px;
+  }
+}
+
 @media (max-width: 1200px) {
-  .footer-main {
-    padding: 60px 0;
+  .slogan-we, .slogan-make, .slogan-happen, .slogan-it {
+    font-size: 8rem;
   }
 
-  .footer-left {
-    padding-right: 30px;
-  }
-
-  .slogan-line {
-    font-size: 4.5rem;
-  }
-
-  .footer-divider-horizontal {
-    width: 150px;
-  }
-
-  .footer-right {
-    padding-left: 60px;
+  .footer-divider-col {
+    margin: 0 30px;
   }
 
   .footer-number {
     font-size: 24rem;
-    bottom: -70px;
+    bottom: -80px;
   }
 }
 
 @media (max-width: 992px) {
   .footer-main {
-    padding: 50px 0;
+    padding: 30px 0;
   }
 
-  .footer-left {
-    padding-right: 20px;
-  }
-
-  .slogan-line {
-    font-size: 4rem;
+  .slogan-we, .slogan-make, .slogan-happen, .slogan-it {
+    font-size: 7rem;
   }
 
   .footer-divider-col {
-    height: 250px;
+    margin: 0 20px;
   }
 
-  .footer-divider-vertical {
-    width: 4px;
+  .acara-box {
+    height: 150px;
+    margin-bottom: 30px;
   }
 
-  .footer-divider-horizontal {
-    width: 120px;
-    height: 4px;
-  }
-
-  .footer-right {
-    padding-left: 40px;
-  }
-
-  .footer-link {
-    font-size: 1.1rem;
+  .footer-links-row {
+    gap: 30px;
   }
 
   .footer-number {
     font-size: 20rem;
-    bottom: -60px;
+    bottom: -70px;
   }
 }
 
 @media (max-width: 768px) {
   .footer-main {
-    padding: 40px 0;
+    padding: 30px 20px;
     flex-direction: column;
   }
 
   .footer-left {
-    justify-content: center;
-    padding-right: 0;
+    padding-left: 0;
     margin-bottom: 40px;
+    width: 100%;
   }
 
-  .footer-slogan {
-    text-align: center;
-    margin-right: 0;
-  }
-
-  .slogan-line {
-    font-size: 3.5rem;
+  .slogan-we, .slogan-make, .slogan-happen, .slogan-it {
+    font-size: 6rem;
   }
 
   .footer-divider-col {
@@ -225,16 +246,49 @@
   }
 
   .footer-right {
-    padding-left: 0;
-    margin-top: 20px;
+    width: 100%;
   }
 
-  .footer-links-column {
-    align-items: center;
+  .acara-box {
+    height: 120px;
+    margin-bottom: 30px;
+  }
+
+  .footer-links-container {
+    width: 100%;
+  }
+
+  .footer-links-row {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .footer-number {
+    font-size: 18rem;
+    bottom: -60px;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer-main {
+    padding: 20px 15px;
+  }
+
+  .slogan-we, .slogan-make, .slogan-happen, .slogan-it {
+    font-size: 5rem;
+  }
+
+  .acara-box {
+    height: 100px;
+    margin-bottom: 20px;
+  }
+
+  .footer-links-row {
+    gap: 20px;
   }
 
   .footer-link {
-    justify-content: center;
+    font-size: 0.7rem;
   }
 
   .footer-number {
@@ -243,13 +297,9 @@
   }
 }
 
-@media (max-width: 576px) {
-  .slogan-line {
-    font-size: 3rem;
-  }
-
-  .footer-link {
-    font-size: 1rem;
+@media (max-width: 480px) {
+  .slogan-we, .slogan-make, .slogan-happen, .slogan-it {
+    font-size: 4rem;
   }
 
   .footer-number {

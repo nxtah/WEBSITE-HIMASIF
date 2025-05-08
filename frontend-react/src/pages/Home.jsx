@@ -311,130 +311,90 @@ const Home = () => {
       </section>
 
       {/* Pengurus Home Section */}
-      <section id="pengurus-home" className="pengurus-home-section full-screen-section d-flex align-items-center">
+      <section id="pengurus-home" className="pengurus-home-section vh-100 d-flex align-items-center justify-content-center">
         <Container fluid>
           <Row className="justify-content-center m-0">
-            <Col xs={12} md={10} lg={8} className="text-center mb-5">
-              <div className="section-header">
-                <h2 className="section-title">Pengurus HIMASIF</h2>
-                <p className="section-subtitle">Kenali pengurus HIMASIF periode 2023/2024</p>
+            <Col xs={12} className="text-center">
+              <div className="pengurus-title-container mb-0">
+                <h2 className="pengurus-title mb-0">
+                  <span className="total-text d-block">total</span>
+                  <span className="pengurus-text d-block">PENGURUS</span>
+                </h2>
               </div>
             </Col>
           </Row>
-          <Row className="justify-content-center mx-0">
-            <Col xs={12} sm={6} md={4} className="mb-4">
-              <Card className="pengurus-card text-center h-100">
-                <Card.Img variant="top" src="https://picsum.photos/id/40/300/300" className="pengurus-img" />
-                <Card.Body>
-                  <Card.Title>Nama Ketua</Card.Title>
-                  <Card.Subtitle className="mb-2 text-muted">Ketua HIMASIF</Card.Subtitle>
-                  <Card.Text>
-                    "Bersama kita wujudkan HIMASIF yang inovatif dan berdaya saing."
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-            <Col xs={12} sm={6} md={4} className="mb-4">
-              <Card className="pengurus-card text-center h-100">
-                <Card.Img variant="top" src="https://picsum.photos/id/41/300/300" className="pengurus-img" />
-                <Card.Body>
-                  <Card.Title>Nama Wakil Ketua</Card.Title>
-                  <Card.Subtitle className="mb-2 text-muted">Wakil Ketua HIMASIF</Card.Subtitle>
-                  <Card.Text>
-                    "Mari berkolaborasi untuk kemajuan HIMASIF dan mahasiswa Sistem Informasi."
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-            <Col xs={12} sm={6} md={4} className="mb-4">
-              <Card className="pengurus-card text-center h-100">
-                <Card.Img variant="top" src="https://picsum.photos/id/42/300/300" className="pengurus-img" />
-                <Card.Body>
-                  <Card.Title>Nama Sekretaris</Card.Title>
-                  <Card.Subtitle className="mb-2 text-muted">Sekretaris HIMASIF</Card.Subtitle>
-                  <Card.Text>
-                    "Administrasi yang baik adalah kunci keberhasilan organisasi."
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-          </Row>
-          <Row className="justify-content-center mx-0">
-            <Col xs={12} className="text-center mt-4">
-              <Button as={Link} to="/tentang-himasif" variant="outline-primary">
-                Lihat Semua Pengurus
-              </Button>
+          <Row className="justify-content-center mx-0 mt-0">
+            <Col xs={10} lg={7} className="px-0">
+              <Row className="justify-content-between mx-0">
+                <Col xs={12} md={4} className="text-center mb-3 mb-md-0">
+                  <div className="pengurus-stat">
+                    <h3 className="stat-number">25</h3>
+                    <p className="stat-desc">anggota</p>
+                  </div>
+                </Col>
+                <Col xs={12} md={4} className="text-center mb-3 mb-md-0">
+                  <div className="pengurus-stat">
+                    <h3 className="stat-number">9</h3>
+                    <p className="stat-desc">divisi</p>
+                  </div>
+                </Col>
+                <Col xs={12} md={4} className="text-center">
+                  <div className="pengurus-stat">
+                    <h3 className="stat-number">17</h3>
+                    <p className="stat-desc">program kerja</p>
+                  </div>
+                </Col>
+              </Row>
             </Col>
           </Row>
         </Container>
       </section>
 
       {/* Sorotan Home Section */}
-      <section id="sorotan-home" className="sorotan-home-section full-screen-section d-flex align-items-center">
-        <Container fluid>
-          <Row className="justify-content-center m-0">
-            <Col xs={12} md={10} lg={8} className="text-center mb-5">
-              <div className="section-header">
-                <h2 className="section-title">Sorotan Kegiatan</h2>
-                <p className="section-subtitle">Kegiatan-kegiatan unggulan HIMASIF</p>
-              </div>
+      <section id="sorotan-home" className="sorotan-home-section vh-100 d-flex align-items-center justify-content-center">
+        <Container fluid className="h-100 d-flex flex-column justify-content-center px-4 pb-4">
+          <Row className="justify-content-center mb-3 mx-0">
+            <Col xs={11} sm={11} md={11} lg={11.5} xl={10.5} className="px-0">
+              <Row className="mx-0">
+                <Col xs={12} md={4} className="d-flex align-items-start px-1">
+                  <div className="sorotan-title-container w-100">
+                    <h2 className="sorotan-title mb-0">
+                      <div className="d-flex align-items-baseline">
+                        <span>SOROTAN</span>
+                        <span className="yang-text ml-2">yang</span>
+                      </div>
+                      <span className="d-block">BISA KAMU</span>
+                      <span className="d-block">KUNJUNGI</span>
+                    </h2>
+                  </div>
+                </Col>
+                <Col xs={12} md={8} className="mt-4 mt-md-0 px-1">
+                  <div className="large-box">
+                    {/* Large highlight box */}
+                  </div>
+                </Col>
+              </Row>
             </Col>
           </Row>
-          <Row className="justify-content-center mx-0">
-            <Col xs={12} sm={6} md={4} className="mb-4">
-              <Card className="sorotan-card h-100">
-                <Card.Img variant="top" src="https://picsum.photos/id/50/600/400" />
-                <Card.Body>
-                  <Card.Title>Seminar Teknologi</Card.Title>
-                  <Card.Text>
-                    Seminar teknologi terkini dengan pembicara dari industri teknologi terkemuka.
-                  </Card.Text>
-                </Card.Body>
-                <Card.Footer className="bg-white border-0">
-                  <Button as={Link} to="/berita" variant="outline-primary" size="sm">
-                    Selengkapnya
-                  </Button>
-                </Card.Footer>
-              </Card>
-            </Col>
-            <Col xs={12} sm={6} md={4} className="mb-4">
-              <Card className="sorotan-card h-100">
-                <Card.Img variant="top" src="https://picsum.photos/id/51/600/400" />
-                <Card.Body>
-                  <Card.Title>Workshop Programming</Card.Title>
-                  <Card.Text>
-                    Workshop pemrograman untuk meningkatkan keterampilan teknis mahasiswa.
-                  </Card.Text>
-                </Card.Body>
-                <Card.Footer className="bg-white border-0">
-                  <Button as={Link} to="/berita" variant="outline-primary" size="sm">
-                    Selengkapnya
-                  </Button>
-                </Card.Footer>
-              </Card>
-            </Col>
-            <Col xs={12} sm={6} md={4} className="mb-4">
-              <Card className="sorotan-card h-100">
-                <Card.Img variant="top" src="https://picsum.photos/id/52/600/400" />
-                <Card.Body>
-                  <Card.Title>Kunjungan Industri</Card.Title>
-                  <Card.Text>
-                    Kunjungan ke perusahaan teknologi untuk memperluas wawasan mahasiswa.
-                  </Card.Text>
-                </Card.Body>
-                <Card.Footer className="bg-white border-0">
-                  <Button as={Link} to="/berita" variant="outline-primary" size="sm">
-                    Selengkapnya
-                  </Button>
-                </Card.Footer>
-              </Card>
-            </Col>
-          </Row>
-          <Row className="justify-content-center mx-0">
-            <Col xs={12} className="text-center mt-4">
-              <Button as={Link} to="/berita" variant="primary">
-                Lihat Semua Kegiatan
-              </Button>
+          <Row className="justify-content-center mx-0 mb-3">
+            <Col xs={11} sm={11} md={11} lg={11.5} xl={10.5} className="px-0">
+              <Row className="mx-0">
+                <Col xs={12} md={4} className="mb-4 mb-md-0 px-1">
+                  <div className="medium-box">
+                    {/* Medium highlight box 1 */}
+                  </div>
+                </Col>
+                <Col xs={12} md={4} className="mb-4 mb-md-0 px-1">
+                  <div className="medium-box">
+                    {/* Medium highlight box 2 */}
+                  </div>
+                </Col>
+                <Col xs={12} md={4} className="px-1">
+                  <div className="large-box">
+                    {/* Large highlight box */}
+                  </div>
+                </Col>
+              </Row>
             </Col>
           </Row>
         </Container>

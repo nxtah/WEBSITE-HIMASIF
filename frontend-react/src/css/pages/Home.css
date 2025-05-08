@@ -367,47 +367,147 @@
 
 /* Pengurus Home Section */
 .pengurus-home-section {
-  background-color: #f8f9fa;
-}
-
-.pengurus-card {
-  border: none;
-  border-radius: 10px;
+  background-color: var(--blue-dark);
+  color: white;
   overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.pengurus-card:hover {
-  transform: translateY(-10px);
+.pengurus-title-container {
+  margin-bottom: 2rem;
 }
 
-.pengurus-img {
-  height: 300px;
-  object-fit: cover;
-  border-bottom: 5px solid #3498db;
+.pengurus-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.total-text {
+  font-family: 'Saol', sans-serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 300;
+  margin-bottom: -1rem; /* Increased negative margin to bring closer to pengurus-text */
+  line-height: 0.9;
+}
+
+.pengurus-text {
+  font-family: 'Black', sans-serif;
+  font-size: clamp(6rem, 12vw, 10rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.5rem; /* Added margin-bottom to control spacing with stats */
+}
+
+.pengurus-stat {
+  margin: 0.2rem 0; /* Reduced margin to bring stats closer */
+}
+
+.stat-number {
+  font-family: 'Black', sans-serif;
+  font-size: clamp(6rem, 12vw, 11rem);
+  font-weight: 700;
+  margin-bottom: 0.1rem;
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+}
+
+.stat-desc {
+  font-family: 'Saol', sans-serif;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-weight: 300;
+  margin: 0;
 }
 
 /* Sorotan Home Section */
 .sorotan-home-section {
-  background-color: white;
-}
-
-.sorotan-card {
-  border: none;
-  border-radius: 10px;
+  background-color: var(--teal-dark);
+  min-height: 100vh;
+  position: relative;
   overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 2rem 0 0 0;
+}
+
+.sorotan-title-container {
+  padding: 0.5rem 0;
+}
+
+.sorotan-title {
+  font-family: 'Black', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--cyan-light);
+  text-align: left;
+}
+
+.sorotan-title .yang-text {
+  font-family: 'Saol', sans-serif;
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem); /* Half the size of the parent font */
+  font-weight: normal;
+  margin-left: 0.5rem;
+}
+
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
+.sorotan-home-section .container-fluid {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  max-width: 95%;
+}
+
+.sorotan-home-section .row {
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Custom height class for sorotan section */
+.h-45 {
+  height: 45% !important;
+}
+
+.large-box {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  height: 100%;
+  width: 100%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 0;
+  min-height: 300px;
 }
 
-.sorotan-card:hover {
-  transform: translateY(-10px);
+.large-box:hover {
+  transform: translateY(-5px);
 }
 
-.sorotan-card .card-img-top {
-  height: 200px;
-  object-fit: cover;
+.medium-box {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  height: 100%;
+  width: 100%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 0;
+  min-height: 300px;
+}
+
+.medium-box:hover {
+  transform: translateY(-5px);
 }
 
 /* Responsive adjustments */
@@ -441,6 +541,45 @@
 
   .periode-description {
     font-size: 1.4rem;
+  }
+
+  /* Pengurus section responsive styles for extra large screens */
+  .total-text {
+    font-size: 5.5rem;
+    margin-bottom: -1.5rem; /* Increased negative margin for larger screens */
+  }
+
+  .pengurus-text {
+    font-size: 11rem;
+    margin-bottom: 0.3rem; /* Reduced margin for larger screens */
+  }
+
+  .stat-number {
+    font-size: 12rem;
+    margin-bottom: 0;
+    line-height: 0.85;
+  }
+
+  .stat-desc {
+    font-size: 2.5rem;
+  }
+
+  .pengurus-stat {
+    margin: 0.1rem 0; /* Further reduced margin for larger screens */
+  }
+
+  /* Sorotan section responsive styles for extra large screens */
+  .sorotan-title {
+    font-size: 4rem;
+  }
+
+  .sorotan-title .yang-text {
+    font-size: 2rem;
+    margin-left: 0.8rem;
+  }
+
+  .sorotan-title-container {
+    padding: 1.5rem 0;
   }
 }
 
@@ -508,6 +647,25 @@
   .periode-year {
     font-size: clamp(7rem, 11vw, 11rem);
   }
+
+  /* Pengurus section responsive styles for large screens */
+  .total-text {
+    font-size: 5rem;
+  }
+
+  .pengurus-text {
+    font-size: 10rem;
+  }
+
+  .stat-number {
+    font-size: 11rem;
+    margin-bottom: 0;
+    line-height: 0.85;
+  }
+
+  .stat-desc {
+    font-size: 2.3rem;
+  }
 }
 
 @media (max-width: 991px) {
@@ -560,11 +718,35 @@
   .periode-description {
     font-size: 1.2rem;
   }
+
+  /* Pengurus section responsive styles for medium screens */
+  .total-text {
+    font-size: 4.5rem;
+  }
+
+  .pengurus-text {
+    font-size: 9rem;
+  }
+
+  .stat-number {
+    font-size: 10rem;
+    margin-bottom: 0;
+    line-height: 0.85;
+  }
+
+  .stat-desc {
+    font-size: 2.1rem;
+  }
 }
 
 @media (max-width: 767px) {
-  .home-section, .foto-home-section, .periode-home-section, .divider-home-section {
+  .home-section, .foto-home-section, .periode-home-section, .divider-home-section, .pengurus-home-section {
     padding: 60px 0;
+    min-height: 100vh;
+  }
+
+  .sorotan-home-section {
+    padding: 60px 0 0 0;
     min-height: 100vh;
   }
 
@@ -632,14 +814,64 @@
   .periode-title-wrapper {
     padding-top: 0;
   }
+
+  /* Pengurus section responsive styles */
+  .total-text {
+    font-size: 4rem;
+    margin-bottom: -0.8rem; /* Increased negative margin */
+  }
+
+  .pengurus-text {
+    font-size: 8rem;
+    margin-bottom: 0.3rem; /* Reduced margin */
+  }
+
+  .stat-number {
+    font-size: 8.5rem;
+    margin-bottom: 0;
+    line-height: 0.85;
+  }
+
+  .stat-desc {
+    font-size: 1.9rem;
+  }
+
+  .pengurus-stat {
+    margin: 0.2rem 0; /* Reduced margin */
+  }
+
+  /* Sorotan section responsive styles */
+  .sorotan-title {
+    font-size: 3rem;
+  }
+
+  .sorotan-title .yang-text {
+    font-size: 1.5rem;
+    margin-left: 0.6rem;
+  }
+
+  .sorotan-title-container {
+    padding: 1rem 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .large-box, .medium-box {
+    margin-bottom: 0;
+  }
 }
 
 /* Fix for mobile devices to ensure full height */
 @media (max-width: 575px) {
-  .home-section, .foto-home-section, .periode-home-section, .divider-home-section {
+  .home-section, .foto-home-section, .periode-home-section, .divider-home-section, .pengurus-home-section {
     min-height: 100vh;
     height: auto;
     padding: 80px 0;
+  }
+
+  .sorotan-home-section {
+    min-height: 100vh;
+    height: auto;
+    padding: 80px 0 0 0;
   }
 
   .home-section-header {
@@ -720,6 +952,70 @@
     padding-top: 0;
     margin-bottom: 2rem;
   }
+
+  /* Pengurus section responsive styles for small screens */
+  .total-text {
+    font-size: 3.5rem;
+    margin-bottom: -0.7rem; /* Increased negative margin */
+  }
+
+  .pengurus-text {
+    font-size: 7rem;
+    margin-bottom: 0.5rem; /* Added margin */
+  }
+
+  .stat-number {
+    font-size: 7rem;
+    margin-bottom: 0;
+    line-height: 0.85;
+  }
+
+  .stat-desc {
+    font-size: 1.7rem;
+  }
+
+  .pengurus-stat {
+    margin: 1rem 0; /* Reduced margin */
+  }
+
+  /* Sorotan section responsive styles for small screens */
+  .sorotan-title {
+    font-size: 2.5rem;
+    text-align: left;
+  }
+
+  .sorotan-title .yang-text {
+    font-size: 1.25rem;
+    margin-left: 0.4rem;
+  }
+
+  .sorotan-title-container {
+    padding: 0.5rem 0;
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+
+  .large-box, .medium-box {
+    min-height: 250px;
+    margin-bottom: 0;
+  }
+
+  .sorotan-home-section .container-fluid {
+    padding-top: 0.5rem;
+    padding-bottom: 1rem !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    max-width: 96%;
+  }
+
+  .sorotan-home-section .mb-3 {
+    margin-bottom: 0.5rem !important;
+  }
+
+  .sorotan-home-section .px-1 {
+    padding-left: 0.3rem !important;
+    padding-right: 0.3rem !important;
+  }
 }
 
 /* Extra small devices */
@@ -764,11 +1060,74 @@
   .periode-description-wrapper {
     width: 100%;
   }
+
+  /* Pengurus section responsive styles for extra small screens */
+  .total-text {
+    font-size: 3rem;
+    margin-bottom: -0.6rem; /* Increased negative margin */
+  }
+
+  .pengurus-text {
+    font-size: 6rem;
+    margin-bottom: 0.4rem; /* Added margin */
+  }
+
+  .stat-number {
+    font-size: 6rem;
+    margin-bottom: 0;
+    line-height: 0.85;
+  }
+
+  .stat-desc {
+    font-size: 1.5rem;
+  }
+
+  .pengurus-stat {
+    margin: 0.8rem 0; /* Reduced margin */
+  }
+
+  /* Sorotan section responsive styles for extra small screens */
+  .sorotan-title {
+    font-size: 2rem;
+  }
+
+  .sorotan-title .yang-text {
+    font-size: 1rem;
+    margin-left: 0.3rem;
+  }
+
+  .sorotan-title-container {
+    padding: 0.3rem 0;
+    margin-bottom: 0.8rem;
+    width: 100%;
+  }
+
+  .large-box, .medium-box {
+    min-height: 180px;
+    margin-bottom: 0;
+  }
+
+  .sorotan-home-section .container-fluid {
+    padding-top: 0.3rem;
+    padding-bottom: 0.8rem !important;
+    padding-left: 0.3rem !important;
+    padding-right: 0.3rem !important;
+    max-width: 97%;
+  }
+
+  .sorotan-home-section .mb-3 {
+    margin-bottom: 0.3rem !important;
+  }
+
+  .sorotan-home-section .px-1 {
+    padding-left: 0.2rem !important;
+    padding-right: 0.2rem !important;
+  }
 }
 
 /* Fix for iOS Safari 100vh issue */
 @supports (-webkit-touch-callout: none) {
-  .home-section, .foto-home-section, .periode-home-section, .divider-home-section {
+  .home-section, .foto-home-section, .periode-home-section, .divider-home-section, .pengurus-home-section, .sorotan-home-section {
     height: -webkit-fill-available;
   }
 
