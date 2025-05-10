@@ -3,7 +3,6 @@ import { Container, Row, Col } from 'react-bootstrap';
 import '../css/pages/VisiMisi.css';
 
 const VisiMisi = () => {
-  // Sample data for misi
   const misiItems = [
     {
       id: 1,
