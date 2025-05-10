@@ -1,8 +1,8 @@
 /* Footer Styles */
 .footer {
-  background-color: #002A42; /* Exact color from image */
+  background-color: var(--blue-dark);
   color: #fff;
-  min-height: 100vh;
+  height: 100vh;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -14,6 +14,7 @@
   padding: 40px 0;
   display: flex;
   align-items: flex-start;
+  height: 100%;
 }
 
 /* Footer Left - Slogan */
@@ -22,6 +23,8 @@
   flex-direction: column;
   align-items: flex-start;
   padding-left: 40px;
+  position: relative;
+  /* width controlled by Bootstrap Col */
 }
 
 .footer-slogan-label {
@@ -34,39 +37,18 @@
 
 .footer-slogan {
   font-family: 'Black', sans-serif;
+  font-size: 10rem;
+  line-height: 0.85;
+  color: white;
+  letter-spacing: -0.03em;
   text-align: left;
-}
-
-.slogan-we {
-  font-size: 10rem;
-  line-height: 0.85;
-  color: white;
-  letter-spacing: -0.03em;
-  margin-bottom: -20px;
-}
-
-.slogan-make {
-  font-size: 10rem;
-  line-height: 0.85;
-  color: white;
-  letter-spacing: -0.03em;
-  margin-bottom: -20px;
-}
-
-.slogan-happen {
-  display: flex;
-  align-items: center;
-  font-size: 10rem;
-  line-height: 0.85;
-  color: white;
-  letter-spacing: -0.03em;
+  margin-bottom: 0;
 }
 
 .slogan-it {
   font-family: 'Saol', sans-serif;
-  font-size: 10rem;
-  margin-right: 10px;
   font-weight: 300;
+  font-size: 10rem;
 }
 
 /* Footer Divider */
@@ -75,7 +57,8 @@
   display: flex;
   justify-content: center;
   width: 1px;
-  margin: 0 40px;
+  margin: 0 40px 0 20px;
+  z-index: 10;
   align-self: stretch;
 }
 
@@ -86,6 +69,27 @@
   position: absolute;
   top: 0;
   bottom: 0;
+  z-index: 10;
+}
+
+.footer-horizontal-divider {
+  height: 1px;
+  background-color: white;
+  width: calc(100% + 20px);
+  margin: 40px 0;
+  position: relative;
+  margin-left: auto;
+  z-index: 5;
+}
+
+.footer-horizontal-divider::after {
+  content: "";
+  position: absolute;
+  right: -40px;
+  top: 0;
+  width: 80px;
+  height: 1px;
+  background-color: white;
 }
 
 /* Footer Right - Links */
@@ -93,6 +97,10 @@
   padding-top: 0;
   display: flex;
   flex-direction: column;
+  /* width controlled by Bootstrap Col */
+  padding-right: 40px;
+  padding-left: 40px;
+  align-self: flex-start;
 }
 
 .acara-label {
@@ -114,11 +122,12 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  width: 100%;
 }
 
 .footer-links-row {
-  display: flex;
-  gap: 40px;
+  margin-bottom: 20px;
+  width: 100%;
 }
 
 .footer-link-item {
@@ -154,46 +163,71 @@
 }
 
 /* Footer Number */
+.footer-number-container {
+  position: relative;
+  overflow: hidden;
+  margin-top: 0;
+  width: 100%;
+  height: auto;
+}
+
 .footer-number {
   font-family: 'Black', sans-serif;
   font-size: 30rem;
-  line-height: 0.5;
+  line-height: 0.8;
   color: #2E8AFF;
-  opacity: 0.3;
-  position: absolute;
-  bottom: -100px;
-  left: 0;
-  right: 0;
-  text-align: center;
-  overflow: hidden;
-  z-index: 1;
+  opacity: 1;
   pointer-events: none;
+  white-space: nowrap;
+  position: absolute;
+  bottom: -400px;
+  left: 0;
+  text-align: left;
+  padding-left: 40px;
+  width: auto;
+  overflow: visible;
 }
 
 /* Mobile responsive adjustments */
 @media (max-width: 1400px) {
-  .slogan-we, .slogan-make, .slogan-happen, .slogan-it {
+  .footer-slogan {
     font-size: 9rem;
+  }
+
+  .slogan-it {
+    font-size: 9rem;
+  }
+
+  .footer-number-container {
+    height: auto;
   }
 
   .footer-number {
     font-size: 28rem;
-    bottom: -90px;
+    bottom: -370px;
   }
 }
 
 @media (max-width: 1200px) {
-  .slogan-we, .slogan-make, .slogan-happen, .slogan-it {
+  .footer-slogan {
+    font-size: 8rem;
+  }
+
+  .slogan-it {
     font-size: 8rem;
   }
 
   .footer-divider-col {
-    margin: 0 30px;
+    margin: 0 30px 0 15px;
+  }
+
+  .footer-number-container {
+    height: auto;
   }
 
   .footer-number {
-    font-size: 24rem;
-    bottom: -80px;
+    font-size: 25rem;
+    bottom: -330px;
   }
 }
 
@@ -202,12 +236,16 @@
     padding: 30px 0;
   }
 
-  .slogan-we, .slogan-make, .slogan-happen, .slogan-it {
-    font-size: 7rem;
+  .footer-slogan {
+    font-size: 6.5rem;
+  }
+
+  .slogan-it {
+    font-size: 6.5rem;
   }
 
   .footer-divider-col {
-    margin: 0 20px;
+    margin: 0 25px 0 10px;
   }
 
   .acara-box {
@@ -216,16 +254,31 @@
   }
 
   .footer-links-row {
-    gap: 30px;
+    margin-bottom: 15px;
+  }
+
+  .footer-number-container {
+    height: auto;
   }
 
   .footer-number {
-    font-size: 20rem;
-    bottom: -70px;
+    font-size: 22rem;
+    bottom: -290px;
   }
 }
 
 @media (max-width: 768px) {
+  .footer-horizontal-divider {
+    width: 100%;
+  }
+
+  .footer-horizontal-divider::after {
+    display: none;
+  }
+
+  .footer-right {
+    padding-left: 0;
+  }
   .footer-main {
     padding: 30px 20px;
     flex-direction: column;
@@ -237,8 +290,14 @@
     width: 100%;
   }
 
-  .slogan-we, .slogan-make, .slogan-happen, .slogan-it {
-    font-size: 6rem;
+  .footer-slogan {
+    font-size: 5.5rem;
+    text-align: center;
+    width: 100%;
+  }
+
+  .slogan-it {
+    font-size: 5.5rem;
   }
 
   .footer-divider-col {
@@ -260,12 +319,20 @@
 
   .footer-links-row {
     width: 100%;
-    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+
+  .footer-number-container {
+    height: auto;
   }
 
   .footer-number {
-    font-size: 18rem;
-    bottom: -60px;
+    font-size: 20rem;
+    bottom: -260px;
+    text-align: center;
+    padding-left: 0;
+    left: 0;
+    right: 0;
   }
 }
 
@@ -274,8 +341,12 @@
     padding: 20px 15px;
   }
 
-  .slogan-we, .slogan-make, .slogan-happen, .slogan-it {
-    font-size: 5rem;
+  .footer-slogan {
+    font-size: 4.5rem;
+  }
+
+  .slogan-it {
+    font-size: 4.5rem;
   }
 
   .acara-box {
@@ -284,26 +355,62 @@
   }
 
   .footer-links-row {
-    gap: 20px;
+    margin-bottom: 10px;
   }
 
   .footer-link {
     font-size: 0.7rem;
   }
 
+  .footer-number-container {
+    height: auto;
+  }
+
   .footer-number {
-    font-size: 15rem;
-    bottom: -50px;
+    font-size: 16rem;
+    bottom: -210px;
   }
 }
 
 @media (max-width: 480px) {
-  .slogan-we, .slogan-make, .slogan-happen, .slogan-it {
-    font-size: 4rem;
+  .footer-slogan {
+    font-size: 3.5rem;
+  }
+
+  .slogan-it {
+    font-size: 3.5rem;
+  }
+
+  .footer-number-container {
+    height: auto;
+  }
+
+  .footer-number {
+    font-size: 14rem;
+    bottom: -180px;
+  }
+}
+
+@media (max-width: 375px) {
+  .footer-slogan {
+    font-size: 3rem;
+  }
+
+  .slogan-it {
+    font-size: 3rem;
+  }
+
+  .footer-number-container {
+    height: auto;
   }
 
   .footer-number {
     font-size: 12rem;
-    bottom: -40px;
+    bottom: -150px;
+  }
+
+  .footer-slogan-label, .acara-label {
+    font-size: 0.7rem;
+    margin-bottom: 15px;
   }
 }

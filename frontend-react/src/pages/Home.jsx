@@ -328,8 +328,8 @@ const Home = () => {
               <Row className="justify-content-between mx-0">
                 <Col xs={12} md={4} className="text-center mb-3 mb-md-0">
                   <div className="pengurus-stat">
-                    <h3 className="stat-number">25</h3>
-                    <p className="stat-desc">anggota</p>
+                    <h3 className="stat-number">42</h3>
+                    <p className="stat-desc">pengurus</p>
                   </div>
                 </Col>
                 <Col xs={12} md={4} className="text-center mb-3 mb-md-0">
@@ -340,7 +340,7 @@ const Home = () => {
                 </Col>
                 <Col xs={12} md={4} className="text-center">
                   <div className="pengurus-stat">
-                    <h3 className="stat-number">17</h3>
+                    <h3 className="stat-number">22</h3>
                     <p className="stat-desc">program kerja</p>
                   </div>
                 </Col>
