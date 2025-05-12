@@ -40,11 +40,4 @@
   --blue-dark: #023047;
   --teal-dark: #004346;
 
-  /* Color Aliases */
-  --primary: var(--blue-primary);
-  --secondary: var(--blue-dark);
-  --accent: var(--cyan-light);
-  --background: var(--white);
-  --highlight: var(--blue-light);
-  --dark: var(--teal-dark);
 }
