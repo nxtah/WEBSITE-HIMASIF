@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
 import { Link, useLocation } from 'react-router-dom';
 import '../css/components/Navbar.css';
+import gsap from 'gsap';
 
 // Custom NavLink component with letter animation
 const NavLinkWithHoverAnimation = ({ to, children, isActive }) => {
@@ -231,7 +232,7 @@ const HoverableNavDropdown = ({ title, id, children }) => {
         title={title}
         id={id}
         show={show}
-        className="custom-dropdown"
+        className="custom-dropdown no-caret"
       >
         {children}
       </NavDropdown>
@@ -241,14 +242,97 @@ const HoverableNavDropdown = ({ title, id, children }) => {
 
 const MainNavbar = () => {
   const location = useLocation();
+  const navbarRef = useRef(null);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
+  const [isAtTop, setIsAtTop] = useState(true);
+  const scrollThreshold = 50; // Minimum scroll amount before hiding/showing
 
   // Check if the current path matches the given path
   const isActive = (path) => {
     return location.pathname === path;
   };
 
+  useEffect(() => {
+    // Initialize GSAP animations
+    // Hide the navbar (move it up out of view)
+    const hideNavbar = () => {
+      gsap.to(navbarRef.current, {
+        y: -100, // Move up by 100px (adjust based on navbar height)
+        opacity: 0,
+        duration: 0.4,
+        ease: "power3.out",
+        onComplete: () => setIsVisible(false)
+      });
+    };
+
+    // Show the navbar (move it back into view)
+    const showNavbar = () => {
+      setIsVisible(true);
+      // First reset position if needed
+      gsap.set(navbarRef.current, {
+        y: -100,
+        opacity: 0
+      });
+      // Then animate down
+      gsap.to(navbarRef.current, {
+        y: 0,
+        opacity: 1,
+        duration: 0.5,
+        ease: "power2.out"
+      });
+    };
+
+    // Handle scroll events
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      // Update at-top state
+      setIsAtTop(currentScrollY <= 10);
+
+      // Don't trigger for small scroll amounts
+      if (Math.abs(currentScrollY - lastScrollY) < scrollThreshold) {
+        return;
+      }
+
+      // Determine scroll direction and position
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down & not at the top
+        if (isVisible) {
+          // Add a small delay before hiding to avoid flickering
+          setTimeout(() => {
+            // Check if we're still scrolling down
+            if (window.scrollY > lastScrollY) {
+              hideNavbar();
+            }
+          }, 100);
+        }
+      } else {
+        // Scrolling up or at the top
+        if (!isVisible) {
+          showNavbar();
+        }
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    // Clean up
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [lastScrollY, isVisible, isAtTop]);
+
   return (
-    <Navbar expand="lg" className="navbar-himasif" variant="dark">
+    <Navbar
+      expand="lg"
+      className={`navbar-himasif ${isVisible ? 'navbar-visible' : 'navbar-hidden'} ${isAtTop ? 'navbar-at-top' : ''}`}
+      variant="dark"
+      ref={navbarRef}
+    >
       <Container>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

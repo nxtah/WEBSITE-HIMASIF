@@ -37,7 +37,7 @@
   text-align: center;
   min-height: 100vh;
   overflow: hidden;
-  background-color: var(--blue-dark);
+  background-color: var(--white-blue);
 }
 
 .landing-content {
@@ -61,17 +61,18 @@
   margin-bottom: -20px;
   line-height: 0.8;
   letter-spacing: -0.03em;
-  color: white;
+  color: var(--blue-primary);
   position: relative;
   margin-top: -22vh;
 }
 
 .himasif-subtitle {
   font-family: 'Black', sans-serif;
-  font-size: clamp(1.4rem, 2.2vw, 2.5rem); /* Increased size */
+  font-size: clamp(1.4rem, 2.2vw, 2.5rem);
+  font-weight: 700;
   margin-bottom: 0;
   letter-spacing: -0.03em;
-  color: white;
+  color: var(--blue-primary);
   position: relative;
   white-space: nowrap;
   width: 100%;
@@ -122,7 +123,7 @@
 .copyright-text {
   font-family: 'Light', sans-serif;
   font-size: clamp(0.7rem, 1vw, 0.9rem);
-  color: white;
+  color: var(--blue-primary);
   margin-bottom: 0;
   letter-spacing: 0.02em;
 }
@@ -135,7 +136,7 @@
 .website-official-text {
   font-family: 'Light', sans-serif;
   font-size: clamp(0.7rem, 1vw, 0.9rem);
-  color: white;
+  color: var(--blue-primary);
   margin-bottom: 0;
   letter-spacing: 0.02em;
 }
@@ -152,8 +153,8 @@
 .scroll-arrow {
   width: 12px;
   height: 12px;
-  border-right: 2px solid white;
-  border-bottom: 2px solid white;
+  border-right: 2px solid var(--blue-primary);
+  border-bottom: 2px solid var(--blue-primary);
   transform: rotate(45deg);
   margin-bottom: 8px;
 }
@@ -194,10 +195,234 @@
   z-index: 1;
 }
 
+/* Proker Home Section */
+.proker-home-section {
+  min-height: 300vh; /* 3x the height of viewport */
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  background-color: var(--blue-primary);
+}
+
+.proker-parallax-container {
+  position: relative;
+  width: 100%;
+  height: 300vh; /* 3x the height of viewport */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 5vh; /* Reduced padding at the top to start images higher */
+}
+
+.proker-text-container {
+  position: absolute;
+  z-index: 5; /* Lower z-index so some images can appear above */
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none; /* Allow clicks to pass through */
+}
+
+.proker-content-wrapper {
+  position: absolute;
+  z-index: 15; /* Middle z-index - some images above, some below */
+  top: 15vh; /* Start at the top with some padding */
+  left: 5vw;
+  opacity: 1;
+  /* Position will be controlled by GSAP */
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add shadow to make text readable when overlapped */
+}
+
+.proker-number {
+  font-family: 'Black', sans-serif;
+  font-size: clamp(8rem, 15vw, 15rem);
+  font-weight: 900;
+  color: white;
+  line-height: 0.9;
+  display: inline-block;
+}
+
+.plus-sign {
+  font-family: 'Filson';
+  font-size: 10em;
+  color: white;
+  display: inline-block;
+  margin-left: 0.2rem;
+  line-height: 0.8;
+  position: relative;
+  top: 0;
+}
+
+.proker-title {
+  font-family: 'Filson', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+  letter-spacing: .25rem;
+  text-align: left;
+  color: white;
+  margin-top: 0.5rem;
+  position: relative;
+  opacity: 0.8;
+  width: 100%;
+  line-height: 1.2;
+}
+
+.proker-images-container {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  padding: 0 1rem;
+  margin-top: 0;
+  height: 100%; /* Take up full section height */
+  display: flex;
+  align-items: flex-start; /* Align from the top */
+  padding-top: 10vh; /* Add padding at the top */
+}
+
+.proker-images-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Spread out horizontally */
+  align-content: flex-start; /* Start from the top */
+  height: 100%;
+  position: relative;
+  padding-bottom: 20vh; /* Add padding at the bottom to avoid overlap with text */
+}
+
+.proker-image-col {
+  padding: 0.5rem;
+  opacity: 1;
+  will-change: transform;
+  position: absolute; /* Absolute positioning for grid-based layout */
+  width: 20%; /* Make images smaller */
+  transition: transform 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Add hover effect to images */
+.proker-image-col:hover {
+  transform: scale(1.05) !important; /* Slight scale on hover */
+  z-index: 40 !important; /* Bring to front on hover */
+}
+
+/* Initial positions will be set by GSAP */
+
+.proker-image {
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 15px;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  position: relative;
+  transform: rotate(calc(var(--random-rotate, 0) * 1deg));
+}
+
+/* Blue overlay for images */
+.proker-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 78, 146, 0.2), rgba(0, 78, 146, 0.5));
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Proker image styling is now handled in the JSX */
+
+/* Responsive styles for proker section */
+@media (max-width: 991px) {
+  .proker-home-section {
+    min-height: 300vh;
+  }
+
+  .proker-parallax-container {
+    height: 300vh;
+    padding-top: 10vh;
+  }
+
+  .proker-number {
+    font-size: clamp(7rem, 14vw, 14rem);
+  }
+
+  .proker-title {
+    font-size: 0.85rem;
+    letter-spacing: .22rem;
+    text-align: left;
+  }
+
+  .proker-image-col {
+    padding: 1.5rem;
+    margin-bottom: 4vh;
+  }
+}
+
+@media (max-width: 767px) {
+  .proker-home-section {
+    min-height: 300vh;
+  }
+
+  .proker-parallax-container {
+    height: 300vh;
+    padding-top: 8vh;
+  }
+
+  .proker-number {
+    font-size: clamp(6rem, 13vw, 13rem);
+  }
+
+  .proker-title {
+    font-size: 0.8rem;
+    letter-spacing: .2rem;
+  }
+
+  .proker-image-col {
+    padding: 1rem;
+    margin-bottom: 3vh;
+  }
+}
+
+@media (max-width: 575px) {
+  .proker-home-section {
+    min-height: 300vh;
+    padding: 60px 0;
+  }
+
+  .proker-parallax-container {
+    height: 300vh;
+    padding-top: 5vh;
+  }
+
+  .proker-images-container {
+    height: 240vh;
+  }
+
+  .proker-number {
+    font-size: clamp(5rem, 12vw, 12rem);
+  }
+
+  .proker-title {
+    font-size: 0.75rem;
+    letter-spacing: .18rem;
+  }
+
+  .proker-image-col {
+    padding: 0.8rem;
+    margin-bottom: 2vh;
+  }
+}
+
 /* Divider Home Section */
 .divider-home-section {
-  background-color: var(--blue-dark);
-  color: white;
+  background-color: var(--white-blue);
+  color: var(--blue-primary);
   overflow: hidden;
   position: relative;
   width: 100%;
@@ -247,7 +472,7 @@
 /* Outline style for the second row text */
 .divider-text-row:nth-child(2) .divider-text {
   color: transparent;
-  -webkit-text-stroke: 2px white;
+  -webkit-text-stroke: 2px var(--blue-primary);
 }
 
 @media (max-width: 768px) {
@@ -261,7 +486,7 @@
 
   /* Adjust outline thickness for smaller screens */
   .divider-text-row:nth-child(2) .divider-text {
-    -webkit-text-stroke: 1.5px white;
+    -webkit-text-stroke: 1.5px var(--blue-primary);
   }
 }
 
@@ -276,7 +501,7 @@
 
   /* Adjust outline thickness for mobile screens */
   .divider-text-row:nth-child(2) .divider-text {
-    -webkit-text-stroke: 1px white;
+    -webkit-text-stroke: 1px var(--blue-primary);
   }
 }
 
@@ -287,11 +512,11 @@
 
 /* Periode Home Section */
 .periode-home-section {
-  background-color: var(--blue-dark);
+  background-color: var(--white-blue);
   min-height: 100vh;
   width: 100%;
   position: relative;
-  color: white;
+  color: var(--blue-primary);
   display: flex;
   align-items: center;
   padding: 0;
@@ -307,7 +532,7 @@
   font-family: 'Black', sans-serif;
   font-size: clamp(8rem, 12vw, 12rem);
   font-weight: 700;
-  color: white;
+  color: var(--blue-primary);
   margin-bottom: -40px;
   text-align: left;
   width: 100%;
@@ -325,7 +550,7 @@
 .periode-year {
   font-family: 'Saol', sans-serif;
   font-size: clamp(8rem, 12vw, 12rem);
-  color: white;
+  color: var(--blue-primary);
   font-weight: 300;
   text-align: left;
   width: 100%;
@@ -362,15 +587,15 @@
   font-family: 'Light', sans-serif;
   font-size: 1.3rem;
   line-height: 1.6;
-  color: white;
+  color: var(--blue-primary);
   margin-bottom: 20px;
   word-spacing: -0.1em;
 }
 
 /* Pengurus Home Section */
 .pengurus-home-section {
-  background-color: var(--blue-dark);
-  color: white;
+  background-color: var(--white-blue);
+  color: var(--blue-primary);
   overflow: hidden;
   position: relative;
   width: 100%;
@@ -742,7 +967,7 @@
 }
 
 @media (max-width: 767px) {
-  .home-section, .foto-home-section, .periode-home-section, .divider-home-section, .pengurus-home-section {
+  .home-section, .foto-home-section, .periode-home-section, .divider-home-section, .pengurus-home-section, .proker-home-section {
     padding: 60px 0;
     min-height: 100vh;
   }
@@ -864,7 +1089,7 @@
 
 /* Fix for mobile devices to ensure full height */
 @media (max-width: 575px) {
-  .home-section, .foto-home-section, .periode-home-section, .divider-home-section, .pengurus-home-section {
+  .home-section, .foto-home-section, .periode-home-section, .divider-home-section, .pengurus-home-section, .proker-home-section {
     min-height: 100vh;
     height: auto;
     padding: 80px 0;
@@ -1129,7 +1354,7 @@
 
 /* Fix for iOS Safari 100vh issue */
 @supports (-webkit-touch-callout: none) {
-  .home-section, .foto-home-section, .periode-home-section, .divider-home-section, .pengurus-home-section, .sorotan-home-section {
+  .home-section, .foto-home-section, .periode-home-section, .divider-home-section, .pengurus-home-section, .proker-home-section, .sorotan-home-section {
     height: -webkit-fill-available;
   }
 

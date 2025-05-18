@@ -8,7 +8,7 @@
 }
 
 @font-face {
-  font-family: 'Light';
+  font-family: 'Canela';
   src: url('./assets/fonts/Light.otf') format('opentype');
   font-display: swap;
 }
@@ -31,13 +31,26 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Filson';
+  src: url('./assets/fonts/Filson.otf') format('opentype');
+  font-display: swap;
+}
 
 :root {
-  --white: #fff;
-  --blue-light: #C3E3FD;
-  --blue-primary: #2873FF;
-  --cyan-light: #D3FDFF;
-  --blue-dark: #023047;
-  --teal-dark: #004346;
 
+  --blue-light: #6dabf1;
+  --blue-primary: #072AC8;
+  --blue-dark: #0a0552;
+  --cyan-light: #D3FDFF;
+  --teal-dark: #004346;
+  --grey-text: #666666;
+  --grey-light: #aaaaaa;
+  --grey-dark: #444444;
+  --white-blue: #e3f2fd;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

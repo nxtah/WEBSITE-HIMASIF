@@ -2,12 +2,147 @@ import React, { useEffect, useRef } from 'react';
 import { Container, Row, Col, Button, Card, Stack } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import '../css/pages/Home.css';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 // Set the document title
 document.title = 'HIMASIF - Himpunan Mahasiswa Sistem Informasi';
 
+// Program Kerja Images - Minimal data structure
+const prokerImages = [
+  { id: 1, url: 'https://picsum.photos/id/1/300/300', rot: -3 },
+  { id: 2, url: 'https://picsum.photos/id/2/300/300', rot: 2 },
+  { id: 3, url: 'https://picsum.photos/id/3/300/300', rot: -2 },
+  { id: 4, url: 'https://picsum.photos/id/4/300/300', rot: 4 },
+  { id: 5, url: 'https://picsum.photos/id/5/300/300', rot: -5 },
+  { id: 6, url: 'https://picsum.photos/id/6/300/300', rot: 1 },
+  { id: 7, url: 'https://picsum.photos/id/7/300/300', rot: -1 },
+  { id: 8, url: 'https://picsum.photos/id/8/300/300', rot: 3 },
+  { id: 9, url: 'https://picsum.photos/id/9/300/300', rot: -4 },
+  { id: 10, url: 'https://picsum.photos/id/10/300/300', rot: 2 }
+];
+
 const Home = () => {
   const dividerRef = useRef(null);
+  const prokerTextRef = useRef(null);
+  const prokerImagesRef = useRef(null);
+
+  // Register ScrollTrigger plugin
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Proker section animation
+  useEffect(() => {
+    if (!prokerTextRef.current || !prokerImagesRef.current) return;
+
+    // Get the text element
+    const textElement = prokerTextRef.current.querySelector('.proker-content-wrapper');
+
+    // Calculate the section height to ensure text reaches the bottom
+    const sectionHeight = document.querySelector("#proker-home").offsetHeight;
+
+    // Make the text follow the scroll all the way to the bottom of the section
+    gsap.fromTo(
+      textElement,
+      { top: "15vh" }, // Start position (from CSS)
+      {
+        top: sectionHeight - textElement.offsetHeight - 50, // End at the bottom of the section with some padding
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#proker-home",
+          start: "top top",
+          end: "bottom bottom",
+          scrub: true, // Exact scroll following
+        }
+      }
+    );
+
+    // Get all image columns for animations
+    const imageColumns = prokerImagesRef.current.querySelectorAll('.proker-image-col');
+
+    // Calculate positions to ensure images don't stack
+    // Create a grid system to prevent overlap
+    const gridCells = [];
+    const gridSize = 40; // vh units - size of each grid cell
+    const gridColumns = 4; // Number of columns in our grid
+
+    // Create a grid of available positions
+    for (let row = 0; row < 7; row++) { // 7 rows to cover 280vh
+      for (let col = 0; col < gridColumns; col++) {
+        gridCells.push({
+          row: row,
+          col: col,
+          taken: false
+        });
+      }
+    }
+
+    // Shuffle the grid cells for random assignment
+    const shuffledGrid = [...gridCells].sort(() => Math.random() - 0.5);
+
+    // Assign positions to each image
+    imageColumns.forEach((col, index) => {
+      // Get a grid cell that's not taken yet
+      const gridCell = shuffledGrid[index % shuffledGrid.length];
+      gridCell.taken = true;
+
+      // Calculate position based on grid
+      const verticalPosition = gridCell.row * gridSize;
+      const horizontalBase = (gridCell.col / gridColumns) * 100; // Convert to percentage
+
+      // Add some randomness within the cell
+      const verticalOffset = (Math.random() * 15) - 5; // Small random vertical adjustment
+      const horizontalOffset = (Math.random() * 15) - 5; // Small random horizontal adjustment
+
+      // Generate random values for styling
+      const randomScale = 0.7 + (Math.random() * 0.6); // Scale between 0.7 and 1.3
+      const randomRotation = Math.random() * 20 - 10; // Rotation between -10 and 10 degrees
+
+      // Apply random rotation directly to the element
+      col.style.transform = `rotate(${randomRotation}deg)`;
+
+      // Determine if this image should overlap with text (only for bottom rows)
+      const isOverText = gridCell.row >= 5 && Math.random() > 0.6; // Only bottom rows can overlap text
+
+      // Calculate final position with grid + small random offset
+      const finalVerticalPosition = verticalPosition + verticalOffset;
+      const finalHorizontalPosition = horizontalBase + horizontalOffset;
+
+      // Set initial state - start below their final position
+      gsap.set(col, {
+        y: (finalVerticalPosition + 200) + 'vh', // Start well below final position
+        left: finalHorizontalPosition + '%', // Set horizontal position as percentage
+        opacity: 0,
+        scale: randomScale
+      });
+
+      // Determine z-index based on whether it should overlap text
+      if (isOverText) {
+        // Position to overlap with text (which is at the bottom)
+        col.style.zIndex = "35"; // Higher than text
+      } else {
+        // Random z-index for non-overlapping images
+        col.style.zIndex = Math.floor(Math.random() * 10) + 5;
+      }
+
+      // Create individual animation for each image with different timing
+      gsap.to(col, {
+        y: finalVerticalPosition + 'vh', // Final position based on grid
+        opacity: 1,
+        ease: "power1.out",
+        scrollTrigger: {
+          trigger: "#proker-home",
+          start: "top 90%",
+          end: "bottom center",
+          scrub: 0.8 + (Math.random() * 0.4), // Slightly random scrub between 0.8 and 1.2
+        }
+      });
+    });
+
+    return () => {
+      // Clean up ScrollTrigger instances
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, []);
 
   useEffect(() => {
     if (!dividerRef.current) return;
@@ -240,6 +375,49 @@ const Home = () => {
         <div className="foto-fullscreen-bg"></div>
       </section>
 
+      {/* Proker Home Section */}
+      <section id="proker-home" className="proker-home-section full-screen-section">
+        <div className="proker-parallax-container">
+          <div className="proker-text-container" ref={prokerTextRef}>
+            <Container fluid className="h-100">
+              <Row className="h-100">
+                <Col xs={12} className="h-100 position-relative">
+                  {/* This will be controlled by GSAP for sticky effect */}
+                  <div className="proker-content-wrapper ms-4 ms-md-5">
+                    <div className="d-flex align-items-start position-relative">
+                      <span className="proker-number">20</span>
+                      <div className="d-flex flex-column">
+                        <span className="plus-sign">+</span>
+                        <p className="proker-title">Program<br />Kerja</p>
+                      </div>
+                    </div>
+                  </div>
+                </Col>
+              </Row>
+            </Container>
+          </div>
+          <div className="proker-images-container" ref={prokerImagesRef}>
+            <Container fluid>
+              <Row className="proker-images-row">
+                {prokerImages.map(img => (
+                  <Col key={img.id} xs={6} md={4} lg={3} className="proker-image-col">
+                    <div
+                      className="proker-image"
+                      style={{
+                        backgroundImage: `url(${img.url})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        transform: `rotate(${img.rot}deg)`
+                      }}
+                    ></div>
+                  </Col>
+                ))}
+              </Row>
+            </Container>
+          </div>
+        </div>
+      </section>
+
       {/* Periode Home Section */}
       <section id="periode-home" className="periode-home-section vh-100">
         <Container fluid>
@@ -262,7 +440,7 @@ const Home = () => {
                   HIMASIF adalah organisasi mahasiswa yang mewadahi aspirasi, pengembangan keilmuan, dan kreativitas mahasiswa Sistem Informasi dalam bidang teknologi, manajemen, dan komunitas akademik.
                 </p>
                 <div className="mt-3">
-                  <Button as={Link} to="/tentang-himasif" variant="outline-light" size="lg">
+                  <Button as={Link} to="/tentang-himasif" variant="outline-primary" size="lg">
                     Selengkapnya
                   </Button>
                 </div>
@@ -285,7 +463,7 @@ const Home = () => {
                   HIMASIF adalah organisasi mahasiswa yang mewadahi aspirasi, pengembangan keilmuan, dan kreativitas mahasiswa Sistem Informasi dalam bidang teknologi, manajemen, dan komunitas akademik.
                 </p>
                 <div className="mt-4 text-center">
-                  <Button as={Link} to="/tentang-himasif" variant="outline-light" size="lg">
+                  <Button as={Link} to="/tentang-himasif" variant="outline-primary" size="lg">
                     Selengkapnya
                   </Button>
                 </div>

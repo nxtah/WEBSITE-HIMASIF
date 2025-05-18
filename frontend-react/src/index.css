@@ -1,11 +1,14 @@
 :root {
 
-  --white: #fff;
-  --blue-light: #C3E3FD;
-  --blue-primary: #2873FF;
+  --blue-light: #6dabf1;
+  --blue-primary: #072AC8;
+  --blue-dark: #0a0552;
   --cyan-light: #D3FDFF;
-  --blue-dark: #023047;
   --teal-dark: #004346;
+  --grey-text: #666666;
+  --grey-light: #aaaaaa;
+  --grey-dark: #444444;
+  --white-blue: #b4e0ff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -16,63 +19,37 @@
 /* Font declarations */
 @font-face {
   font-family: 'Lugoj';
-  src: url('/fonts/Lugoj.woff2') format('woff2');
+  src: url('/fonts/Lugoj.otf') format('opentype');
   font-display: swap;
 }
 
 @font-face {
   font-family: 'Saol';
-  src: url('/fonts/Saol.woff2') format('woff2');
+  src: url('/fonts/Saol.ttf') format('truetype');
   font-display: swap;
 }
 
 @font-face {
   font-family: 'Black';
-  src: url('/fonts/Black.woff2') format('woff2');
+  src: url('/fonts/Black.otf') format('opentype');
   font-display: swap;
 }
 
 @font-face {
   font-family: 'Medium';
-  src: url('/fonts/Medium.woff2') format('woff2');
+  src: url('/fonts/Medium.otf') format('opentype');
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Light';
-  src: url('/fonts/Light.woff2') format('woff2');
+  font-family: 'Canela';
+  src: url('/fonts/Canela.otf') format('opentype');
   font-display: swap;
+  font-weight: 300;
 }
 
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: 'Medium', inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+@font-face {
+  font-family: 'Filson';
+  src: url('/fonts/Filson.otf') format('opentype');
+  font-display: swap;
 }
