@@ -248,6 +248,15 @@ const MainNavbar = () => {
   const [isAtTop, setIsAtTop] = useState(true);
   const scrollThreshold = 50; // Minimum scroll amount before hiding/showing
 
+  // Check if current page is a landing page (home or other main sections)
+  const isLandingPage = () => {
+    return location.pathname === '/' ||
+           location.pathname === '/tentang-himasif' ||
+           location.pathname === '/galeri' ||
+           location.pathname === '/merch' ||
+           location.pathname === '/berita';
+  };
+
   // Check if the current path matches the given path
   const isActive = (path) => {
     return location.pathname === path;
@@ -329,7 +338,7 @@ const MainNavbar = () => {
   return (
     <Navbar
       expand="lg"
-      className={`navbar-himasif ${isVisible ? 'navbar-visible' : 'navbar-hidden'} ${isAtTop ? 'navbar-at-top' : ''}`}
+      className={`navbar-himasif ${isVisible ? 'navbar-visible' : 'navbar-hidden'} ${isAtTop ? 'navbar-at-top' : ''} ${isLandingPage() ? 'navbar-landing' : ''}`}
       variant="dark"
       ref={navbarRef}
     >

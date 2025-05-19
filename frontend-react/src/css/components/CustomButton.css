@@ -1,0 +1,118 @@
+.custom-button {
+  font-family: 'Filson', sans-serif;
+  letter-spacing: 0.03rem;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 0.3rem 0.5rem;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding-right: 0.8rem; /* Extra padding to ensure icon doesn't get cut off */
+}
+
+/* Button text */
+.button-text {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s ease;
+  border-bottom: 1px solid transparent;
+}
+
+/* Button icon container */
+.button-icon-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  margin-left: 4px;
+  opacity: 1;
+}
+
+/* SVG Icon */
+.button-icon {
+  color: currentColor;
+  vertical-align: middle;
+  margin-left: 2px;
+  width: 36px;
+  height: 24px;
+  overflow: visible; /* Ensure the icon doesn't get cut off */
+}
+
+/* Icon circle */
+.icon-circle {
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+/* Icon arrow */
+.icon-arrow {
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+/* Outline Primary Button */
+.custom-button.btn-outline-primary {
+  color: var(--blue-primary);
+}
+
+.custom-button.btn-outline-primary:hover,
+.custom-button.btn-outline-primary:focus {
+  color: var(--blue-dark);
+}
+
+.custom-button.btn-outline-primary:hover .button-text,
+.custom-button.btn-outline-primary:focus .button-text {
+  transform: translateX(-3px);
+  border-bottom: 1px solid var(--blue-primary);
+}
+
+/* Primary Button */
+.custom-button.btn-primary {
+  color: var(--blue-primary);
+  font-weight: 600;
+}
+
+.custom-button.btn-primary:hover,
+.custom-button.btn-primary:focus {
+  color: var(--blue-dark);
+}
+
+.custom-button.btn-primary:hover .button-text,
+.custom-button.btn-primary:focus .button-text {
+  transform: translateX(-3px);
+  border-bottom: 1px solid var(--blue-primary);
+}
+
+/* Active state */
+.custom-button:active {
+  transform: translateY(0);
+  opacity: 0.8;
+}
+
+/* Size variants */
+.custom-button.btn-sm {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.4rem;
+}
+
+.custom-button.btn-lg {
+  font-size: 0.85rem;
+  padding: 0.3rem 0.6rem;
+}
+
+/* Disabled state */
+.custom-button:disabled,
+.custom-button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+  text-decoration: none !important;
+}

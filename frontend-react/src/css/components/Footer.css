@@ -30,7 +30,7 @@
 .footer-slogan-label {
   font-family: 'Medium', sans-serif;
   font-size: 0.8rem;
-  color: #2E8AFF;
+  color: var(--white-blue);
   margin-bottom: 30px;
   text-transform: uppercase;
 }
@@ -40,7 +40,6 @@
   font-size: 10rem;
   line-height: 0.85;
   color: white;
-  letter-spacing: -0.03em;
   text-align: left;
   margin-bottom: 0;
 }
@@ -85,9 +84,9 @@
 .footer-horizontal-divider::after {
   content: "";
   position: absolute;
-  right: -40px;
+  right: -20px;
   top: 0;
-  width: 80px;
+  width: 40px;
   height: 1px;
   background-color: white;
 }
@@ -106,16 +105,17 @@
 .acara-label {
   font-family: 'Medium', sans-serif;
   font-size: 0.8rem;
-  color: #2E8AFF;
+  color: var(--white-blue);
   margin-bottom: 30px;
   text-transform: uppercase;
 }
 
 .acara-box {
-  width: 100%;
-  height: 180px;
+  width: 280px;
+  height: 280px;
   background-color: #e0e0e0;
   margin-bottom: 40px;
+  aspect-ratio: 1/1;
 }
 
 .footer-links-container {
@@ -136,8 +136,8 @@
 
 .footer-link {
   font-family: 'Medium', sans-serif;
-  font-size: 0.8rem;
-  color: #2E8AFF;
+  font-size: 1.3rem;
+  color: var(--white-blue);
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -150,12 +150,12 @@
 }
 
 .link-arrow {
-  font-size: 0.7rem;
+  font-size: 2rem;
   transition: transform 0.3s ease;
 }
 
 .footer-link:hover {
-  color: #2E8AFF;
+  color: var(white);
 }
 
 .footer-link:hover .link-arrow {
@@ -172,10 +172,10 @@
 }
 
 .footer-number {
-  font-family: 'Black', sans-serif;
+  font-family: 'Medium', sans-serif;
   font-size: 30rem;
   line-height: 0.8;
-  color: #2E8AFF;
+  color: var(--white-blue);
   opacity: 1;
   pointer-events: none;
   white-space: nowrap;
@@ -249,7 +249,8 @@
   }
 
   .acara-box {
-    height: 150px;
+    width: 240px;
+    height: 240px;
     margin-bottom: 30px;
   }
 
@@ -309,7 +310,8 @@
   }
 
   .acara-box {
-    height: 120px;
+    width: 200px;
+    height: 200px;
     margin-bottom: 30px;
   }
 
@@ -350,7 +352,8 @@
   }
 
   .acara-box {
-    height: 100px;
+    width: 160px;
+    height: 160px;
     margin-bottom: 20px;
   }
 

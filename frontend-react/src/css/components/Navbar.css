@@ -1,9 +1,9 @@
 /* Navbar Styles */
 .navbar-himasif {
   padding: 0; /* Remove padding */
-  background-color: var(--blue-primary) !important; /* Changed to blue-primary color */
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background-color: transparent !important; /* Transparent background */
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -11,9 +11,9 @@
   z-index: 1000;
   font-family: 'Medium', sans-serif;
   width: 100%;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
+  box-shadow: none !important;
   will-change: transform;
-  transition: transform 0.4s ease-out, opacity 0.3s ease, background-color 0.3s ease;
+  transition: transform 0.4s ease-out, opacity 0.3s ease, background-color 0.3s ease, color 0.3s ease;
   height: 50px; /* Further reduced navbar height */
 }
 
@@ -31,10 +31,21 @@
 
 /* Navbar at top of page */
 .navbar-at-top {
-  background-color: var(--white-blue) !important; /* Slightly more transparent blue-primary */
+  background-color: transparent !important; /* Transparent background */
   box-shadow: none !important;
   padding: 0; /* No padding */
   height: 55px; /* Slightly taller background when at top */
+}
+
+/* Landing page navbar at top - transparent background */
+.navbar-landing.navbar-at-top {
+  background-color: transparent !important; /* Transparent background on landing pages when at top */
+  box-shadow: none !important;
+}
+
+/* Navbar after scrolling - for all pages */
+.navbar-himasif:not(.navbar-at-top) {
+  background-color: transparent !important; /* Transparent background when scrolled */
 }
 
 .navbar-himasif .container {
@@ -78,13 +89,26 @@
   padding: 0.5rem 1rem; /* Reduced padding */
   margin-top: 0; /* Removed top margin */
   transition: all 0.3s ease;
-  color: var(--blue-primary) !important;
+  color: white !important; /* Default color for navbar at top */
   letter-spacing: 1px; /* Reduced letter spacing */
   font-size: 0.9rem; /* Smaller font size */
   text-transform: uppercase;
   /* Removed text shadow */
   position: relative; /* Added for ::after pseudo-element positioning */
   padding-bottom: 0.7rem; /* Added space for the underline */
+}
+
+/* Landing page navbar links at top */
+.navbar-landing.navbar-at-top .nav-link,
+.navbar-landing.navbar-at-top .dropdown-toggle {
+  color: white !important; /* White text on transparent background */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); /* Add shadow for better visibility */
+}
+
+/* Change text color when scrolled */
+.navbar-himasif:not(.navbar-at-top) .nav-link,
+.navbar-himasif:not(.navbar-at-top) .dropdown-toggle {
+  color: var(--blue-primary) !important; /* Blue text when scrolled */
 }
 
 /* Add specific spacing for the first and last items */
@@ -173,6 +197,23 @@
   position: relative;
 }
 
+/* Active links on landing pages when at top */
+.navbar-landing.navbar-at-top .nav-link.active,
+.navbar-landing.navbar-at-top .dropdown-toggle.active,
+.navbar-landing.navbar-at-top .show > .dropdown-toggle {
+  color: white !important;
+  font-weight: 600;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* Active links when scrolled */
+.navbar-himasif:not(.navbar-at-top) .nav-link.active,
+.navbar-himasif:not(.navbar-at-top) .dropdown-toggle.active,
+.navbar-himasif:not(.navbar-at-top) .show > .dropdown-toggle {
+  color: var(--blue-primary) !important;
+  font-weight: 600;
+}
+
 /* Removed active nav links effect */
 
 /* Removed expandWidth animation */
@@ -184,15 +225,15 @@
 
 /* Dropdown menu styling */
 .navbar-himasif .dropdown-menu {
-  background-color: var(--white-blue); /* Match navbar blue color */
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background-color: transparent; /* Transparent background */
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: none;
   border-radius: 12px;
   padding: 15px; /* Increased padding */
   margin-top: 8px; /* Increased margin */
   min-width: 240px; /* Wider dropdown */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  box-shadow: none;
   animation: dropdownFadeIn 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -233,27 +274,20 @@
 }
 
 .navbar-himasif .dropdown-menu::before {
-  content: '';
-  position: absolute;
-  top: -6px;
-  left: 20px;
-  width: 12px;
-  height: 12px;
-  background-color: var(--blue-primary);
-  transform: rotate(45deg);
-  z-index: -1;
+  display: none; /* Hide the dropdown arrow */
 }
 
 .navbar-himasif .dropdown-item {
   font-family: 'Medium', sans-serif;
-  color: rgba(255, 255, 255, 1) !important;
+  color: white !important;
   padding: 12px 18px;
   transition: all 0.3s ease;
   border-radius: 8px;
   font-size: 1rem;
   margin-bottom: 0;
   letter-spacing: 1px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: none;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 .navbar-himasif .dropdown-item:last-child {
@@ -268,9 +302,10 @@
 }
 
 .navbar-himasif .dropdown-item.active {
-  background-color: rgba(255, 255, 255, 0.2); /* Brighter active state */
+  background-color: transparent; /* Transparent background */
   color: white !important;
   font-weight: 600; /* Bold active item */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 /* Hoverable dropdown container */
@@ -288,20 +323,32 @@
 /* Mobile responsive adjustments */
 @media (max-width: 991.98px) {
   .navbar-himasif {
-    background-color: var(--blue-primary) !important;
+    background-color: transparent !important;
     padding: 0; /* No padding */
     height: 45px; /* Further reduced height for mobile */
     position: fixed;
     top: 0;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+    box-shadow: none !important;
     will-change: transform;
   }
 
   /* Mobile navbar at top */
   .navbar-at-top {
-    background-color: rgba(15, 0, 228, 0.85) !important;
+    background-color: transparent !important;
     padding: 0; /* No padding */
     height: 50px; /* Slightly taller when at top */
+  }
+
+  /* Mobile landing page navbar at top */
+  .navbar-landing.navbar-at-top {
+    background-color: transparent !important;
+    padding: 0; /* No padding */
+    height: 50px; /* Slightly taller when at top */
+  }
+
+  /* Mobile navbar after scrolling */
+  .navbar-himasif:not(.navbar-at-top) {
+    background-color: transparent !important;
   }
 
   .navbar-himasif .container {
@@ -314,10 +361,10 @@
 
   .navbar-himasif .navbar-collapse {
     margin-top: 20px;
-    background-color: rgba(15, 0, 228, 0.95); /* Match navbar color */
+    background-color: transparent; /* Transparent background */
     padding: 20px;
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: none;
   }
 
   .navbar-himasif .nav-link,
@@ -327,14 +374,15 @@
     text-align: center;
     font-size: 1rem;
     letter-spacing: 1.2px;
+    color: var(--blue-primary) !important;
   }
 
   .navbar-himasif .dropdown-menu {
-    background-color: rgba(15, 0, 228, 0.8);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    background-color: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: none;
+    box-shadow: none;
     text-align: center;
     margin-top: 5px;
     padding: 10px;
@@ -349,15 +397,19 @@
   .navbar-himasif .dropdown-item {
     padding: 12px;
     margin-bottom: 0;
-    background-color: rgba(255, 255, 255, 0.08);
+    background-color: transparent;
     font-size: 0.95rem;
     border-radius: 8px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: none;
+    color: white !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
   }
 
   .navbar-himasif .dropdown-item.active {
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: transparent;
     font-weight: 600;
+    color: white !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
   }
 
   .navbar-himasif .dropdown-item:last-child {

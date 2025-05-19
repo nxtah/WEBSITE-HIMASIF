@@ -14,8 +14,36 @@ const VisiMisi = () => {
   const [dividerWidth, setDividerWidth] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
-  // Vision content text as a constant
+  // Content texts as constants
   const visiContentText = "Menjadikan HIMASIF sebagai wadah yang kompeten, kreatif, dan profesional dalam memberikan pengalaman berorganisasi yang bermanfaat bagi anggota.";
+
+  // Card text content as a constant with JSX structure
+  const cardTextContent = [
+    {
+      id: 1,
+      content: (
+        <>
+          VISI MENETAPKAN ARAH STRATEGI <span className="visiMisi-text-highlight">DAN </span> TUJUAN
+        </>
+      )
+    },
+    {
+      id: 2,
+      content: "JANGKA PANJANG ORGANISASI, SEMENTARA MISI"
+    },
+    {
+      id: 3,
+      content: (
+        <>
+          <span className="visiMisi-text-highlight">merumuskan</span> LANGKAH-LANGKAH OPERASIONAL <span className="visiMisi-text-highlight">UNTUK</span>
+        </>
+      )
+    },
+    {
+      id: 4,
+      content: "MEREALISASIKAN VISI TERSEBUT."
+    }
+  ];
 
   useEffect(() => {
     document.title = 'Visi & Misi - HIMASIF';
@@ -23,10 +51,11 @@ const VisiMisi = () => {
     // Register ScrollTrigger plugin
     gsap.registerPlugin(ScrollTrigger);
 
-    // Function to update divider width based on title width
+    // Function to update divider width based on title width (shorter than title)
     const updateDividerWidth = () => {
       if (titleRef.current) {
-        setDividerWidth(titleRef.current.offsetWidth);
+        // Make the divider 60% of the title width
+        setDividerWidth(titleRef.current.offsetWidth * 0.6);
       }
     };
 
@@ -153,14 +182,60 @@ const VisiMisi = () => {
 
     // Set up scroll animation for misi section
     if (misiSectionRef.current && misiItemsRef.current) {
+      // First, pin the entire section
       ScrollTrigger.create({
         trigger: misiSectionRef.current,
         start: "top top",
-        end: "bottom bottom",
-        pin: misiItemsRef.current,
+        end: "+=400%", // Make the scroll distance 4x the height of the section
+        pin: true,
         pinSpacing: true,
-        anticipatePin: 1
+        anticipatePin: 1,
+        // markers: true, // For debugging
       });
+
+      // Get the right column element
+      const rightCol = document.querySelector('.misi-right-col');
+
+      // Calculate the total scroll height needed
+      const totalScrollHeight = rightCol.scrollHeight - rightCol.clientHeight;
+
+      // Create a timeline for the scroll animation
+      const scrollTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: misiSectionRef.current,
+          start: "top top",
+          end: "+=400%", // Match the pin duration
+          scrub: 1.5, // Smooth scrubbing
+          // markers: true, // For debugging
+        }
+      });
+
+      // Add the scroll animation to the timeline
+      scrollTl.to(rightCol, {
+        scrollTop: totalScrollHeight,
+        ease: "none", // Linear scrolling feels most natural
+        duration: 1 // Duration is relative to the timeline
+      });
+
+      // Make sure all misi items are visible initially
+      const misiItems = misiItemsRef.current.querySelectorAll('.misi-item');
+
+      // Add a subtle fade-in animation when the section comes into view
+      gsap.fromTo(misiItems,
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.2,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: misiSectionRef.current,
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
     }
 
     window.addEventListener('mousemove', handleMouseMove);
@@ -178,18 +253,22 @@ const VisiMisi = () => {
   const misiItems = [
     {
       id: 1,
+      title: 'Bangun Jiwa Program Studi',
       text: 'Menanamkan rasa cinta dan solidaritas terhadap Program Studi dan Himpunan Mahasiswa Sistem Informasi melalui penggunaan PDH HIMASIF setiap hari senin berdasarkan AD/ART'
     },
     {
       id: 2,
+      title: 'Pengembangan Akademik Berkelanjutan HIMASIF',
       text: 'Memfasilitasi dan mengembangkan skill serta pemahaman akademik civitas akademika HIMASIF melalui inovasi divisi Riset dan Pengembangan'
     },
     {
       id: 3,
+      title: 'Wadah Aspirasi Civitas HIMASIF',
       text: 'Menyediakan wadah untuk civitas akademika HIMASIF dapat memberikan kritik dan saran yang akan dikaji secara inklusif dan profesional'
     },
     {
       id: 4,
+      title: 'Sinergi Bangun Citra HIMASIF',
       text: 'Mengembangkan kolaborasi strategis untuk memperkuat eksistensi dan nama baik Program Studi dan Himpunan Mahasiswa Sistem Informasi'
     }
   ];
@@ -238,18 +317,11 @@ const VisiMisi = () => {
                     <Row className="justify-content-center">
                       <Col xs={12} className="d-flex justify-content-center">
                         <div className="visiMisi-card-text">
-                          <div className="text-line">
-                            VISI MENETAPKAN ARAH STRATEGI <span className="visiMisi-text-highlight">DAN </span> TUJUAN
-                          </div>
-                          <div className="text-line">
-                            JANGKA PANJANG ORGANISASI, SEMENTARA MISI
-                          </div>
-                          <div className="text-line">
-                            <span className="visiMisi-text-highlight">merumuskan</span> LANGKAH-LANGKAH OPERASIONAL <span className="visiMisi-text-highlight">UNTUK</span>
-                          </div>
-                          <div className="text-line">
-                            MEREALISASIKAN VISI TERSEBUT.
-                          </div>
+                          {cardTextContent.map(item => (
+                            <div className="text-line" key={item.id}>
+                              {item.content}
+                            </div>
+                          ))}
                         </div>
                       </Col>
                     </Row>
@@ -283,19 +355,28 @@ const VisiMisi = () => {
 
       {/* About Misi Section */}
       <section className="about-misi" ref={misiSectionRef}>
-        <Container fluid className="h-100">
-          <Row className="h-100">
-            <Col md={4} lg={3} className="misi-left-col">
+        <Container className="h-100">
+          <Row className="h-100 justify-content-between">
+            <Col xs={12} md={5} className="misi-left-col d-flex justify-content-md-center">
               <h2 className="misi-title">MISI</h2>
             </Col>
-            <Col md={8} lg={9} className="misi-right-col">
+            <Col xs={12} md={5} className="misi-right-col">
               <div className="misi-items-container" ref={misiItemsRef}>
                 {misiItems.map(item => (
                   <div className="misi-item" key={item.id}>
-                    <div className="misi-number">{item.id}</div>
-                    <div className="misi-content">
-                      <p className="misi-text">{item.text}</p>
-                    </div>
+                    <Container fluid className="p-0">
+                      <Row className="align-items-start g-0">
+                        <Col xs={1} className="pe-0">
+                          <div className="misi-number">0{item.id}</div>
+                        </Col>
+                        <Col xs={11} className="ps-2">
+                          <div className="misi-content">
+                            <h3 className="misi-title-text">{item.title}</h3>
+                            <p className="misi-text">{item.text}</p>
+                          </div>
+                        </Col>
+                      </Row>
+                    </Container>
                   </div>
                 ))}
               </div>

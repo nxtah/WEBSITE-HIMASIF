@@ -1,214 +1,149 @@
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import '../css/pages/FilosofiLogo.css';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const FilosofiLogo = () => {
-  // Sample data for color palette
-  const colorPalette = [
+  const titleRef = useRef(null);
+  const logoSectionRef = useRef(null);
+  const logoBackgroundTextRef = useRef(null);
+  const [dividerWidth, setDividerWidth] = useState(0);
+
+  // Card text content as a constant with JSX structure
+  const cardTextContent = [
     {
       id: 1,
-      name: 'Biru Utama',
-      hex: '#3498db',
-      meaning: 'Melambangkan teknologi, inovasi, dan kepercayaan'
+      content: (
+        <>
+          LOGO MENCERMINKAN <span className="filosofiLogo-text-highlight">identitas </span> DAN
+        </>
+      )
     },
     {
       id: 2,
-      name: 'Biru Tua',
-      hex: '#2c3e50',
-      meaning: 'Melambangkan profesionalisme dan kedalaman ilmu'
+      content: "NILAI-NILAI YANG DIANUT OLEH"
     },
     {
       id: 3,
-      name: 'Putih',
-      hex: '#ffffff',
-      meaning: 'Melambangkan kesucian, kejujuran, dan ketulusan'
-    },
-    {
-      id: 4,
-      name: 'Abu-abu',
-      hex: '#95a5a6',
-      meaning: 'Melambangkan keseimbangan dan netralitas'
+      content: (
+        <>
+          <span className="filosofiLogo-text-highlight">himpunan</span> MAHASISWA SISTEM INFORMASI
+        </>
+      )
     }
   ];
 
-  // Sample data for logo elements
-  const logoElements = [
-    {
-      id: 1,
-      title: 'Lingkaran',
-      description: 'Lingkaran pada logo melambangkan kesatuan dan keutuhan. Ini menggambarkan bahwa HIMASIF adalah satu kesatuan yang utuh dan tidak terpisahkan.',
-      image: 'https://picsum.photos/id/40/600/400'
-    },
-    {
-      id: 2,
-      title: 'Simbol Teknologi',
-      description: 'Simbol teknologi pada logo menggambarkan fokus HIMASIF pada bidang teknologi informasi dan sistem informasi.',
-      image: 'https://picsum.photos/id/41/600/400'
-    },
-    {
-      id: 3,
-      title: 'Huruf H',
-      description: 'Huruf H yang didesain secara unik melambangkan identitas HIMASIF yang kuat dan mudah dikenali.',
-      image: 'https://picsum.photos/id/42/600/400'
-    }
-  ];
+  useEffect(() => {
+    document.title = 'Filosofi Logo - HIMASIF';
+
+    // Register ScrollTrigger plugin
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Function to update divider width based on title width
+    const updateDividerWidth = () => {
+      if (titleRef.current) {
+        // Make the divider 60% of the title width
+        setDividerWidth(titleRef.current.offsetWidth * 0.6);
+      }
+    };
+
+    // Initial update after a small delay to ensure rendering is complete
+    const timer = setTimeout(() => {
+      updateDividerWidth();
+    }, 100);
+
+    // Update on window resize for responsiveness
+    window.addEventListener('resize', updateDividerWidth);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener('resize', updateDividerWidth);
+      clearTimeout(timer);
+
+      // Kill all ScrollTrigger instances to prevent memory leaks
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, []);
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="logo-hero">
-        <Container>
-          <Row className="justify-content-center text-center">
-            <Col md={8}>
-              <h1 className="logo-hero-title">Filosofi Logo HIMASIF</h1>
-              <p className="logo-hero-subtitle">
-                Mengenal makna dan arti di balik logo Himpunan Mahasiswa Sistem Informasi UPJ
-              </p>
-            </Col>
-          </Row>
-        </Container>
-      </section>
-
-      {/* Logo Display Section */}
-      <section className="logo-section">
-        <Container>
-          <div className="logo-display">
-            <img 
-              src="https://picsum.photos/id/30/300/300" 
-              alt="Logo HIMASIF" 
-              className="logo-image"
-            />
-            <h2 className="logo-title">Logo HIMASIF</h2>
-            <p className="logo-subtitle">
-              Logo resmi Himpunan Mahasiswa Sistem Informasi Universitas Pembangunan Jaya
-            </p>
-          </div>
-
-          <Row className="justify-content-center">
-            <Col lg={8}>
-              <p className="text-center mb-5">
-                Logo HIMASIF dirancang untuk mencerminkan identitas, visi, dan nilai-nilai
-                yang dianut oleh Himpunan Mahasiswa Sistem Informasi UPJ. Setiap elemen dalam
-                logo memiliki makna dan filosofi tersendiri yang mewakili semangat dan tujuan organisasi.
-              </p>
-            </Col>
-          </Row>
-        </Container>
-      </section>
-
-      {/* Logo Elements Section */}
-      <section className="element-section">
-        <Container>
-          <h2 className="text-center mb-5">Elemen Logo</h2>
-          
-          {logoElements.map((element, index) => (
-            <Row className="align-items-center mb-5" key={element.id}>
-              {index % 2 === 0 ? (
-                <>
-                  <Col md={6} className="mb-4 mb-md-0">
-                    <div className="element-image">
-                      <img 
-                        src={element.image} 
-                        alt={element.title} 
-                        className="img-fluid"
-                      />
-                    </div>
-                  </Col>
-                  <Col md={6}>
-                    <h3 className="element-title">{element.title}</h3>
-                    <p className="element-text">{element.description}</p>
-                  </Col>
-                </>
-              ) : (
-                <>
-                  <Col md={6} className="order-md-2 mb-4 mb-md-0">
-                    <div className="element-image">
-                      <img 
-                        src={element.image} 
-                        alt={element.title} 
-                        className="img-fluid"
-                      />
-                    </div>
-                  </Col>
-                  <Col md={6} className="order-md-1">
-                    <h3 className="element-title">{element.title}</h3>
-                    <p className="element-text">{element.description}</p>
-                  </Col>
-                </>
-              )}
+      <div className="filosofiLogo-sections-wrapper">
+        {/* Landing Section */}
+        <section className="landing-filosofiLogo">
+          <Container fluid className="h-100 d-flex align-items-center justify-content-center">
+            <Row className="w-100 justify-content-center">
+              <Col xs={12} md={8} lg={6} className="text-center position-relative d-flex justify-content-center">
+                <div className="landing-title">
+                  <Row className="g-0">
+                    <Col xs={12} className="p-0">
+                      <div className="filosofi-text">FILOSOFI</div>
+                    </Col>
+                    <Col xs={12} className="p-0 mt-n5">
+                      <div className="logo-text">LOGO</div>
+                    </Col>
+                  </Row>
+                </div>
+                <div className="ampersand-container">
+                  <div className="ampersand">&</div>
+                </div>
+              </Col>
             </Row>
-          ))}
-        </Container>
-      </section>
+          </Container>
+        </section>
 
-      {/* Color Palette Section */}
-      <section className="element-section">
-        <Container>
-          <h2 className="text-center mb-5">Palet Warna</h2>
-          
-          <div className="color-palette">
-            {colorPalette.map(color => (
-              <div className="color-item" key={color.id}>
-                <div 
-                  className="color-box" 
-                  style={{ backgroundColor: color.hex }}
-                ></div>
-                <h4 className="color-name">{color.name}</h4>
-                <p className="color-hex">{color.hex}</p>
-                <p>{color.meaning}</p>
-              </div>
-            ))}
+        {/* Overlap Card */}
+        <div className="filosofiLogo-overlap-card">
+          <Container fluid className="p-0">
+            <Row className="justify-content-center mx-0">
+              <Col xs={12} md={12} lg={12} className="px-0">
+                <div className="filosofiLogo-card-content rounded shadow">
+                  <div className="filosofiLogo-title-container">
+                    <h2 className="filosofiLogo-card-title" ref={titleRef}>MAKNA LOGO HIMASIF</h2>
+                    <div className="filosofiLogo-title-divider" style={{ width: dividerWidth > 0 ? `${dividerWidth}px` : 'auto' }}>
+                      <div className="filosofiLogo-divider-line"></div>
+                      <div className="filosofiLogo-divider-diamond"></div>
+                      <div className="filosofiLogo-divider-line"></div>
+                    </div>
+                  </div>
+                  <Container fluid className="p-0">
+                    <Row className="justify-content-center">
+                      <Col xs={12} className="d-flex justify-content-center">
+                        <div className="filosofiLogo-card-text">
+                          {cardTextContent.map(item => (
+                            <div className="text-line" key={item.id}>
+                              {item.content}
+                            </div>
+                          ))}
+                        </div>
+                      </Col>
+                    </Row>
+                  </Container>
+                </div>
+              </Col>
+            </Row>
+          </Container>
+        </div>
+
+        {/* FilosofiLogo Content Section */}
+        <section className="about-filosofiLogo">
+          <div className="filosofiLogo-section-top d-flex align-items-center justify-content-center">
+            {/* Empty section with only background */}
           </div>
-        </Container>
-      </section>
-
-      {/* Typography Section */}
-      <section className="typography-section">
-        <Container>
-          <h2 className="text-center mb-5">Tipografi</h2>
-          
-          <Row className="justify-content-center">
-            <Col md={6}>
-              <div className="font-example">
-                <h3 className="font-name">Montserrat</h3>
-                <p className="font-sample">HIMASIF</p>
-                <p className="font-description">
-                  Font utama yang digunakan dalam logo HIMASIF. Font ini dipilih karena
-                  karakternya yang modern, tegas, dan mudah dibaca.
-                </p>
-              </div>
-            </Col>
-            
-            <Col md={6}>
-              <div className="font-example">
-                <h3 className="font-name">Roboto</h3>
-                <p className="font-sample">Sistem Informasi</p>
-                <p className="font-description">
-                  Font pendukung yang digunakan untuk teks "Sistem Informasi" pada logo.
-                  Font ini dipilih karena keselarasannya dengan Montserrat.
-                </p>
-              </div>
-            </Col>
-          </Row>
-        </Container>
-      </section>
-
-      {/* Meaning Section */}
-      <section className="meaning-section">
-        <Container>
-          <h2 className="meaning-title">Makna Keseluruhan</h2>
-          <p className="meaning-text">
-            Secara keseluruhan, logo HIMASIF melambangkan semangat inovasi, profesionalisme,
-            dan kebersamaan yang menjadi nilai-nilai utama organisasi. Logo ini juga mencerminkan
-            visi HIMASIF untuk menjadi wadah pengembangan potensi mahasiswa Sistem Informasi
-            yang profesional, inovatif, dan berdaya saing tinggi dalam bidang teknologi informasi.
-          </p>
-          <p className="meaning-text mt-4">
-            Dengan desain yang modern dan bermakna, logo HIMASIF menjadi identitas visual yang
-            kuat dan mudah dikenali, sekaligus menjadi kebanggaan bagi seluruh anggota HIMASIF UPJ.
-          </p>
-        </Container>
-      </section>
+          <div className="filosofiLogo-section-bottom d-flex align-items-center justify-content-center" ref={logoSectionRef}>
+            <div className="filosofiLogo-bg-text" ref={el => logoBackgroundTextRef.current = el}>LOGO</div>
+            <Container fluid className="position-relative h-100">
+              <Row className="h-100 align-items-center justify-content-center">
+                <Col xs={12} className="d-flex align-items-center justify-content-center" style={{ minHeight: '80vh' }}>
+                  <div className="filosofiLogo-content-container mx-auto d-flex align-items-center justify-content-center">
+                    {/* Empty content */}
+                  </div>
+                </Col>
+              </Row>
+            </Container>
+          </div>
+        </section>
+      </div>
     </>
   );
 };

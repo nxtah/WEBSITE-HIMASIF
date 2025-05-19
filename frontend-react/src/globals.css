@@ -4,12 +4,11 @@
   font-family: 'Black';
   src: url('./assets/fonts/Black.otf') format('opentype');
   font-display: swap;
-  letter-spacing: -0.03 em;
 }
 
 @font-face {
   font-family: 'Canela';
-  src: url('./assets/fonts/Light.otf') format('opentype');
+  src: url('./assets/fonts/Canela.otf') format('opentype');
   font-display: swap;
 }
 
@@ -34,12 +33,16 @@
 @font-face {
   font-family: 'Filson';
   src: url('./assets/fonts/Filson.otf') format('opentype');
-  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Filson-Light';
+  src: url('./assets/fonts/Filson-Light.otf') format('opentype');
 }
 
 :root {
 
-  --blue-light: #6dabf1;
+  --blue-light: #acd3ff;
   --blue-primary: #072AC8;
   --blue-dark: #0a0552;
   --cyan-light: #D3FDFF;
@@ -47,7 +50,7 @@
   --grey-text: #666666;
   --grey-light: #aaaaaa;
   --grey-dark: #444444;
-  --white-blue: #e3f2fd;
+  --white-blue: #e8f4fc;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

@@ -67,37 +67,27 @@
 }
 
 .himasif-subtitle {
-  font-family: 'Black', sans-serif;
-  font-size: clamp(1.4rem, 2.2vw, 2.5rem);
-  font-weight: 700;
-  margin-bottom: 0;
-  letter-spacing: -0.03em;
+  font-family: 'filson', sans-serif;
+  font-size: clamp(0.8rem, 1.2vw, 1.1rem);
+  font-weight: 500;
   color: var(--blue-primary);
   position: relative;
   white-space: nowrap;
-  width: 100%;
   text-align: center;
-  display: flex;
-  justify-content: space-between; /* Changed to space-between for maximum width */
-  padding: 0;
+  letter-spacing: 0.15em;
+  word-spacing: clamp(7rem, 20vw, 30rem);
+  width: auto;
+  display: inline-block;
 }
 
 /* Subtitle container for better control */
 .subtitle-container {
   width: 100%;
-  overflow: hidden;
-  padding: 0 clamp(1rem, 3vw, 5rem); /* Adjusted padding to ensure text fits on screen */
+  overflow: visible;
+  padding: 0 1rem;
 }
 
-/* Add additional spacing between subtitle words */
-.himasif-subtitle span {
-  margin: 0 clamp(2rem, 5vw, 8rem); /* Adjusted margin to ensure text fits on screen */
-}
-
-.sistem-text {
-  font-family: 'Saol', sans-serif;
-  font-weight: normal;
-}
+/* Removed sistem-text class as all text now uses the same font */
 
 /* Bottom row landing styling */
 .bottom-row-landing {
@@ -114,10 +104,8 @@
 /* Copyright text styling */
 .copyright-wrapper {
   display: inline-block;
-  background-color: rgba(255, 255, 255, 0.1);
   padding: clamp(4px, 1vw, 8px) clamp(10px, 2vw, 20px);
   border-radius: 30px;
-  backdrop-filter: blur(5px);
 }
 
 .copyright-text {
@@ -131,6 +119,8 @@
 /* Website official text styling */
 .website-official-wrapper {
   display: inline-block;
+  padding: clamp(4px, 1vw, 8px) clamp(10px, 2vw, 20px);
+  border-radius: 30px;
 }
 
 .website-official-text {
@@ -148,6 +138,8 @@
   align-items: center;
   animation: bounce 2s infinite;
   z-index: 10;
+  padding: clamp(4px, 1vw, 8px);
+  border-radius: 50%;
 }
 
 .scroll-arrow {
@@ -459,14 +451,12 @@
   font-weight: 700;
   margin: 0;
   display: inline-block;
-  letter-spacing: -0.02em;
   width: max-content;
   text-align: center;
-  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
   white-space: nowrap;
   will-change: transform;
   backface-visibility: hidden;
-  transform-style: preserve-3d;
+  pointer-events: none;
 }
 
 /* Outline style for the second row text */
@@ -513,83 +503,90 @@
 /* Periode Home Section */
 .periode-home-section {
   background-color: var(--white-blue);
-  min-height: 100vh;
-  width: 100%;
-  position: relative;
   color: var(--blue-primary);
-  display: flex;
-  align-items: center;
-  padding: 0;
+  position: relative;
+  overflow: hidden;
 }
 
-.periode-left-col {
-  padding: 30px;
-  display: flex;
-  align-items: center;
+.periode-content-col {
+  background-color: var(--white-blue);
+}
+
+.periode-content-wrapper {
+  max-width: 600px;
+  margin-left: 0;
+  margin-right: auto;
+  align-self: flex-start;
+  padding-bottom: 50px;
+  text-align: left;
 }
 
 .periode-title {
   font-family: 'Black', sans-serif;
-  font-size: clamp(8rem, 12vw, 12rem);
-  font-weight: 700;
+  font-size: 12rem;
   color: var(--blue-primary);
-  margin-bottom: -40px;
-  text-align: left;
-  width: 100%;
   line-height: 0.8;
-  letter-spacing: -0.05em;
 }
 
 .periode-year-container {
   width: 100%;
-  overflow: visible; /* Changed from hidden to visible */
-  padding-right: 20px; /* Added padding to prevent cutting off */
-  margin-right: 10px; /* Added margin to ensure the 5 is not cut off */
+  overflow: visible;
+  padding-right: 20px;
 }
 
 .periode-year {
   font-family: 'Saol', sans-serif;
-  font-size: clamp(8rem, 12vw, 12rem);
+  font-size: clamp(6rem, 10vw, 12rem);
   color: var(--blue-primary);
-  font-weight: 300;
-  text-align: left;
-  width: 100%;
   line-height: 1;
-  letter-spacing: -0.05em;
   white-space: nowrap;
 }
 
 .periode-text {
   font-size: 0.5em;
-  letter-spacing: -0.03em;
 }
 
 .year-text {
   font-family: 'Black', sans-serif;
 }
 
-.periode-right-col {
-  padding: 30px;
-  margin-top: 0;
-  display: flex;
-  align-items: center;
-}
-
-.periode-description-wrapper {
-  padding-top: 0;
-}
-
-.periode-title-wrapper {
-  padding-top: 0;
-}
-
 .periode-description {
-  font-family: 'Light', sans-serif;
-  font-size: 1.3rem;
+  font-family: 'filson-Light';
+  font-size: 1rem;
   line-height: 1.6;
   color: var(--blue-primary);
   margin-bottom: 20px;
-  word-spacing: -0.1em;
+  text-align: left;
+}
+
+.periode-image {
+  position: relative;
+}
+
+.periode-image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, var(--white-blue), rgba(227, 242, 253, 0.2));
+  z-index: 1;
+}
+
+@media (max-width: 991.98px) {
+  .periode-content-wrapper {
+    padding: 2rem;
+    text-align: left;
+    padding-bottom: 3rem;
+  }
+
+  .periode-image {
+    height: 50vh !important;
+  }
+
+  .periode-image-overlay {
+    background: linear-gradient(to bottom, var(--white-blue), rgba(227, 242, 253, 0.2));
+  }
 }
 
 /* Pengurus Home Section */
@@ -617,8 +614,8 @@
 }
 
 .total-text {
-  font-family: 'Saol', sans-serif;
-  font-size: clamp(3rem, 6vw, 5rem);
+  font-family: 'Black', sans-serif;
+  font-size: clamp(4rem, 7vw, 6.5rem);
   font-weight: 300;
   margin-bottom: -1rem; /* Increased negative margin to bring closer to pengurus-text */
   line-height: 0.9;
@@ -626,35 +623,34 @@
 
 .pengurus-text {
   font-family: 'Black', sans-serif;
-  font-size: clamp(6rem, 12vw, 10rem);
+  font-size: clamp(7.5rem, 14vw, 13rem);
   font-weight: 700;
-  letter-spacing: -0.03em;
   margin-bottom: 0.5rem; /* Added margin-bottom to control spacing with stats */
 }
 
 .pengurus-stat {
   margin: 0.2rem 0; /* Reduced margin to bring stats closer */
+  position: relative;
 }
 
 .stat-number {
   font-family: 'Black', sans-serif;
-  font-size: clamp(6rem, 12vw, 11rem);
+  font-size: clamp(7.5rem, 14vw, 14rem);
   font-weight: 700;
   margin-bottom: 0.1rem;
-  letter-spacing: -0.03em;
   line-height: 0.9;
 }
 
 .stat-desc {
   font-family: 'Saol', sans-serif;
-  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
   font-weight: 300;
   margin: 0;
 }
 
 /* Sorotan Home Section */
 .sorotan-home-section {
-  background-color: var(--teal-dark);
+  background-color: var(--blue-primary);
   min-height: 100vh;
   position: relative;
   overflow: hidden;
@@ -667,19 +663,18 @@
 
 .sorotan-title {
   font-family: 'Black', sans-serif;
-  font-size: clamp(3rem, 5.5vw, 4.2rem);
-  font-weight: 700;
+  font-size: 7rem;
   line-height: 1.1;
-  letter-spacing: -0.03em;
-  color: var(--cyan-light);
+  color: var(--white-blue);
   text-align: left;
 }
 
 .sorotan-title .yang-text {
   font-family: 'Saol', sans-serif;
-  font-size: clamp(1.5rem, 2.75vw, 2.1rem); /* Half the size of the parent font */
+  font-size: 3.5rem; /* Half the size of the parent font */
   font-weight: normal;
   margin-left: 0.5rem;
+  color: var(--white-blue);
 }
 
 .ml-2 {
@@ -714,6 +709,7 @@
   position: relative;
   margin-bottom: 0;
   min-height: 300px;
+  border: 1px solid rgba(227, 242, 253, 0.1);
 }
 
 .large-box:hover {
@@ -731,6 +727,7 @@
   position: relative;
   margin-bottom: 0;
   min-height: 300px;
+  border: 1px solid rgba(227, 242, 253, 0.1);
 }
 
 .medium-box:hover {
@@ -745,50 +742,41 @@
   }
 
   .himasif-subtitle {
-    font-size: clamp(1.8rem, 2.4vw, 2.5rem);
+    font-size: clamp(0.9rem, 1.3vw, 1.2rem);
+    letter-spacing: 0.16em;
+    word-spacing: clamp(8rem, 22vw, 35rem);
   }
 
   .subtitle-container {
-    padding: 0 clamp(0.5rem, 2vw, 3rem);
+    padding: 0;
+    overflow: visible;
   }
 
   .himasif-subtitle span {
-    margin: 0 clamp(2.5rem, 6vw, 10rem);
+    margin: 0 clamp(5rem, 12vw, 18rem);
   }
 
-  /* Periode section responsive styles for extra large screens */
-  .periode-title {
-    font-size: clamp(10rem, 13vw, 13rem);
-    margin-bottom: -45px;
-  }
-
-  .periode-year {
-    font-size: clamp(10rem, 13vw, 13rem);
-  }
-
-  .periode-description {
-    font-size: 1.4rem;
-  }
+  /* Removed periode section responsive styles for extra large screens */
 
   /* Pengurus section responsive styles for extra large screens */
   .total-text {
-    font-size: 5.5rem;
+    font-size: 7rem;
     margin-bottom: -1.5rem; /* Increased negative margin for larger screens */
   }
 
   .pengurus-text {
-    font-size: 11rem;
+    font-size: 14rem;
     margin-bottom: 0.3rem; /* Reduced margin for larger screens */
   }
 
   .stat-number {
-    font-size: 12rem;
+    font-size: 15rem;
     margin-bottom: 0;
     line-height: 0.85;
   }
 
   .stat-desc {
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
 
   .pengurus-stat {
@@ -817,15 +805,18 @@
   }
 
   .himasif-subtitle {
-    font-size: clamp(1.7rem, 2.2vw, 2.3rem);
+    font-size: clamp(0.85rem, 1.25vw, 1.15rem);
+    letter-spacing: 0.15em;
+    word-spacing: clamp(7.5rem, 20vw, 32rem);
   }
 
   .subtitle-container {
-    padding: 0 clamp(0.5rem, 2vw, 3rem);
+    padding: 0;
+    overflow: visible;
   }
 
   .himasif-subtitle span {
-    margin: 0 clamp(2.2rem, 5.5vw, 9rem);
+    margin: 0 clamp(4.5rem, 11vw, 16rem);
   }
 }
 
@@ -841,15 +832,18 @@
   }
 
   .himasif-subtitle {
-    font-size: clamp(1.6rem, 2vw, 2.1rem);
+    font-size: clamp(0.8rem, 1.2vw, 1.1rem);
+    letter-spacing: 0.14em;
+    word-spacing: clamp(7rem, 18vw, 28rem);
   }
 
   .subtitle-container {
-    padding: 0 clamp(0.5rem, 2vw, 3rem);
+    padding: 0;
+    overflow: visible;
   }
 
   .himasif-subtitle span {
-    margin: 0 clamp(2rem, 5vw, 8rem);
+    margin: 0 clamp(4rem, 10vw, 14rem);
   }
 
   .copyright-wrapper {
@@ -865,33 +859,25 @@
     padding: 0 20px;
   }
 
-  /* Periode section responsive styles for large screens */
-  .periode-title {
-    font-size: clamp(7rem, 11vw, 11rem);
-    margin-bottom: -30px;
-  }
-
-  .periode-year {
-    font-size: clamp(7rem, 11vw, 11rem);
-  }
+  /* Removed periode section responsive styles for large screens */
 
   /* Pengurus section responsive styles for large screens */
   .total-text {
-    font-size: 5rem;
+    font-size: 6.5rem;
   }
 
   .pengurus-text {
-    font-size: 10rem;
+    font-size: 13rem;
   }
 
   .stat-number {
-    font-size: 11rem;
+    font-size: 14rem;
     margin-bottom: 0;
     line-height: 0.85;
   }
 
   .stat-desc {
-    font-size: 2.3rem;
+    font-size: 2.8rem;
   }
 }
 
@@ -907,15 +893,18 @@
   }
 
   .himasif-subtitle {
-    font-size: clamp(1.5rem, 1.8vw, 1.9rem);
+    font-size: clamp(0.75rem, 1.15vw, 1.05rem);
+    letter-spacing: 0.13em;
+    word-spacing: clamp(6.5rem, 16vw, 25rem);
   }
 
   .subtitle-container {
-    padding: 0 clamp(0.5rem, 2vw, 3rem);
+    padding: 0;
+    overflow: visible;
   }
 
   .himasif-subtitle span {
-    margin: 0 clamp(1.8rem, 4.5vw, 7rem);
+    margin: 0 clamp(3.5rem, 9vw, 12rem);
   }
 
   .copyright-wrapper {
@@ -932,37 +921,25 @@
     bottom: 25px;
   }
 
-  /* Periode section responsive styles for medium screens */
-  .periode-title {
-    font-size: clamp(6.5rem, 10vw, 10rem);
-    margin-bottom: -25px;
-  }
-
-  .periode-year {
-    font-size: clamp(6.5rem, 10vw, 10rem);
-  }
-
-  .periode-description {
-    font-size: 1.2rem;
-  }
+  /* Removed periode section responsive styles for medium screens */
 
   /* Pengurus section responsive styles for medium screens */
   .total-text {
-    font-size: 4.5rem;
+    font-size: 6rem;
   }
 
   .pengurus-text {
-    font-size: 9rem;
+    font-size: 12rem;
   }
 
   .stat-number {
-    font-size: 10rem;
+    font-size: 13rem;
     margin-bottom: 0;
     line-height: 0.85;
   }
 
   .stat-desc {
-    font-size: 2.1rem;
+    font-size: 2.6rem;
   }
 }
 
@@ -988,15 +965,18 @@
   }
 
   .himasif-subtitle {
-    font-size: clamp(1.3rem, 1.7vw, 1.8rem);
+    font-size: clamp(0.7rem, 1.1vw, 1rem);
+    letter-spacing: 0.12em;
+    word-spacing: clamp(6rem, 14vw, 22rem);
   }
 
   .subtitle-container {
-    padding: 0 clamp(0.5rem, 2vw, 3rem);
+    padding: 0;
+    overflow: visible;
   }
 
   .himasif-subtitle span {
-    margin: 0 clamp(1.5rem, 4vw, 6rem);
+    margin: 0 clamp(3rem, 8vw, 10rem);
   }
 
   .copyright-wrapper {
@@ -1017,50 +997,27 @@
     font-size: 2rem;
   }
 
-  /* Periode section responsive styles */
-  .periode-title {
-    font-size: clamp(6rem, 10vw, 10rem);
-    margin-bottom: -20px;
-    letter-spacing: -0.05em;
-  }
-
-  .periode-year {
-    font-size: clamp(6rem, 10vw, 10rem);
-    letter-spacing: -0.05em;
-  }
-
-  .periode-description {
-    font-size: 1.1rem;
-    word-spacing: -0.1em;
-  }
-
-  .periode-description-wrapper {
-    padding-top: 0;
-  }
-
-  .periode-title-wrapper {
-    padding-top: 0;
-  }
+  /* Removed periode section responsive styles */
 
   /* Pengurus section responsive styles */
   .total-text {
-    font-size: 4rem;
+    font-size: 5.5rem;
     margin-bottom: -0.8rem; /* Increased negative margin */
   }
 
   .pengurus-text {
-    font-size: 8rem;
+    font-size: 11rem;
     margin-bottom: 0.3rem; /* Reduced margin */
   }
 
   .stat-number {
-    font-size: 8.5rem;
+    font-size: 11.5rem;
     margin-bottom: 0;
     line-height: 0.85;
   }
 
   .stat-desc {
-    font-size: 1.9rem;
+    font-size: 2.4rem;
   }
 
   .pengurus-stat {
@@ -1116,15 +1073,18 @@
   }
 
   .himasif-subtitle {
-    font-size: clamp(1.1rem, 1.5vw, 1.6rem);
+    font-size: clamp(0.65rem, 1vw, 0.9rem);
+    letter-spacing: 0.1em;
+    word-spacing: clamp(5.5rem, 12vw, 20rem);
   }
 
   .subtitle-container {
-    padding: 0 clamp(0.3rem, 1vw, 2rem);
+    padding: 0;
+    overflow: visible;
   }
 
   .himasif-subtitle span {
-    margin: 0 clamp(1.2rem, 3vw, 5rem);
+    margin: 0 clamp(2.5rem, 7vw, 8rem);
   }
 
   .bottom-row-landing {
@@ -1146,39 +1106,7 @@
     margin-bottom: 5px;
   }
 
-  /* Periode section responsive styles for small screens */
-  .periode-title {
-    font-size: clamp(5rem, 8vw, 7rem);
-    text-align: center;
-    margin-bottom: -15px;
-    letter-spacing: -0.05em;
-  }
-
-  .periode-year {
-    font-size: clamp(5rem, 8vw, 7rem);
-    text-align: center;
-    letter-spacing: -0.05em;
-  }
-
-  .periode-description {
-    font-size: 1rem;
-    text-align: center;
-    word-spacing: -0.1em;
-    max-width: 90%;
-    margin: 0 auto 1rem auto;
-  }
-
-  .periode-description-wrapper {
-    padding-top: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .periode-title-wrapper {
-    padding-top: 0;
-    margin-bottom: 2rem;
-  }
+  /* Removed periode section responsive styles for small screens */
 
   /* Pengurus section responsive styles for small screens */
   .total-text {
@@ -1253,40 +1181,21 @@
   }
 
   .himasif-subtitle {
-    font-size: clamp(1rem, 1.3vw, 1.4rem);
+    font-size: clamp(0.6rem, 0.9vw, 0.8rem);
+    letter-spacing: 0.08em;
+    word-spacing: clamp(5rem, 10vw, 18rem);
   }
 
   .subtitle-container {
-    padding: 0 clamp(0.2rem, 0.5vw, 1rem);
+    padding: 0;
+    overflow: visible;
   }
 
   .himasif-subtitle span {
     margin: 0 clamp(0.8rem, 2vw, 3rem);
   }
 
-  /* Periode section responsive styles for extra small screens */
-  .periode-title {
-    font-size: clamp(4rem, 7vw, 6rem);
-    margin-bottom: -10px;
-  }
-
-  .periode-year {
-    font-size: clamp(4rem, 7vw, 6rem);
-  }
-
-  .periode-year-container {
-    padding-right: 15px;
-    margin-right: 5px;
-  }
-
-  .periode-description {
-    font-size: 0.9rem;
-    max-width: 95%;
-  }
-
-  .periode-description-wrapper {
-    width: 100%;
-  }
+  /* Removed periode section responsive styles for extra small screens */
 
   /* Pengurus section responsive styles for extra small screens */
   .total-text {

@@ -1,161 +1,396 @@
 /* FilosofiLogo page specific styles */
 
-.logo-hero {
-  background-color: #2c3e50;
-  color: white;
-  padding: 80px 0;
-  margin-bottom: 60px;
-}
-
-.logo-hero-title {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-
-.logo-hero-subtitle {
-  font-size: 1.5rem;
-  margin-bottom: 0;
-  opacity: 0.9;
-}
-
-.logo-section {
-  padding: 60px 0;
-}
-
-.logo-display {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.logo-image {
-  max-width: 300px;
-  height: auto;
-  margin-bottom: 30px;
-}
-
-.logo-title {
-  font-size: 2.5rem;
-  font-weight: 600;
-  margin-bottom: 20px;
-  color: #2c3e50;
-}
-
-.logo-subtitle {
-  font-size: 1.2rem;
-  color: #7f8c8d;
-  margin-bottom: 40px;
-}
-
-.element-section {
-  margin-bottom: 80px;
-}
-
-.element-title {
-  font-size: 1.8rem;
-  font-weight: 600;
-  margin-bottom: 20px;
-  color: #2c3e50;
-  border-left: 5px solid #3498db;
-  padding-left: 15px;
-}
-
-.element-text {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #34495e;
-  margin-bottom: 30px;
-}
-
-.element-image {
-  border-radius: 10px;
+/* Sections Wrapper */
+.filosofiLogo-sections-wrapper {
+  position: relative;
   overflow: hidden;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
+  background-color: var(--blue-primary);
 }
 
-.element-image img {
-  width: 100%;
-  height: auto;
-}
-
-.color-palette {
+/* Landing Section */
+.landing-filosofiLogo {
+  height: 100vh;
+  background-color: var(--blue-primary);
   display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 40px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  user-select: none;
 }
 
-.color-item {
-  flex: 1;
-  min-width: 150px;
-  padding: 20px;
+.landing-title {
+  position: relative;
+  width: 100%;
+}
+
+.landing-title .filosofi-text,
+.landing-title .logo-text {
+  font-family: 'Lugoj', sans-serif;
+  font-size: 12rem;
+  line-height: 0.8;
+  letter-spacing: -0.03em;
+  color: white;
   text-align: center;
-  margin: 10px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.color-box {
-  height: 100px;
-  border-radius: 5px;
-  margin-bottom: 15px;
+.landing-title .filosofi-text {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  line-height: 0.7;
 }
 
-.color-name {
-  font-weight: 600;
-  margin-bottom: 5px;
+.landing-title .logo-text {
+  margin-top: 0;
+  padding-top: 0;
+  line-height: 0.7;
 }
 
-.color-hex {
-  font-family: monospace;
-  color: #7f8c8d;
+.ampersand-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
 }
 
-.typography-section {
-  margin-bottom: 60px;
+.ampersand {
+  font-family: 'Saol', serif;
+  font-size: 10rem;
+  color: var(--blue-primary);
+  line-height: 1;
 }
 
-.font-example {
-  margin-bottom: 30px;
-  padding: 20px;
-  background-color: #f8f9fa;
-  border-radius: 10px;
+/* FilosofiLogo Overlap Card */
+.filosofiLogo-overlap-card {
+  position: relative;
+  margin-top: -100px;
+  margin-bottom: -200px;
+  z-index: 10;
+  padding: 0;
+  width: 100%;
+  display: block;
 }
 
-.font-name {
-  font-weight: 600;
-  margin-bottom: 15px;
-  color: #2c3e50;
-}
-
-.font-sample {
-  font-size: 2rem;
-  margin-bottom: 15px;
-}
-
-.font-description {
-  color: #7f8c8d;
-}
-
-.meaning-section {
-  background-color: #f8f9fa;
-  padding: 60px 0;
-  border-radius: 10px;
-}
-
-.meaning-title {
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 30px;
+.filosofiLogo-card-content {
+  padding: 120px 40px;
   text-align: center;
-  color: #2c3e50;
-}
-
-.meaning-text {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #34495e;
-  text-align: center;
-  max-width: 800px;
+  background-color: var(--white-blue);
+  border-radius: 20px !important;
+  width: 98%;
   margin: 0 auto;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+  transform: translateY(0);
+}
+
+.filosofiLogo-card-title {
+  font-family: 'Black', sans-serif;
+  font-size: 2.4rem;
+  margin-bottom: 5px;
+  color: var(--blue-primary);
+  display: inline-block;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* Title Container and Divider */
+.filosofiLogo-title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.filosofiLogo-title-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+  /* Width is controlled by JavaScript */
+}
+
+.filosofiLogo-divider-line {
+  height: 1px;
+  background-color: var(--blue-primary);
+  flex: 1;
+  opacity: 0.4;
+}
+
+.filosofiLogo-divider-diamond {
+  width: 6px;
+  height: 6px;
+  background-color: var(--blue-primary);
+  margin: 0 10px;
+  transform: rotate(45deg);
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+
+.filosofiLogo-card-text {
+  font-family: 'Black', sans-serif;
+  font-size: 3.2rem;
+  line-height: 1.2;
+  color: var(--blue-primary);
+  margin-bottom: 0;
+  text-align: center;
+  padding: 0 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 250px;
+  width: 100%;
+  max-width: 100%;
+  word-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.text-line {
+  display: block;
+  width: 100%;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+  text-align: center;
+  font-size: 3.2rem;
+}
+
+.filosofiLogo-text-highlight {
+  font-family: 'Saol', serif;
+  font-style: italic;
+  color: var(--blue-primary);
+  text-transform: lowercase;
+  font-size: 2.4rem;
+  display: inline-block;
+}
+
+/* FilosofiLogo Content Section */
+.about-filosofiLogo {
+  min-height: 150vh;
+  background-color: var(--white-blue);
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  margin-top: -200px;
+  z-index: 1;
+}
+
+.filosofiLogo-section-top {
+  height: 50vh;
+  width: 100%;
+  background-color: var(--white-blue);
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.filosofiLogo-section-bottom {
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--white-blue);
+  position: relative;
+  overflow: hidden;
+}
+
+.filosofiLogo-bg-text {
+  font-family: 'Black', sans-serif;
+  font-size: 25rem;
+  color: var(--blue-primary);
+  opacity: 0.05;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  white-space: nowrap;
+  user-select: none;
+  pointer-events: none;
+}
+
+.filosofiLogo-content-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .landing-title .filosofi-text,
+  .landing-title .logo-text {
+    font-size: 10rem;
+  }
+
+  .ampersand {
+    font-size: 8rem;
+  }
+
+  .about-filosofiLogo {
+    min-height: 120vh;
+  }
+
+  .filosofiLogo-bg-text {
+    font-size: 20rem;
+    opacity: 0.08;
+  }
+
+  .filosofiLogo-content-container {
+    width: 100%;
+    max-width: 1000px;
+  }
+}
+
+@media (max-width: 992px) {
+  .landing-title .filosofi-text,
+  .landing-title .logo-text {
+    font-size: 8rem;
+    line-height: 0.85;
+  }
+
+  .ampersand {
+    font-size: 7rem;
+  }
+
+  .filosofiLogo-bg-text {
+    font-size: 16rem;
+    opacity: 0.08;
+  }
+
+  .filosofiLogo-content-container {
+    width: 100%;
+    max-width: 900px;
+  }
+}
+
+@media (max-width: 768px) {
+  .landing-title .filosofi-text,
+  .landing-title .logo-text {
+    font-size: 6rem;
+    line-height: 0.7;
+  }
+
+  .ampersand {
+    font-size: 5rem;
+  }
+
+  .filosofiLogo-overlap-card {
+    margin-top: -80px;
+    margin-bottom: -180px;
+  }
+
+  .filosofiLogo-card-content {
+    padding: 100px 30px;
+    width: 99%;
+    min-height: 65vh;
+  }
+
+  .filosofiLogo-card-title {
+    font-size: 2.2rem;
+  }
+
+  .filosofiLogo-divider-diamond {
+    width: 5px;
+    height: 5px;
+    margin: 0 8px;
+  }
+
+  .filosofiLogo-card-text {
+    font-size: 2.4rem;
+    min-height: 150px;
+  }
+
+  .text-line {
+    font-size: 2.4rem;
+  }
+
+  .filosofiLogo-text-highlight {
+    font-size: 2.6rem;
+  }
+
+  .filosofiLogo-bg-text {
+    font-size: 12rem;
+    opacity: 0.08;
+  }
+
+  .filosofiLogo-content-container {
+    width: 100%;
+    max-width: 800px;
+  }
+
+  .about-filosofiLogo {
+    margin-top: -180px;
+  }
+}
+
+@media (max-width: 576px) {
+  .landing-title .filosofi-text,
+  .landing-title .logo-text {
+    font-size: 4rem;
+    line-height: 0.7;
+  }
+
+  .ampersand {
+    font-size: 3.5rem;
+  }
+
+  .filosofiLogo-overlap-card {
+    margin-top: -60px;
+    margin-bottom: -160px;
+  }
+
+  .filosofiLogo-card-content {
+    padding: 80px 20px;
+    width: 99.5%;
+    min-height: 60vh;
+  }
+
+  .filosofiLogo-card-title {
+    font-size: 1.9rem;
+    margin-bottom: 3px;
+  }
+
+  .filosofiLogo-title-container {
+    margin-bottom: 15px;
+  }
+
+  .filosofiLogo-divider-diamond {
+    width: 4px;
+    height: 4px;
+    margin: 0 6px;
+  }
+
+  .filosofiLogo-card-text {
+    font-size: 1.6rem;
+    padding: 0 10px;
+    min-height: 120px;
+  }
+
+  .text-line {
+    font-size: 1.6rem;
+  }
+
+  .filosofiLogo-text-highlight {
+    font-size: 1.8rem;
+  }
+
+  .filosofiLogo-bg-text {
+    font-size: 8rem;
+    opacity: 0.08;
+  }
+
+  .filosofiLogo-content-container {
+    width: 100%;
+    max-width: 650px;
+  }
+
+  .about-filosofiLogo {
+    margin-top: -160px;
+  }
 }
