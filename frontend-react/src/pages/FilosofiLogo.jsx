@@ -1,8 +1,9 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import { Container, Row, Col, Card, Image } from 'react-bootstrap';
 import '../css/pages/FilosofiLogo.css';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import logoHimasif from '../assets/images/logo-himasif.png';
 
 const FilosofiLogo = () => {
   const titleRef = useRef(null);
@@ -10,29 +11,14 @@ const FilosofiLogo = () => {
   const logoBackgroundTextRef = useRef(null);
   const [dividerWidth, setDividerWidth] = useState(0);
 
-  // Card text content as a constant with JSX structure
-  const cardTextContent = [
-    {
-      id: 1,
-      content: (
-        <>
-          LOGO MENCERMINKAN <span className="filosofiLogo-text-highlight">identitas </span> DAN
-        </>
-      )
-    },
-    {
-      id: 2,
-      content: "NILAI-NILAI YANG DIANUT OLEH"
-    },
-    {
-      id: 3,
-      content: (
-        <>
-          <span className="filosofiLogo-text-highlight">himpunan</span> MAHASISWA SISTEM INFORMASI
-        </>
-      )
-    }
-  ];
+  // Single card text content with styled words
+  const cardTextContent = (
+    <>
+      SEBAGAI IDENTITAS VISUAL <span className="filosofiLogo-text-highlight">yang</span> MEMBEDAKAN,
+      MEMPERKUAT CITRA, <span className="filosofiLogo-text-highlight">dan</span> MEMBANGUN
+      KEPERCAYAAN PUBLIK <span className="filosofiLogo-text-highlight">terhadap</span> ORGANISASI
+    </>
+  );
 
   useEffect(() => {
     document.title = 'Filosofi Logo - HIMASIF';
@@ -71,21 +57,27 @@ const FilosofiLogo = () => {
       <div className="filosofiLogo-sections-wrapper">
         {/* Landing Section */}
         <section className="landing-filosofiLogo">
-          <Container fluid className="h-100 d-flex align-items-center justify-content-center">
-            <Row className="w-100 justify-content-center">
-              <Col xs={12} md={8} lg={6} className="text-center position-relative d-flex justify-content-center">
-                <div className="landing-title">
-                  <Row className="g-0">
-                    <Col xs={12} className="p-0">
-                      <div className="filosofi-text">FILOSOFI</div>
-                    </Col>
-                    <Col xs={12} className="p-0 mt-n5">
-                      <div className="logo-text">LOGO</div>
-                    </Col>
-                  </Row>
-                </div>
-                <div className="ampersand-container">
-                  <div className="ampersand">&</div>
+          <Container fluid className="h-100">
+            <Row className="h-100 align-items-center">
+              <Col xs={10} md={8} lg={6} className="mx-auto">
+                <div className="landing-title-container">
+                  <div className="position-relative">
+                    <Row className="mb-0">
+                      <Col xs={12} className="d-flex align-items-center">
+                        <div className="filosofi-wrapper d-flex align-items-center">
+                          <div className="filosofi-text pe-2">FILOSOFI</div>
+                          <div className="logo-image-container ps-2">
+                            <Image src={logoHimasif} alt="HIMASIF Logo" className="himasif-logo" fluid />
+                          </div>
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col xs={12}>
+                        <div className="logo-text">LOGO</div>
+                      </Col>
+                    </Row>
+                  </div>
                 </div>
               </Col>
             </Row>
@@ -99,7 +91,7 @@ const FilosofiLogo = () => {
               <Col xs={12} md={12} lg={12} className="px-0">
                 <div className="filosofiLogo-card-content rounded shadow">
                   <div className="filosofiLogo-title-container">
-                    <h2 className="filosofiLogo-card-title" ref={titleRef}>MAKNA LOGO HIMASIF</h2>
+                    <h2 className="filosofiLogo-card-title" ref={titleRef}>FUNGSI LOGO DALAM ORGANISASI</h2>
                     <div className="filosofiLogo-title-divider" style={{ width: dividerWidth > 0 ? `${dividerWidth}px` : 'auto' }}>
                       <div className="filosofiLogo-divider-line"></div>
                       <div className="filosofiLogo-divider-diamond"></div>
@@ -110,11 +102,7 @@ const FilosofiLogo = () => {
                     <Row className="justify-content-center">
                       <Col xs={12} className="d-flex justify-content-center">
                         <div className="filosofiLogo-card-text">
-                          {cardTextContent.map(item => (
-                            <div className="text-line" key={item.id}>
-                              {item.content}
-                            </div>
-                          ))}
+                          <p>{cardTextContent}</p>
                         </div>
                       </Col>
                     </Row>
